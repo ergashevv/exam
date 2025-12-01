@@ -27,7 +27,8 @@ export default function Header({ locale, translations: propsTranslations }: Head
           whileTap={{ scale: 0.95 }}
         >
           <Link href={`/${locale}`} className="logo">
-            HTML & CSS Darslik
+            <span className="logo-full">HTML & CSS Darslik</span>
+            <span className="logo-short">HTML & CSS</span>
           </Link>
         </motion.div>
         <nav className="nav">
