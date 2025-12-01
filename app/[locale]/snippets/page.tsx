@@ -3,12 +3,13 @@ import TutorialLayout from '@/components/TutorialLayout'
 import { translations, Locale } from '@/lib/translations'
 import './snippets.scss'
 
-export default function SnippetsPage({
+export default async function SnippetsPage({
   params,
 }: {
-  params: { locale: Locale }
+  params: { locale: Locale } | Promise<{ locale: Locale }>
 }) {
-  const locale = params?.locale || 'uz'
+  const resolvedParams = params instanceof Promise ? await params : params
+  const locale = resolvedParams?.locale || 'uz'
   const t = translations[locale] || translations.uz
 
   const snippets = [

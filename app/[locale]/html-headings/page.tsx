@@ -4,12 +4,13 @@ import CodeEditor from '@/components/CodeEditor'
 import { translations, Locale } from '@/lib/translations'
 import { getHeadingsFAQ } from './faq'
 
-export default function HTMLHeadingsPage({
+export default async function HTMLHeadingsPage({
   params,
 }: {
-  params: { locale: Locale }
+  params: { locale: Locale } | Promise<{ locale: Locale }>
 }) {
-  const locale = params?.locale || 'uz'
+  const resolvedParams = params instanceof Promise ? await params : params
+  const locale = resolvedParams?.locale || 'uz'
   const t = translations[locale] || translations.uz
 
   const content = {

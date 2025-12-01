@@ -2,12 +2,13 @@ import React from 'react'
 import TutorialLayout from '@/components/TutorialLayout'
 import { translations, Locale } from '@/lib/translations'
 
-export default function HTMLBlockInlinePage({
+export default async function HTMLBlockInlinePage({
   params,
 }: {
-  params: { locale: Locale }
+  params: { locale: Locale } | Promise<{ locale: Locale }>
 }) {
-  const locale = params?.locale || 'uz'
+  const resolvedParams = params instanceof Promise ? await params : params
+  const locale = resolvedParams?.locale || 'uz'
   const t = translations[locale] || translations.uz
 
   const content = {

@@ -3,12 +3,13 @@ import TutorialLayout from '@/components/TutorialLayout'
 import { translations, Locale } from '@/lib/translations'
 import './cheat-sheet.scss'
 
-export default function CheatSheetPage({
+export default async function CheatSheetPage({
   params,
 }: {
-  params: { locale: Locale }
+  params: { locale: Locale } | Promise<{ locale: Locale }>
 }) {
-  const locale = params?.locale || 'uz'
+  const resolvedParams = params instanceof Promise ? await params : params
+  const locale = resolvedParams?.locale || 'uz'
   const t = translations[locale] || translations.uz
 
   const htmlTags = [
