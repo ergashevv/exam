@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import Sidebar from '@/components/Sidebar'
+import AccessibilityControls from '@/components/AccessibilityControls'
 import { translations, Locale } from '@/lib/translations'
 import '../[locale]/layout.scss'
 
@@ -73,6 +74,7 @@ export default async function LocaleLayout({
         <main className="content-area">{children}</main>
       </div>
       <Footer locale={locale} translations={t} />
+      <AccessibilityControls locale={locale} />
     </div>
   )
 }
