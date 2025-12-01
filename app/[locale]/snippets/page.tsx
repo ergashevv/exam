@@ -121,8 +121,8 @@ export default function SnippetsPage({
       locale={locale}
       translations={t}
       title={locale === 'uz' ? 'Kod Snippets' : 'Код Сниппеты'}
-      prevTopic={null}
-      nextTopic={null}
+      prevTopic={undefined}
+      nextTopic={undefined}
     >
       <div className="snippets-page">
         <p style={{ marginBottom: '2rem', color: '#666' }}>

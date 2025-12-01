@@ -62,8 +62,8 @@ export default function CheatSheetPage({
       locale={locale}
       translations={t}
       title={locale === 'uz' ? 'Cheat Sheet' : 'Шпаргалка'}
-      prevTopic={null}
-      nextTopic={null}
+      prevTopic={undefined}
+      nextTopic={undefined}
     >
       <div className="cheat-sheet">
         <h2>{locale === 'uz' ? 'HTML Teglar' : 'HTML Теги'}</h2>
