@@ -1,5 +1,6 @@
 import React from 'react'
 import TutorialLayout from '@/components/TutorialLayout'
+import BoxModelDiagram from '@/components/BoxModelDiagram'
 import { translations, Locale } from '@/lib/translations'
 
 export default function CSSMarginsPage({
@@ -143,6 +144,8 @@ margin-top: -10px; /* Elementlarni bir-biriga yaqinlashtiradi */`}</code>
           <li>{locale === 'uz' ? 'Natija:' : 'Результат:'} {locale === 'uz' ? 'Paragraflar orasida 20px bo\'sh joy bo\'ladi!' : 'Между параграфами будет 20px пространства!'}</li>
         </ul>
       </div>
+
+      <BoxModelDiagram locale={locale} />
 
       <div className="info-box" style={{ background: '#fff3e0', borderLeftColor: '#ff9800' }}>
         <strong>🤔 {locale === 'uz' ? 'Margin vs Padding - farqi nima?' : 'Margin vs Padding - в чем разница?'}</strong>

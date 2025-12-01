@@ -1,5 +1,6 @@
 import React from 'react'
 import TutorialLayout from '@/components/TutorialLayout'
+import CodeEditor from '@/components/CodeEditor'
 import { translations, Locale } from '@/lib/translations'
 import { getHeadingsFAQ } from './faq'
 
@@ -134,6 +135,15 @@ export default function HTMLHeadingsPage({
           ? `Yuqoridagi "${t.common.result}" bo'limida sarlavhalar qanday ko'rinishini ko'rdingiz. h1 eng katta, h6 eng kichik!`
           : `В разделе "${t.common.result}" выше вы увидели, как выглядят заголовки. h1 самый большой, h6 самый маленький!`}</p>
       </div>
+
+      <h3>💻 {locale === 'uz' ? 'O\'zingiz sinab ko\'ring' : 'Попробуйте сами'}</h3>
+      <CodeEditor
+        locale={locale}
+        initialCode={locale === 'uz' 
+          ? '<h1>Mening birinchi sarlavham</h1>\n<h2>Ikkinchi sarlavha</h2>\n<h3>Uchinchi sarlavha</h3>'
+          : '<h1>Мой первый заголовок</h1>\n<h2>Второй заголовок</h2>\n<h3>Третий заголовок</h3>'}
+        initialCSS="h1 { color: #667eea; }\nh2 { color: #764ba2; }\nh3 { color: #3498db; }"
+      />
 
       <h3>❓ {locale === 'uz' ? 'Tez-tez beriladigan savollar' : 'Часто задаваемые вопросы'}</h3>
       <div className="faq-section">

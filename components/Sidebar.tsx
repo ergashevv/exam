@@ -156,6 +156,23 @@ export default function Sidebar({ locale, translations }: SidebarProps) {
                 </Link>
               </motion.div>
             </motion.li>
+            <motion.li
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.3, delay: 0.52 }}
+            >
+              <motion.div
+                whileHover={{ x: 5 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Link
+                  href={`/${locale}/snippets`}
+                  className={pathname === `/${locale}/snippets` ? 'active' : ''}
+                >
+                  {locale === 'uz' ? '💻 Kod Snippets' : '💻 Код Сниппеты'}
+                </Link>
+              </motion.div>
+            </motion.li>
           </ul>
         </motion.div>
       </div>
