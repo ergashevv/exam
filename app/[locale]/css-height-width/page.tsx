@@ -19,7 +19,7 @@ export default async function CSSHeightWidthPage({
       whenToUse: `O'lchamlar layout yaratish, responsive dizayn, elementlarni to'g'ri joylashtirish uchun ishlatiladi.`,
     },
     ru: {
-      title: 'CSS Высота, Ширина и Max-width',
+      title: 'CSS Height, Width va Max-width',
       whatIs: `CSS height и width определяют размер элемента. max-width ограничивает максимальную ширину, что важно для адаптивного дизайна.`,
       howToUse: `width: 300px;, height: 200px;, max-width: 100%;, min-height: 100vh; и другие единицы (px, %, em, rem, vw, vh).`,
       whenToUse: `Размеры используются для создания макета, адаптивного дизайна, правильного размещения элементов.`,
