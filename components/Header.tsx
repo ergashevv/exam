@@ -27,8 +27,41 @@ export default function Header({ locale, translations: propsTranslations }: Head
           whileTap={{ scale: 0.95 }}
         >
           <Link href={`/${locale}`} className="logo">
-            <span className="logo-full">HTML & CSS Darslik</span>
-            <span className="logo-short">HTML & CSS</span>
+            <svg
+              width="32"
+              height="32"
+              viewBox="0 0 32 32"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              className="logo-icon"
+            >
+              <rect width="32" height="32" rx="6" fill="url(#gradient)" />
+              <path
+                d="M8 10L10 24L16 26L22 24L24 10H8Z"
+                stroke="white"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+              <path
+                d="M16 10V26"
+                stroke="white"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+              />
+              <path
+                d="M8 10L16 10L24 10"
+                stroke="white"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+              />
+              <defs>
+                <linearGradient id="gradient" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
+                  <stop stopColor="#667eea" />
+                  <stop offset="1" stopColor="#764ba2" />
+                </linearGradient>
+              </defs>
+            </svg>
           </Link>
         </motion.div>
         <nav className="nav">

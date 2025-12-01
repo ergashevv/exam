@@ -38,34 +38,32 @@
   }
 
   .logo {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: #667eea;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-decoration: none;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
-    white-space: nowrap;
-    display: flex;
-    align-items: center;
 
-    @media (max-width: 768px) {
-      font-size: 1.25rem;
-    }
+    .logo-icon {
+      width: 40px;
+      height: 40px;
+      transition: all 0.3s ease;
 
-    @media (max-width: 480px) {
-      font-size: 1rem;
-    }
-
-    .logo-short {
-      display: none;
-    }
-
-    @media (max-width: 480px) {
-      .logo-full {
-        display: none;
+      @media (max-width: 768px) {
+        width: 36px;
+        height: 36px;
       }
-      .logo-short {
-        display: inline;
+
+      @media (max-width: 480px) {
+        width: 32px;
+        height: 32px;
+      }
+    }
+
+    &:hover {
+      .logo-icon {
+        transform: rotate(5deg) scale(1.1);
       }
     }
 

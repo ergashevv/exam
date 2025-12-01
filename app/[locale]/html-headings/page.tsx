@@ -123,15 +123,15 @@ export default function HTMLHeadingsPage({
       <h3>🎨 {t.common.howItLooksInDesign}</h3>
       <p>
         {locale === 'uz'
-          ? 'Sarlavhalar avtomatik ravishda turli o\'lchamda ko\'rinadi. <h1> eng katta va qalin, <h6> eng kichik va ingichka. Siz CSS bilan ularning rangini, o\'lchamini o\'zgartirishingiz mumkin.'
-          : 'Заголовки автоматически отображаются разного размера. <h1> самый большой и жирный, <h6> самый маленький и тонкий. Вы можете изменить их цвет и размер с помощью CSS.'}
+          ? 'Sarlavhalar avtomatik ravishda turli o\'lchamda ko\'rinadi. h1 eng katta va qalin, h6 eng kichik va ingichka. Siz CSS bilan ularning rangini, o\'lchamini o\'zgartirishingiz mumkin.'
+          : 'Заголовки автоматически отображаются разного размера. h1 самый большой и жирный, h6 самый маленький и тонкий. Вы можете изменить их цвет и размер с помощью CSS.'}
       </p>
       
       <div className="result-box" style={{ background: '#e1f5fe', borderColor: '#0288d1' }}>
         <h4>👀 {t.common.takeALook}</h4>
         <p>{locale === 'uz' 
-          ? `Yuqoridagi "${t.common.result}" bo'limida sarlavhalar qanday ko'rinishini ko'rdingiz. <code>&lt;h1&gt;</code> eng katta, <code>&lt;h6&gt;</code> eng kichik!`
-          : `В разделе "${t.common.result}" выше вы увидели, как выглядят заголовки. <code>&lt;h1&gt;</code> самый большой, <code>&lt;h6&gt;</code> самый маленький!`}</p>
+          ? `Yuqoridagi "${t.common.result}" bo'limida sarlavhalar qanday ko'rinishini ko'rdingiz. h1 eng katta, h6 eng kichik!`
+          : `В разделе "${t.common.result}" выше вы увидели, как выглядят заголовки. h1 самый большой, h6 самый маленький!`}</p>
       </div>
     </TutorialLayout>
   )
