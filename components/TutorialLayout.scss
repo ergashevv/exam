@@ -246,6 +246,42 @@
         overflow-x: auto;
         animation: fadeIn 0.5s ease;
         -webkit-overflow-scrolling: touch;
+        background: #1e1e1e;
+        color: #d4d4d4;
+        border: 1px solid #333;
+        border-radius: 8px;
+        padding: 1rem 1.25rem;
+        margin: 1rem 0;
+        font-family: 'Fira Code', 'Consolas', 'Monaco', 'Courier New', monospace;
+        font-size: 0.875rem;
+        line-height: 1.75;
+        tab-size: 2;
+
+        code {
+          background: transparent;
+          padding: 0;
+          color: inherit;
+          white-space: pre;
+          word-wrap: normal;
+          font-family: inherit;
+        }
+
+        &::-webkit-scrollbar {
+          height: 6px;
+        }
+
+        &::-webkit-scrollbar-track {
+          background: #252526;
+        }
+
+        &::-webkit-scrollbar-thumb {
+          background: #424242;
+          border-radius: 3px;
+
+          &:hover {
+            background: #4e4e4e;
+          }
+        }
       }
     }
 

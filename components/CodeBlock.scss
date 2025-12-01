@@ -1,37 +1,195 @@
 .code-block-wrapper {
   position: relative;
-  margin: 1rem 0;
+  margin: 2rem 0;
+  background: #1e1e1e;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  border: 1px solid #333;
 
-  .code-block {
+  .code-block-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    background: #252526;
+    border-bottom: 1px solid #333;
+    font-size: 0.85rem;
+
+    .code-block-title {
+      color: #d4d4d4;
+      font-weight: 500;
+    }
+
+    .code-block-language {
+      color: #9cdcfe;
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      letter-spacing: 0.5px;
+      padding: 0.25rem 0.75rem;
+      background: rgba(156, 220, 254, 0.1);
+      border-radius: 4px;
+      border: 1px solid rgba(156, 220, 254, 0.2);
+    }
+  }
+
+  .code-block-container {
     position: relative;
-    padding: 1.5rem;
-    padding-top: 3rem;
-    background: #2d2d2d;
-    color: #f8f8f2;
-    border-radius: 8px;
+    display: flex;
     overflow-x: auto;
-    margin: 0;
+    background: #1e1e1e;
 
-    @media (max-width: 768px) {
-      padding: 1rem;
-      padding-top: 2.5rem;
-      font-size: 0.85em;
-    }
-
-    @media (max-width: 480px) {
-      padding: 0.75rem;
-      padding-top: 2.5rem;
-      font-size: 0.75em;
-      border-radius: 6px;
-    }
-
-    code {
-      background: transparent;
-      padding: 0;
-      color: inherit;
-      white-space: pre-wrap;
-      word-wrap: break-word;
+    .code-line-numbers {
+      display: flex;
+      flex-direction: column;
+      padding: 1rem 0.75rem;
+      background: #252526;
+      border-right: 1px solid #333;
+      user-select: none;
+      min-width: 3rem;
+      text-align: right;
+      font-size: 0.875rem;
+      line-height: 1.75;
+      color: #858585;
       font-family: 'Courier New', Courier, monospace;
+
+      .line-number {
+        display: block;
+        padding-right: 0.75rem;
+      }
+
+      @media (max-width: 768px) {
+        min-width: 2.5rem;
+        padding: 0.75rem 0.5rem;
+        font-size: 0.8rem;
+      }
+
+      @media (max-width: 480px) {
+        min-width: 2rem;
+        padding: 0.5rem 0.25rem;
+        font-size: 0.75rem;
+      }
+    }
+
+    .code-block {
+      position: relative;
+      flex: 1;
+      padding: 1rem 1.5rem;
+      margin: 0;
+      background: #1e1e1e;
+      color: #d4d4d4;
+      overflow-x: auto;
+      overflow-y: hidden;
+      font-size: 0.9rem;
+      line-height: 1.75;
+      font-family: 'Fira Code', 'Consolas', 'Monaco', 'Courier New', monospace;
+      tab-size: 2;
+
+      @media (max-width: 768px) {
+        padding: 0.75rem 1rem;
+        font-size: 0.85rem;
+        line-height: 1.6;
+      }
+
+      @media (max-width: 480px) {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.8rem;
+        line-height: 1.5;
+      }
+
+      code {
+        background: transparent;
+        padding: 0;
+        color: inherit;
+        white-space: pre;
+        word-wrap: normal;
+        font-family: inherit;
+        font-size: inherit;
+        line-height: inherit;
+        display: block;
+        min-width: 100%;
+
+        // Syntax highlighting colors
+        .token {
+          &.comment {
+            color: #6a9955;
+            font-style: italic;
+          }
+
+          &.keyword {
+            color: #569cd6;
+            font-weight: 500;
+          }
+
+          &.string {
+            color: #ce9178;
+          }
+
+          &.function {
+            color: #dcdcaa;
+          }
+
+          &.number {
+            color: #b5cea8;
+          }
+
+          &.operator {
+            color: #d4d4d4;
+          }
+
+          &.punctuation {
+            color: #d4d4d4;
+          }
+
+          &.tag {
+            color: #569cd6;
+          }
+
+          &.attr-name {
+            color: #9cdcfe;
+          }
+
+          &.attr-value {
+            color: #ce9178;
+          }
+
+          &.selector {
+            color: #d7ba7d;
+          }
+
+          &.property {
+            color: #9cdcfe;
+          }
+        }
+      }
+
+      // Scrollbar styling
+      &::-webkit-scrollbar {
+        height: 8px;
+      }
+
+      &::-webkit-scrollbar-track {
+        background: #252526;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: #424242;
+        border-radius: 4px;
+
+        &:hover {
+          background: #4e4e4e;
+        }
+      }
+    }
+  }
+
+  // Hide line numbers on very small screens
+  @media (max-width: 480px) {
+    .code-block-container {
+      .code-line-numbers {
+        display: none;
+      }
     }
   }
 }

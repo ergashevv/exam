@@ -86,12 +86,10 @@ export default function TableOfContents({ locale }: TableOfContentsProps) {
         onClick={() => setIsOpen(!isOpen)}
         aria-label={locale === 'uz' ? 'Mundarija' : 'Содержание'}
       >
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-          <line x1="3" y1="12" x2="21" y2="12" />
-          <line x1="3" y1="6" x2="21" y2="6" />
-          <line x1="3" y1="18" x2="21" y2="18" />
+        <span>{locale === 'uz' ? '📑 Mundarija' : '📑 Содержание'}</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <polyline points="6 9 12 15 18 9" />
         </svg>
-        <span>{locale === 'uz' ? 'Mundarija' : 'Содержание'}</span>
       </button>
 
       <motion.div
