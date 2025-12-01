@@ -16,15 +16,20 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
-    setMounted(true)
-    const savedTheme = localStorage.getItem('theme') as Theme
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+    // Initialize theme immediately to prevent flash
+    const savedTheme = localStorage.getItem('theme') as Theme | null
+    const prefersDark = typeof window !== 'undefined' && window.matchMedia('(prefers-color-scheme: dark)').matches
     
-    if (savedTheme) {
-      setTheme(savedTheme)
+    let initialTheme: Theme = 'light'
+    if (savedTheme && (savedTheme === 'light' || savedTheme === 'dark')) {
+      initialTheme = savedTheme
     } else if (prefersDark) {
-      setTheme('dark')
+      initialTheme = 'dark'
     }
+    
+    setTheme(initialTheme)
+    document.documentElement.setAttribute('data-theme', initialTheme)
+    setMounted(true)
   }, [])
 
   useEffect(() => {
@@ -35,7 +40,13 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   }, [theme, mounted])
 
   const toggleTheme = () => {
-    setTheme((prev) => (prev === 'light' ? 'dark' : 'light'))
+    setTheme((prev) => {
+      const newTheme = prev === 'light' ? 'dark' : 'light'
+      // Update immediately for smooth transition
+      document.documentElement.setAttribute('data-theme', newTheme)
+      localStorage.setItem('theme', newTheme)
+      return newTheme
+    })
   }
 
   // Always provide context, even before mount
