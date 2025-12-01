@@ -26,11 +26,11 @@ export default function MotivationalNotification({
   useEffect(() => {
     if (locale !== 'ru') return
 
-    const MIN_INTERVAL = 45000 // Minimum 45 seconds between notifications
-    const now = Date.now()
+    const MIN_INTERVAL = 30000 // Minimum 30 seconds between notifications
 
     if (trigger === 'time') {
       const timer = setTimeout(() => {
+        const now = Date.now()
         if (now - lastShownTimeRef.current < MIN_INTERVAL) return
         
         const newMessage = getRandomMotivationalMessage('ru')
@@ -52,27 +52,29 @@ export default function MotivationalNotification({
         }
         
         scrollTimeoutRef.current = setTimeout(() => {
+          const now = Date.now()
           const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100
           
-          // Show notification when user stops scrolling at 30-70% of page
-          if (scrollPercent > 30 && scrollPercent < 70 && !hasShownRef.current) {
-            if (now - lastShownTimeRef.current < MIN_INTERVAL) return
-            
-            const newMessage = getRandomMotivationalMessage('ru')
-            setMessage(newMessage)
-            setShowNotification(true)
-            hasShownRef.current = true
-            lastShownTimeRef.current = now
-            
-            setTimeout(() => {
-              setShowNotification(false)
-              // Reset after 2 minutes to allow next notification
+          // Show notification when user stops scrolling at 25-75% of page
+          if (scrollPercent > 25 && scrollPercent < 75) {
+            // Check if enough time has passed and hasn't been shown yet
+            if (now - lastShownTimeRef.current >= MIN_INTERVAL && !hasShownRef.current) {
+              const newMessage = getRandomMotivationalMessage('ru')
+              setMessage(newMessage)
+              setShowNotification(true)
+              hasShownRef.current = true
+              lastShownTimeRef.current = now
+              
               setTimeout(() => {
-                hasShownRef.current = false
-              }, 120000)
-            }, 7000)
+                setShowNotification(false)
+                // Reset after 1 minute to allow next notification
+                setTimeout(() => {
+                  hasShownRef.current = false
+                }, 60000)
+              }, 7000)
+            }
           }
-        }, 1500)
+        }, 1000)
       }
 
       window.addEventListener('scroll', handleScroll, { passive: true })
