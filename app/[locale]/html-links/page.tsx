@@ -10,7 +10,6 @@ import PracticeMode from '@/components/PracticeMode'
 import Quiz from '@/components/Quiz'
 import Glossary from '@/components/Glossary'
 import VideoLinks from '@/components/VideoLinks'
-import Encouragement from '@/components/Encouragement'
 import { translations, Locale } from '@/lib/translations'
 
 export default async function HTMLLinksPage({
@@ -50,8 +49,6 @@ export default async function HTMLLinksPage({
       prevTopic={{ slug: 'html-styles', title: t.html.styles }}
       nextTopic={{ slug: 'html-images', title: t.html.images }}
     >
-      <Encouragement locale={locale} topicName={c.title} />
-
       <SimpleExplanation
         locale={locale}
         title={locale === 'uz' ? 'Bu nima?' : 'Что это?'}

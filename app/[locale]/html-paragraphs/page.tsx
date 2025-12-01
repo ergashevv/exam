@@ -10,7 +10,6 @@ import PracticeMode from '@/components/PracticeMode'
 import Quiz from '@/components/Quiz'
 import Glossary from '@/components/Glossary'
 import VideoLinks from '@/components/VideoLinks'
-import Encouragement from '@/components/Encouragement'
 import { translations, Locale } from '@/lib/translations'
 
 export default async function HTMLParagraphsPage({
@@ -50,8 +49,6 @@ export default async function HTMLParagraphsPage({
       prevTopic={{ slug: 'html-headings', title: t.html.headings }}
       nextTopic={{ slug: 'html-colors', title: t.html.colors }}
     >
-      <Encouragement locale={locale} topicName={c.title} />
-
       <SimpleExplanation
         locale={locale}
         title={locale === 'uz' ? 'Bu nima?' : 'Что это?'}
