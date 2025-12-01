@@ -11,6 +11,11 @@ import Quiz from '@/components/Quiz'
 import Glossary from '@/components/Glossary'
 import VideoLinks from '@/components/VideoLinks'
 import Encouragement from '@/components/Encouragement'
+import ScrollAnimation from '@/components/ScrollAnimation'
+import StaggerAnimation from '@/components/StaggerAnimation'
+import SVGAnimation from '@/components/SVGAnimation'
+import SpringAnimation from '@/components/SpringAnimation'
+import TimelineAnimation from '@/components/TimelineAnimation'
 import { translations, Locale } from '@/lib/translations'
 
 export default async function HTMLParagraphsPage({
@@ -59,24 +64,35 @@ export default async function HTMLParagraphsPage({
         emoji="📝"
       />
 
-      <KeyPoints
-        locale={locale}
-        points={locale === 'uz' 
-          ? [
-              '<p> tegi paragraf yaratish uchun ishlatiladi',
-              'Har bir paragraf alohida bo\'lim bo\'ladi',
-              'Paragraflar orasida avtomatik bo\'sh joy bo\'ladi',
-              'Har bir yangi fikr uchun yangi paragraf yarating',
-              'Paragraflarni CSS bilan bezash mumkin'
-            ]
-          : [
-              'Тег <p> используется для создания параграфа',
-              'Каждый параграф будет отдельным блоком',
-              'Между параграфами автоматически будет пространство',
-              'Для каждой новой мысли создавайте новый параграф',
-              'Параграфы можно стилизовать с помощью CSS'
-            ]}
-      />
+      <ScrollAnimation locale={locale}>
+        <KeyPoints
+          locale={locale}
+          points={locale === 'uz' 
+            ? [
+                '<p> tegi paragraf yaratish uchun ishlatiladi',
+                'Har bir paragraf alohida bo\'lim bo\'ladi',
+                'Paragraflar orasida avtomatik bo\'sh joy bo\'ladi',
+                'Har bir yangi fikr uchun yangi paragraf yarating',
+                'Paragraflarni CSS bilan bezash mumkin'
+              ]
+            : [
+                'Тег <p> используется для создания параграфа',
+                'Каждый параграф будет отдельным блоком',
+                'Между параграфами автоматически будет пространство',
+                'Для каждой новой мысли создавайте новый параграф',
+                'Параграфы можно стилизовать с помощью CSS'
+              ]}
+        />
+      </ScrollAnimation>
+
+      <div style={{ margin: '2rem 0', textAlign: 'center' }}>
+        <SVGAnimation 
+          locale={locale} 
+          type="scale" 
+          svgPath="M20 50 L50 20 L80 50 L50 80 Z"
+          color="#4caf50"
+        />
+      </div>
 
       <h2>{t.common.howToUse}</h2>
       <p>{c.howToUse}</p>

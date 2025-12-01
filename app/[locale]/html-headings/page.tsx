@@ -10,6 +10,11 @@ import PracticeMode from '@/components/PracticeMode'
 import Quiz from '@/components/Quiz'
 import Glossary from '@/components/Glossary'
 import VideoLinks from '@/components/VideoLinks'
+import ScrollAnimation from '@/components/ScrollAnimation'
+import StaggerAnimation from '@/components/StaggerAnimation'
+import SVGAnimation from '@/components/SVGAnimation'
+import TimelineAnimation from '@/components/TimelineAnimation'
+import SpringAnimation from '@/components/SpringAnimation'
 import { translations, Locale } from '@/lib/translations'
 import { getHeadingsFAQ } from './faq'
 
@@ -59,22 +64,33 @@ export default async function HTMLHeadingsPage({
         emoji="💡"
       />
 
-      <KeyPoints
-        locale={locale}
-        points={locale === 'uz' 
-          ? [
-              'h1 - eng katta sarlavha, faqat bir marta ishlatiladi',
-              'h2-h6 - kichikroq sarlavhalar, bir necha marta ishlatiladi',
-              'Sarlavhalar tartibida bo\'lishi kerak (h1, keyin h2, keyin h3)',
-              'Har bir sarlavhani yopishni unutmang (</h1>, </h2>)'
-            ]
-          : [
-              'h1 - самый большой заголовок, используется только один раз',
-              'h2-h6 - заголовки поменьше, можно использовать несколько раз',
-              'Заголовки должны быть в порядке (h1, потом h2, потом h3)',
-              'Не забудьте закрыть каждый заголовок (</h1>, </h2>)'
-            ]}
-      />
+      <ScrollAnimation locale={locale}>
+        <KeyPoints
+          locale={locale}
+          points={locale === 'uz' 
+            ? [
+                'h1 - eng katta sarlavha, faqat bir marta ishlatiladi',
+                'h2-h6 - kichikroq sarlavhalar, bir necha marta ishlatiladi',
+                'Sarlavhalar tartibida bo\'lishi kerak (h1, keyin h2, keyin h3)',
+                'Har bir sarlavhani yopishni unutmang (</h1>, </h2>)'
+              ]
+            : [
+                'h1 - самый большой заголовок, используется только один раз',
+                'h2-h6 - заголовки поменьше, можно использовать несколько раз',
+                'Заголовки должны быть в порядке (h1, потом h2, потом h3)',
+                'Не забудьте закрыть каждый заголовок (</h1>, </h2>)'
+              ]}
+        />
+      </ScrollAnimation>
+
+      <div style={{ margin: '2rem 0', textAlign: 'center' }}>
+        <SVGAnimation 
+          locale={locale} 
+          type="draw" 
+          svgPath="M20 50 Q50 20 80 50 T140 50"
+          color="#667eea"
+        />
+      </div>
 
       <h2>{t.common.howToUse}</h2>
       <p>{c.howToUse}</p>
@@ -334,15 +350,19 @@ export default async function HTMLHeadingsPage({
         ]}
       />
 
-      <h3>❓ {locale === 'uz' ? 'Tez-tez beriladigan savollar' : 'Часто задаваемые вопросы'}</h3>
-      <div className="faq-section">
-        {getHeadingsFAQ(locale).map((item, index) => (
-          <div key={index} className="faq-item">
-            <h4 className="faq-question">❓ {item.question}</h4>
-            <p className="faq-answer">{item.answer}</p>
-          </div>
-        ))}
-      </div>
+      <ScrollAnimation locale={locale}>
+        <h3>❓ {locale === 'uz' ? 'Tez-tez beriladigan savollar' : 'Часто задаваемые вопросы'}</h3>
+        <StaggerAnimation locale={locale} animationType="fade" staggerDelay={150}>
+          {getHeadingsFAQ(locale).map((item, index) => (
+            <div key={index} className="faq-item">
+              <SpringAnimation locale={locale}>
+                <h4 className="faq-question">❓ {item.question}</h4>
+              </SpringAnimation>
+              <p className="faq-answer">{item.answer}</p>
+            </div>
+          ))}
+        </StaggerAnimation>
+      </ScrollAnimation>
     </TutorialLayout>
   )
 }

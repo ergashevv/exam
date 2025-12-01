@@ -11,6 +11,11 @@ import Quiz from '@/components/Quiz'
 import Glossary from '@/components/Glossary'
 import VideoLinks from '@/components/VideoLinks'
 import Encouragement from '@/components/Encouragement'
+import ScrollAnimation from '@/components/ScrollAnimation'
+import StaggerAnimation from '@/components/StaggerAnimation'
+import SVGAnimation from '@/components/SVGAnimation'
+import TimelineAnimation from '@/components/TimelineAnimation'
+import SpringAnimation from '@/components/SpringAnimation'
 import { translations, Locale } from '@/lib/translations'
 
 export default async function HTMLLinksPage({
@@ -59,24 +64,35 @@ export default async function HTMLLinksPage({
         emoji="🔗"
       />
 
-      <KeyPoints
-        locale={locale}
-        points={locale === 'uz' 
-          ? [
-              '<a> tegi havola yaratish uchun ishlatiladi',
-              'href="..." ichiga qaysi sahifaga o\'tish kerakligini yozing',
-              'Matn o\'rtasiga bosiladigan so\'zni yozing',
-              'target="_blank" yangi oynada ochish uchun',
-              'rel="noopener noreferrer" xavfsizlik uchun'
-            ]
-          : [
-              'Тег <a> используется для создания ссылки',
-              'В href="..." напишите, на какую страницу перейти',
-              'Между тегами напишите слово, которое нужно нажать',
-              'target="_blank" для открытия в новом окне',
-              'rel="noopener noreferrer" для безопасности'
-            ]}
-      />
+      <ScrollAnimation locale={locale}>
+        <KeyPoints
+          locale={locale}
+          points={locale === 'uz' 
+            ? [
+                '<a> tegi havola yaratish uchun ishlatiladi',
+                'href="..." ichiga qaysi sahifaga o\'tish kerakligini yozing',
+                'Matn o\'rtasiga bosiladigan so\'zni yozing',
+                'target="_blank" yangi oynada ochish uchun',
+                'rel="noopener noreferrer" xavfsizlik uchun'
+              ]
+            : [
+                'Тег <a> используется для создания ссылки',
+                'В href="..." напишите, на какую страницу перейти',
+                'Между тегами напишите слово, которое нужно нажать',
+                'target="_blank" для открытия в новом окне',
+                'rel="noopener noreferrer" для безопасности'
+              ]}
+        />
+      </ScrollAnimation>
+
+      <div style={{ margin: '2rem 0', textAlign: 'center' }}>
+        <SVGAnimation 
+          locale={locale} 
+          type="morph" 
+          svgPath="M20 50 L50 20 L80 50 L50 80 Z"
+          color="#667eea"
+        />
+      </div>
 
       <h2>{t.common.howToUse}</h2>
       <p>{c.howToUse}</p>

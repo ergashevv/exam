@@ -7,6 +7,10 @@ import { translations, Locale } from '@/lib/translations'
 import AnimatedCard from '@/components/AnimatedCard'
 import AnimatedText from '@/components/AnimatedText'
 import LearningPath from '@/components/LearningPath'
+import StaggerAnimation from '@/components/StaggerAnimation'
+import ScrollAnimation from '@/components/ScrollAnimation'
+import SVGAnimation from '@/components/SVGAnimation'
+import SpringAnimation from '@/components/SpringAnimation'
 import './page.scss'
 
 export default function HomePage({
@@ -84,48 +88,61 @@ export default function HomePage({
       </motion.div>
 
       <section className="topics-section">
-        <motion.div
-          className="html-topics"
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-        >
-          <h2>{t.common.htmlTopics}</h2>
-          <div className="topics-grid">
-            {htmlTopics.map((topic, index) => (
-              <AnimatedCard key={topic.slug} index={index}>
-                <Link
-                  href={`/${locale}/${topic.slug}`}
-                  className="topic-card"
-                >
-                  <h3>{t.html[topic.key as keyof typeof t.html]}</h3>
-                </Link>
-              </AnimatedCard>
-            ))}
-          </div>
-        </motion.div>
+        <ScrollAnimation locale={locale}>
+          <motion.div
+            className="html-topics"
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+          >
+            <h2>{t.common.htmlTopics}</h2>
+            <StaggerAnimation locale={locale} animationType="scale" staggerDelay={50}>
+              {htmlTopics.map((topic, index) => (
+                <SpringAnimation key={topic.slug} locale={locale}>
+                  <Link
+                    href={`/${locale}/${topic.slug}`}
+                    className="topic-card"
+                  >
+                    <h3>{t.html[topic.key as keyof typeof t.html]}</h3>
+                  </Link>
+                </SpringAnimation>
+              ))}
+            </StaggerAnimation>
+          </motion.div>
+        </ScrollAnimation>
 
-        <motion.div
-          className="css-topics"
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6, delay: 0.5 }}
-        >
-          <h2>{t.common.cssTopics}</h2>
-          <div className="topics-grid">
-            {cssTopics.map((topic, index) => (
-              <AnimatedCard key={topic.slug} index={index}>
-                <Link
-                  href={`/${locale}/${topic.slug}`}
-                  className="topic-card"
-                >
-                  <h3>{t.css[topic.key as keyof typeof t.css]}</h3>
-                </Link>
-              </AnimatedCard>
-            ))}
-          </div>
-        </motion.div>
+        <ScrollAnimation locale={locale}>
+          <motion.div
+            className="css-topics"
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
+          >
+            <h2>{t.common.cssTopics}</h2>
+            <StaggerAnimation locale={locale} animationType="scale" staggerDelay={50}>
+              {cssTopics.map((topic, index) => (
+                <SpringAnimation key={topic.slug} locale={locale}>
+                  <Link
+                    href={`/${locale}/${topic.slug}`}
+                    className="topic-card"
+                  >
+                    <h3>{t.css[topic.key as keyof typeof t.css]}</h3>
+                  </Link>
+                </SpringAnimation>
+              ))}
+            </StaggerAnimation>
+          </motion.div>
+        </ScrollAnimation>
       </section>
+
+      <div style={{ margin: '3rem 0', textAlign: 'center' }}>
+        <SVGAnimation 
+          locale={locale} 
+          type="rotate" 
+          svgPath="M50 10 L90 50 L50 90 L10 50 Z"
+          color="#667eea"
+        />
+      </div>
 
       <motion.section
         className="learning-path-section"

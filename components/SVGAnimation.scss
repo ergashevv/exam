@@ -1,0 +1,18 @@
+.svg-animation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  margin: 2rem 0;
+
+  .svg-container {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+  }
+
+  .svg-path {
+    transform-origin: center;
+  }
+}
+

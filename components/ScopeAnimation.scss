@@ -1,0 +1,14 @@
+.scope-animation {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  @media (min-width: 769px) {
+    flex-direction: row;
+  }
+
+  .scope-item {
+    will-change: transform, opacity;
+  }
+}
+
