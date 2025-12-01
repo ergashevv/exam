@@ -13,7 +13,7 @@ export default async function HTMLButtonsPage({
 
   const content = {
     uz: {
-      title: 'HTML Tugmalar',
+      title: 'HTML Buttons',
       whatIs: `HTML tugmalar foydalanuvchi interaksiyasi uchun ishlatiladi. <button> tegi yoki <input type="button"> yordamida yaratiladi.`,
       howToUse: `Tugmalar <button>Matn</button> yoki <input type="button" value="Matn"> formatida yaratiladi. onclick atributi yoki JavaScript bilan funksiya qo'shiladi.`,
       whenToUse: `Tugmalar formani yuborish, funksiyalarni ishga tushirish, foydalanuvchi harakatlarini boshqarish uchun ishlatiladi.`,

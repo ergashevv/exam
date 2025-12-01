@@ -70,29 +70,53 @@ export default async function CSSMarginsPage({
       <div className="example-box">
         <h4>{t.common.codeExample}</h4>
         <pre>
-          <code>{`/* Barcha tomonlar */
+          <code>{locale === 'uz' 
+            ? `/* All sides */
 margin: 20px;
 
-/* Yuqori/pastki, chap/o'ng */
+/* Top/bottom, left/right */
 margin: 10px 20px;
 
-/* Yuqori, chap/o'ng, pastki */
+/* Top, left/right, bottom */
 margin: 10px 20px 30px;
 
-/* Yuqori, o'ng, pastki, chap */
+/* Top, right, bottom, left */
 margin: 10px 20px 30px 40px;
 
-/* Alohida tomonlar */
+/* Separate sides */
 margin-top: 20px;
 margin-right: 15px;
 margin-bottom: 10px;
 margin-left: 5px;
 
-/* Auto - markazga joylashtirish */
-margin: 0 auto; /* Gorizontal markaz */
+/* Auto - center alignment */
+margin: 0 auto; /* Horizontal center */
 
-/* Manfiy margin */
-margin-top: -10px; /* Elementlarni bir-biriga yaqinlashtiradi */`}</code>
+/* Negative margin */
+margin-top: -10px; /* Brings elements closer */`
+            : `/* Все стороны */
+margin: 20px;
+
+/* Верх/низ, лево/право */
+margin: 10px 20px;
+
+/* Верх, лево/право, низ */
+margin: 10px 20px 30px;
+
+/* Верх, право, низ, лево */
+margin: 10px 20px 30px 40px;
+
+/* Отдельные стороны */
+margin-top: 20px;
+margin-right: 15px;
+margin-bottom: 10px;
+margin-left: 5px;
+
+/* Auto - выравнивание по центру */
+margin: 0 auto; /* Горизонтальный центр */
+
+/* Отрицательный margin */
+margin-top: -10px; /* Сближает элементы */`}</code>
         </pre>
       </div>
 

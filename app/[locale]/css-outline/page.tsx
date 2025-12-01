@@ -45,25 +45,45 @@ export default async function CSSOutlinePage({
       <div className="example-box">
         <h4>{t.common.codeExample}</h4>
         <pre>
-          <code>{`/* Qisqa yozuv */
+          <code>{locale === 'uz' 
+            ? `/* Shorthand */
 outline: 2px solid red;
 
-/* Alohida xususiyatlar */
+/* Separate properties */
 outline-width: 2px;
 outline-color: red;
 outline-style: solid;
 
-/* Outline yo'q */
+/* No outline */
 outline: none;
 
-/* Fokus uchun */
+/* For focus */
 input:focus {
   outline: 2px solid #667eea;
 }
 
 /* Outline offset */
 outline: 2px solid red;
-outline-offset: 5px; /* Chegaradan masofa */`}</code>
+outline-offset: 5px; /* Distance from border */`
+            : `/* Краткая запись */
+outline: 2px solid red;
+
+/* Отдельные свойства */
+outline-width: 2px;
+outline-color: red;
+outline-style: solid;
+
+/* Без outline */
+outline: none;
+
+/* Для фокуса */
+input:focus {
+  outline: 2px solid #667eea;
+}
+
+/* Offset outline */
+outline: 2px solid red;
+outline-offset: 5px; /* Расстояние от границы */`}</code>
         </pre>
       </div>
 

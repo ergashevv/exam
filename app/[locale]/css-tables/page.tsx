@@ -13,7 +13,7 @@ export default async function CSSTablesPage({
 
   const content = {
     uz: {
-      title: 'CSS Jadval',
+      title: 'CSS Tables',
       whatIs: `CSS jadvallarni bezash, chegaralar qo'shish, ranglar, hover effektlari va responsive dizayn uchun ishlatiladi.`,
       howToUse: `border-collapse, border-spacing, nth-child selektorlari, hover effektlari, striped jadvallar yaratish.`,
       whenToUse: `Jadvallarni chiroyli ko'rinishga keltirish, ma'lumotlarni o'qish qulayligini yaxshilash, dizayn yaratishda ishlatiladi.`,
@@ -45,36 +45,73 @@ export default async function CSSTablesPage({
       <div className="example-box">
         <h4>{t.common.codeExample}</h4>
         <pre>
-          <code>{`/* Chegaralarni birlashtirish */
+          <code>{locale === 'uz' 
+            ? `/* Combine borders */
 table {
   border-collapse: collapse;
   width: 100%;
 }
 
-/* Qatorlar */
+/* Rows */
 th, td {
   border: 1px solid #ddd;
   padding: 12px;
   text-align: left;
 }
 
-/* Sarlavha */
+/* Header */
 th {
   background-color: #667eea;
   color: white;
 }
 
-/* Striped jadval (zebra) */
+/* Striped table (zebra) */
 tr:nth-child(even) {
   background-color: #f2f2f2;
 }
 
-/* Hover effekti */
+/* Hover effect */
 tr:hover {
   background-color: #e8eaf6;
 }
 
-/* Responsive jadval */
+/* Responsive table */
+@media (max-width: 600px) {
+  table {
+    display: block;
+    overflow-x: auto;
+  }
+}`
+            : `/* Объединение границ */
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+/* Строки */
+th, td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: left;
+}
+
+/* Заголовок */
+th {
+  background-color: #667eea;
+  color: white;
+}
+
+/* Полосатая таблица (zebra) */
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* Эффект наведения */
+tr:hover {
+  background-color: #e8eaf6;
+}
+
+/* Адаптивная таблица */
 @media (max-width: 600px) {
   table {
     display: block;

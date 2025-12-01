@@ -44,7 +44,8 @@ export default async function CSSFloatPage({
       <div className="example-box">
         <h4>{t.common.codeExample}</h4>
         <pre>
-          <code>{`/* Float left */
+          <code>{locale === 'uz' 
+            ? `/* Float left */
 img {
   float: left;
   margin-right: 20px;
@@ -63,22 +64,58 @@ img {
   clear: both;
 }
 
-/* Yoki */
+/* Or */
 .container {
   overflow: auto; /* Clear float */
 }
 
-/* Misol - Rasm va matn */
+/* Example - Image and text */
 <div class="container">
   <img src="photo.jpg" style="float: left; margin-right: 20px;">
-  <p>Matn rasm atrofida oqadi...</p>
+  <p>Text flows around image...</p>
 </div>
 
 /* Clear */
 .clear {
-  clear: both; /* Ikkala tomondan */
-  clear: left; /* Chapdan */
-  clear: right; /* O'ngdan */
+  clear: both; /* Both sides */
+  clear: left; /* Left */
+  clear: right; /* Right */
+}`
+            : `/* Float left */
+img {
+  float: left;
+  margin-right: 20px;
+}
+
+/* Float right */
+.sidebar {
+  float: right;
+  width: 300px;
+}
+
+/* Clear float */
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Или */
+.container {
+  overflow: auto; /* Clear float */
+}
+
+/* Пример - Изображение и текст */
+<div class="container">
+  <img src="photo.jpg" style="float: left; margin-right: 20px;">
+  <p>Текст обтекает изображение...</p>
+</div>
+
+/* Clear */
+.clear {
+  clear: both; /* С обеих сторон */
+  clear: left; /* Слева */
+  clear: right; /* Справа */
 }`}</code>
         </pre>
       </div>

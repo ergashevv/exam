@@ -13,7 +13,7 @@ export default async function CSSHeightWidthPage({
 
   const content = {
     uz: {
-      title: 'CSS Balandlik, Kenglik va Max-width',
+      title: 'CSS Height, Width va Max-width',
       whatIs: `CSS height va width elementning o'lchamini belgilaydi. max-width maksimal kenglikni cheklaydi, bu responsive dizayn uchun muhimdir.`,
       howToUse: `width: 300px;, height: 200px;, max-width: 100%;, min-height: 100vh; va boshqa birliklar (px, %, em, rem, vw, vh) ishlatiladi.`,
       whenToUse: `O'lchamlar layout yaratish, responsive dizayn, elementlarni to'g'ri joylashtirish uchun ishlatiladi.`,
@@ -45,25 +45,26 @@ export default async function CSSHeightWidthPage({
       <div className="example-box">
         <h4>{t.common.codeExample}</h4>
         <pre>
-          <code>{`/* Oddiy o'lchamlar */
+          <code>{locale === 'uz' 
+            ? `/* Simple sizes */
 width: 300px;
 height: 200px;
 
-/* Foiz */
+/* Percentage */
 width: 50%;
 height: 100%;
 
-/* Max va Min */
+/* Max and Min */
 max-width: 1200px;
 min-width: 300px;
 max-height: 500px;
 min-height: 200px;
 
-/* Viewport birliklari */
-width: 100vw; /* Viewport kengligi */
-height: 100vh; /* Viewport balandligi */
+/* Viewport units */
+width: 100vw; /* Viewport width */
+height: 100vh; /* Viewport height */
 
-/* Responsive dizayn */
+/* Responsive design */
 .container {
   width: 100%;
   max-width: 1200px;
@@ -71,7 +72,35 @@ height: 100vh; /* Viewport balandligi */
 }
 
 /* Auto */
-width: auto; /* Kontentga mos */
+width: auto; /* Fit content */
+height: auto;`
+            : `/* Простые размеры */
+width: 300px;
+height: 200px;
+
+/* Процент */
+width: 50%;
+height: 100%;
+
+/* Max и Min */
+max-width: 1200px;
+min-width: 300px;
+max-height: 500px;
+min-height: 200px;
+
+/* Единицы viewport */
+width: 100vw; /* Ширина viewport */
+height: 100vh; /* Высота viewport */
+
+/* Адаптивный дизайн */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Auto */
+width: auto; /* По содержимому */
 height: auto;`}</code>
         </pre>
       </div>

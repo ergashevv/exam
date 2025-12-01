@@ -13,7 +13,7 @@ export default async function CSSListsPage({
 
   const content = {
     uz: {
-      title: "CSS Ro'yxatlar",
+      title: "CSS Lists",
       whatIs: `CSS ro'yxatlar uchun markerlar, pozitsiya, rasm markerlar va boshqa dizayn xususiyatlarini boshqarish uchun ishlatiladi.`,
       howToUse: `list-style-type, list-style-position, list-style-image xususiyatlari yoki qisqa yozuv list-style ishlatiladi.`,
       whenToUse: `Ro'yxatlarni bezash, markerlarni o'zgartirish, custom markerlar yaratish uchun ishlatiladi.`,

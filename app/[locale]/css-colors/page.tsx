@@ -13,7 +13,7 @@ export default async function CSSColorsPage({
 
   const content = {
     uz: {
-      title: 'CSS Ranglar',
+      title: 'CSS Colors',
       whatIs: `Rang - bu matn yoki fonning rangi. Xuddi qog'ozga rangli qalam bilan yozgandek. CSS'da siz matn rangi va fon rangini o'zgartirishingiz mumkin.`,
       simpleExplanation: `O'ylab ko'ring: sizga qog'ozga yozish kerak. Qizil qalam bilan yozasiz - matn qizil bo'ladi. CSS'da ham xuddi shunday: "color: red" yozsangiz - matn qizil bo'ladi!`,
       howToUse: `Qadam 1: Matn rangi uchun: <code>color: red;</code> yozing. Qadam 2: Fon rangi uchun: <code>background-color: blue;</code> yozing. Qadam 3: Brauzerda ko'ring - rang o'zgardi!`,
@@ -61,11 +61,12 @@ export default async function CSSColorsPage({
       <div className="example-box">
         <h4>{t.common.codeExample}</h4>
         <pre>
-          <code>{`/* Rang nomi */
+          <code>{locale === 'uz' 
+            ? `/* Color name */
 color: red;
 background-color: blue;
 
-/* Hex kod */
+/* Hex code */
 color: #FF0000;
 background-color: #0000FF;
 
@@ -73,8 +74,8 @@ background-color: #0000FF;
 color: rgb(255, 0, 0);
 background-color: rgb(0, 0, 255);
 
-/* RGBA (alpha - shaffoflik) */
-color: rgba(255, 0, 0, 0.5); /* 50% shaffof */
+/* RGBA (alpha - transparency) */
+color: rgba(255, 0, 0, 0.5); /* 50% transparent */
 
 /* HSL */
 color: hsl(0, 100%, 50%);
@@ -83,7 +84,41 @@ background-color: hsl(240, 100%, 50%);
 /* HSLA */
 color: hsla(0, 100%, 50%, 0.5);
 
-/* Misol */
+/* Example */
+.text-red {
+  color: #FF0000;
+}
+
+.bg-blue {
+  background-color: #3498db;
+}
+
+.transparent {
+  background-color: rgba(52, 152, 219, 0.3);
+}`
+            : `/* Название цвета */
+color: red;
+background-color: blue;
+
+/* Hex код */
+color: #FF0000;
+background-color: #0000FF;
+
+/* RGB */
+color: rgb(255, 0, 0);
+background-color: rgb(0, 0, 255);
+
+/* RGBA (alpha - прозрачность) */
+color: rgba(255, 0, 0, 0.5); /* 50% прозрачно */
+
+/* HSL */
+color: hsl(0, 100%, 50%);
+background-color: hsl(240, 100%, 50%);
+
+/* HSLA */
+color: hsla(0, 100%, 50%, 0.5);
+
+/* Пример */
 .text-red {
   color: #FF0000;
 }

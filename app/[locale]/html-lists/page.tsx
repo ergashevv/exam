@@ -13,7 +13,7 @@ export default async function HTMLListsPage({
 
   const content = {
     uz: {
-      title: "HTML Ro'yxatlar",
+      title: "HTML Lists",
       whatIs: `HTML ro'yxatlar ma'lumotlarni tartibli yoki tartibsiz shaklda ko'rsatish uchun ishlatiladi. Ikki xil turi mavjud: tartibli (<ol>) va tartibsiz (<ul>).`,
       howToUse: `Tartibsiz ro'yxat <ul> tegi bilan, tartibli ro'yxat <ol> tegi bilan yaratiladi. Har bir element <li> tegi bilan belgilanadi.`,
       whenToUse: `Ro'yxatlar navigatsiya, menyu, ma'lumotlarni tartibga solish uchun ishlatiladi.`,

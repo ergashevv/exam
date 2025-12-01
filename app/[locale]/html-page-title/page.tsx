@@ -13,7 +13,7 @@ export default async function HTMLPageTitlePage({
 
   const content = {
     uz: {
-      title: 'HTML Sahifa Sarlavhasi',
+      title: 'HTML Page Title',
       whatIs: `Sahifa sarlavhasi (<title> tegi) brauzer yorlig'ida ko'rsatiladi va SEO uchun juda muhimdir. U har bir sahifa uchun noyob bo'lishi kerak.`,
       howToUse: `Sarlavha <head> bo'limida <title>Matn</title> formatida yoziladi. U 50-60 belgidan oshmasligi tavsiya etiladi.`,
       whenToUse: `Har bir HTML sahifada <title> tegi bo'lishi kerak. U SEO, brauzer yorlig'i va xatcho'plarda ko'rsatiladi.`,

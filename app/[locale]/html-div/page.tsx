@@ -13,7 +13,7 @@ export default async function HTMLDivPage({
 
   const content = {
     uz: {
-      title: 'HTML Div Elementi',
+      title: 'HTML Div Element',
       whatIs: `<div> elementi - bu universal konteyner bo'lib, boshqa elementlarni guruhlash va strukturani yaratish uchun ishlatiladi. U block elementdir.`,
       howToUse: `<div> tegi ochiladi va yopiladi, ichiga boshqa elementlar qo'yiladi. CSS yordamida dizayn va joylashuv boshqariladi.`,
       whenToUse: `Div elementlar layout yaratish, elementlarni guruhlash, CSS bilan dizayn qilish uchun ishlatiladi.`,

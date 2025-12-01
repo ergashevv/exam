@@ -23,7 +23,7 @@ export default async function HTMLParagraphsPage({
 
   const content = {
     uz: {
-      title: 'HTML Paragraflar',
+      title: 'HTML Paragraphs',
       whatIs: `Paragraf - bu oddiy matn bo'limi. Xuddi maktabda insho yozgandek: har bir yangi fikr yangi paragrafdan boshlanadi. HTML'da paragraf <p> tegi bilan yoziladi.`,
       simpleExplanation: `O'ylab ko'ring: sizga xabar yozish kerak. Birinchi paragrafda salom aytasiz. Ikkinchi paragrafda asosiy xabarni yozasiz. Uchinchi paragrafda xayrlashasiz. HTML'da ham xuddi shunday!`,
       howToUse: `Qadam 1: <p> yozing. Qadam 2: Matnni yozing. Qadam 3: </p> yozing. Tugadi! Har bir paragraf alohida bo'lim bo'ladi va orasida bo'sh joy bo'ladi.`,
@@ -277,7 +277,7 @@ export default async function HTMLParagraphsPage({
         locale={locale}
         videos={[
           {
-            title: locale === 'uz' ? 'HTML Paragraflar - To\'liq dars' : 'HTML Параграфы - Полный урок',
+            title: locale === 'uz' ? 'HTML Paragraphs - To\'liq dars' : 'HTML Параграфы - Полный урок',
             url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
             platform: 'youtube',
             duration: '8:00'

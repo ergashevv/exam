@@ -13,7 +13,7 @@ export default async function CSSDisplayPage({
 
   const content = {
     uz: {
-      title: 'CSS Display Xususiyati',
+      title: 'CSS Display Property',
       whatIs: `Display - bu elementning qanday ko'rinishini aytadi. Xuddi quti qanday qo'yilishini: to'liq qator (block), qator ichida (inline), yoki yonma-yon (flex).`,
       simpleExplanation: `O'ylab ko'ring: sizga qutilar qo'yish kerak. Agar "block" desangiz - har bir quti to'liq qatorni egallaydi. Agar "inline" desangiz - qutilar yonma-yon bo'ladi.`,
       howToUse: `Qadam 1: <code>display: block;</code> yozing - element to'liq qatorni egallaydi. Qadam 2: <code>display: inline;</code> yozing - elementlar yonma-yon bo'ladi. Qadam 3: <code>display: flex;</code> yozing - zamonaviy usul (eng yaxshi!).`,
@@ -68,14 +68,15 @@ export default async function CSSDisplayPage({
       <div className="example-box">
         <h4>{t.common.codeExample}</h4>
         <pre>
-          <code>{`/* Block */
-display: block; /* Yangi qatordan, to'liq kenglik */
+          <code>{locale === 'uz' 
+            ? `/* Block */
+display: block; /* New line, full width */
 
 /* Inline */
-display: inline; /* Matn ichida */
+display: inline; /* Inside text */
 
 /* Inline-block */
-display: inline-block; /* Inline, lekin o'lchamga ega */
+display: inline-block; /* Inline, but has size */
 
 /* Flex */
 display: flex; /* Flexbox layout */
@@ -84,16 +85,47 @@ display: flex; /* Flexbox layout */
 display: grid; /* Grid layout */
 
 /* None */
-display: none; /* Yashirish */
+display: none; /* Hide */
 
-/* Misol - Flexbox */
+/* Example - Flexbox */
 .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-/* Misol - Grid */
+/* Example - Grid */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}`
+            : `/* Block */
+display: block; /* Новая строка, полная ширина */
+
+/* Inline */
+display: inline; /* Внутри текста */
+
+/* Inline-block */
+display: inline-block; /* Inline, но имеет размер */
+
+/* Flex */
+display: flex; /* Flexbox layout */
+
+/* Grid */
+display: grid; /* Grid layout */
+
+/* None */
+display: none; /* Скрыть */
+
+/* Пример - Flexbox */
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Пример - Grid */
 .grid-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);

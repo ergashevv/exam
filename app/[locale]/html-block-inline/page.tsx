@@ -13,7 +13,7 @@ export default async function HTMLBlockInlinePage({
 
   const content = {
     uz: {
-      title: 'HTML Block va Inline Elementlar',
+      title: 'HTML Block va Inline Elements',
       whatIs: `HTML elementlar ikkita asosiy turga bo'linadi: block (blok) va inline (satr ichida). Block elementlar yangi qatordan boshlanadi va to'liq kenglikni egallaydi. Inline elementlar esa matn ichida joylashadi.`,
       howToUse: `Block elementlar: <div>, <p>, <h1>-<h6>, <ul>, <ol>, <li>, <table> va boshqalar. Inline elementlar: <span>, <a>, <img>, <strong>, <em>, <code> va boshqalar.`,
       whenToUse: `Block elementlar strukturani yaratish, bo'limlarni ajratish uchun. Inline elementlar matn ichidagi kichik o'zgarishlar, havolalar uchun.`,

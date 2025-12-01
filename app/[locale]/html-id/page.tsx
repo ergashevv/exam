@@ -13,7 +13,7 @@ export default async function HTMLIdPage({
 
   const content = {
     uz: {
-      title: 'HTML id Atributi',
+      title: 'HTML id Attribute',
       whatIs: `id atributi elementga noyob identifikator beradi. Har bir sahifada bir xil id faqat bir marta ishlatilishi kerak.`,
       howToUse: `id atributi id="nomi" formatida yoziladi. CSS da # belgisi bilan, JavaScript da getElementById() yordamida ishlatiladi.`,
       whenToUse: `id atributi noyob elementlarni belgilash, havolalar uchun anchor, JavaScript bilan ishlash uchun ishlatiladi.`,

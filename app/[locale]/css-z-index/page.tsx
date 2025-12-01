@@ -13,7 +13,7 @@ export default async function CSSZIndexPage({
 
   const content = {
     uz: {
-      title: 'CSS z-index Xususiyati',
+      title: 'CSS z-index Property',
       whatIs: `z-index elementning qatlam tartibini (stacking order) belgilaydi. Katta qiymat yuqorida, kichik qiymat pastda ko'rsatiladi.`,
       howToUse: `z-index: 1;, z-index: 999;, z-index: -1; kabi qiymatlar ishlatiladi. Faqat positioned elementlarda (relative, absolute, fixed) ishlaydi.`,
       whenToUse: `Overlay yaratish, modal oynalar, dropdown menular, tooltip'lar, elementlarni bir-birining ustiga qo'yishda ishlatiladi.`,

@@ -13,7 +13,7 @@ export default async function CSSLinksPage({
 
   const content = {
     uz: {
-      title: 'CSS Havolalar',
+      title: 'CSS Links',
       whatIs: `CSS havolalar (linklar) uchun turli holatlar mavjud: :link, :visited, :hover, :active. Bu holatlar havolaning ko'rinishini boshqaradi.`,
       howToUse: `a:link, a:visited, a:hover, a:active selektorlari ishlatiladi. Hover effektlari, rang o'zgarishlari, bezatish qo'shiladi.`,
       whenToUse: `Havolalar dizaynini yaxshilash, foydalanuvchi interaksiyasini ko'rsatish, hover effektlari qo'shish uchun ishlatiladi.`,
@@ -45,29 +45,30 @@ export default async function CSSLinksPage({
       <div className="example-box">
         <h4>{t.common.codeExample}</h4>
         <pre>
-          <code>{`/* Oddiy havola */
+          <code>{locale === 'uz' 
+            ? `/* Simple link */
 a:link {
   color: #667eea;
   text-decoration: none;
 }
 
-/* Tashrif buyurilgan */
+/* Visited */
 a:visited {
   color: #764ba2;
 }
 
-/* Hover (sichqoncha ustida) */
+/* Hover (mouse over) */
 a:hover {
   color: #3498db;
   text-decoration: underline;
 }
 
-/* Active (bosilganda) */
+/* Active (clicked) */
 a:active {
   color: #e74c3c;
 }
 
-/* Barcha holatlar */
+/* All states */
 a {
   color: #667eea;
   text-decoration: none;
@@ -79,7 +80,54 @@ a:hover {
   text-decoration: underline;
 }
 
-/* Tugma ko'rinishidagi havola */
+/* Button-style link */
+a.button {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #667eea;
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+a.button:hover {
+  background: #764ba2;
+}`
+            : `/* Простая ссылка */
+a:link {
+  color: #667eea;
+  text-decoration: none;
+}
+
+/* Посещенная */
+a:visited {
+  color: #764ba2;
+}
+
+/* Hover (наведение мыши) */
+a:hover {
+  color: #3498db;
+  text-decoration: underline;
+}
+
+/* Active (нажата) */
+a:active {
+  color: #e74c3c;
+}
+
+/* Все состояния */
+a {
+  color: #667eea;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #3498db;
+  text-decoration: underline;
+}
+
+/* Ссылка в виде кнопки */
 a.button {
   display: inline-block;
   padding: 10px 20px;

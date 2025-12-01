@@ -13,7 +13,7 @@ export default async function CSSOverflowPage({
 
   const content = {
     uz: {
-      title: 'CSS Overflow Xususiyati',
+      title: 'CSS Overflow Property',
       whatIs: `Overflow xususiyati elementning o'lchamidan katta bo'lgan kontentni qanday boshqarishni belgilaydi. Visible, hidden, scroll, auto qiymatlari mavjud.`,
       howToUse: `overflow: visible;, overflow: hidden;, overflow: scroll;, overflow: auto; yoki overflow-x va overflow-y alohida ishlatiladi.`,
       whenToUse: `Kontentni cheklash, scroll qo'shish, overflow'ni yashirish, responsive dizayn uchun ishlatiladi.`,
@@ -45,27 +45,55 @@ export default async function CSSOverflowPage({
       <div className="example-box">
         <h4>{t.common.codeExample}</h4>
         <pre>
-          <code>{`/* Visible (default) */
-overflow: visible; /* Kontent tashqariga chiqadi */
+          <code>{locale === 'uz' 
+            ? `/* Visible (default) */
+overflow: visible; /* Content overflows */
 
 /* Hidden */
-overflow: hidden; /* Tashqariga chiqgan qism yashiriladi */
+overflow: hidden; /* Overflow hidden */
 
 /* Scroll */
-overflow: scroll; /* Har doim scroll ko'rsatiladi */
+overflow: scroll; /* Always show scroll */
 
 /* Auto */
-overflow: auto; /* Kerak bo'lganda scroll */
+overflow: auto; /* Scroll when needed */
 
-/* Alohida o'qlar */
-overflow-x: hidden; /* Gorizontal */
-overflow-y: scroll; /* Vertikal */
+/* Separate axes */
+overflow-x: hidden; /* Horizontal */
+overflow-y: scroll; /* Vertical */
 
 /* Text overflow */
-text-overflow: ellipsis; /* ... ko'rsatadi */
-white-space: nowrap; /* Qatorga o'tmaydi */
+text-overflow: ellipsis; /* Shows ... */
+white-space: nowrap; /* No line break */
 
-/* Misol */
+/* Example */
+.container {
+  width: 300px;
+  height: 200px;
+  overflow: auto;
+  border: 1px solid #ddd;
+}`
+            : `/* Visible (по умолчанию) */
+overflow: visible; /* Контент переполняется */
+
+/* Hidden */
+overflow: hidden; /* Переполнение скрыто */
+
+/* Scroll */
+overflow: scroll; /* Всегда показывать прокрутку */
+
+/* Auto */
+overflow: auto; /* Прокрутка при необходимости */
+
+/* Отдельные оси */
+overflow-x: hidden; /* Горизонтальная */
+overflow-y: scroll; /* Вертикальная */
+
+/* Переполнение текста */
+text-overflow: ellipsis; /* Показывает ... */
+white-space: nowrap; /* Без переноса строки */
+
+/* Пример */
 .container {
   width: 300px;
   height: 200px;

@@ -24,7 +24,7 @@ export default async function HTMLHeadingsPage({
 
   const content = {
     uz: {
-      title: 'HTML Sarlavhalar',
+      title: 'HTML Headings',
       whatIs: `Sarlavha - bu matnning eng muhim qismi. Xuddi kitobda bo'lgandek: katta sarlavha - asosiy mavzu, kichik sarlavhalar - kichik mavzular. HTML'da 6 xil o'lchamdagi sarlavha bor: <h1> eng katta, <h6> eng kichik.`,
       simpleExplanation: `O'ylab ko'ring: sizga kitob yozish kerak. Birinchi siz katta sarlavha yozasiz - "Mening kitobim". Keyin kichikroq sarlavhalar - "1-bob", "2-bob". HTML'da ham xuddi shunday!`,
       howToUse: `Qadam 1: Eng katta sarlavha uchun <h1>Matn</h1> yozing. Bu faqat bir marta ishlatiladi - sahifa nomi uchun. Qadam 2: Kichik sarlavhalar uchun <h2>, <h3> va hokazo ishlating. Qadam 3: Har bir sarlavhani yopishni unutmang - </h1>, </h2> va hokazo.`,
@@ -326,7 +326,7 @@ export default async function HTMLHeadingsPage({
         locale={locale}
         videos={[
           {
-            title: locale === 'uz' ? 'HTML Sarlavhalar - To\'liq dars' : 'HTML Заголовки - Полный урок',
+            title: locale === 'uz' ? 'HTML Headings - To\'liq dars' : 'HTML Заголовки - Полный урок',
             url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
             platform: 'youtube',
             duration: '10:30'

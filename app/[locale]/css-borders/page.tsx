@@ -13,7 +13,7 @@ export default async function CSSBordersPage({
 
   const content = {
     uz: {
-      title: 'CSS Chegaralar',
+      title: 'CSS Borders',
       whatIs: `CSS chegaralar elementning atrofidagi chiziqlarni boshqarish uchun ishlatiladi. Kenglik, rang, uslub va burchak radiusini o'zgartirish mumkin.`,
       howToUse: `border-width, border-color, border-style xususiyatlari yoki qisqa yozuv border: 2px solid #333; ishlatiladi.`,
       whenToUse: `Chegaralar elementlarni ajratish, dizayn yaratish, fokus ko'rsatish uchun ishlatiladi.`,
@@ -45,35 +45,65 @@ export default async function CSSBordersPage({
       <div className="example-box">
         <h4>{t.common.codeExample}</h4>
         <pre>
-          <code>{`/* Qisqa yozuv */
+          <code>{locale === 'uz' 
+            ? `/* Shorthand */
 border: 2px solid #333;
 
-/* Alohida tomonlar */
+/* Separate sides */
 border-top: 2px solid red;
 border-right: 1px dashed blue;
 border-bottom: 3px dotted green;
 border-left: 1px double orange;
 
-/* Alohida xususiyatlar */
+/* Separate properties */
 border-width: 2px;
 border-color: #333;
 border-style: solid;
 
-/* Burchak radiusi */
+/* Border radius */
 border-radius: 8px;
-border-radius: 50%; /* Doira */
+border-radius: 50%; /* Circle */
 
-/* Turli burchaklar */
+/* Different corners */
 border-radius: 10px 20px 30px 40px;
 
-/* Chegara uslublari */
-border: 2px solid;    /* Qattiq */
-border: 2px dashed;   /* Chiziqli */
-border: 2px dotted;   /* Nuqtali */
-border: 2px double;   /* Ikkilangan */
-border: 2px groove;   /* O'yiq */
-border: 2px ridge;    /* Qavariq */
-border: none;         /* Yo'q */`}</code>
+/* Border styles */
+border: 2px solid;    /* Solid */
+border: 2px dashed;   /* Dashed */
+border: 2px dotted;   /* Dotted */
+border: 2px double;   /* Double */
+border: 2px groove;   /* Groove */
+border: 2px ridge;    /* Ridge */
+border: none;         /* None */`
+            : `/* Краткая запись */
+border: 2px solid #333;
+
+/* Отдельные стороны */
+border-top: 2px solid red;
+border-right: 1px dashed blue;
+border-bottom: 3px dotted green;
+border-left: 1px double orange;
+
+/* Отдельные свойства */
+border-width: 2px;
+border-color: #333;
+border-style: solid;
+
+/* Радиус границы */
+border-radius: 8px;
+border-radius: 50%; /* Круг */
+
+/* Разные углы */
+border-radius: 10px 20px 30px 40px;
+
+/* Стили границы */
+border: 2px solid;    /* Сплошная */
+border: 2px dashed;   /* Пунктирная */
+border: 2px dotted;   /* Точечная */
+border: 2px double;   /* Двойная */
+border: 2px groove;   /* Вдавленная */
+border: 2px ridge;    /* Выпуклая */
+border: none;         /* Нет */`}</code>
         </pre>
       </div>
 

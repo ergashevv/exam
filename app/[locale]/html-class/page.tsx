@@ -13,7 +13,7 @@ export default async function HTMLClassPage({
 
   const content = {
     uz: {
-      title: 'HTML class Atributi',
+      title: 'HTML class Attribute',
       whatIs: `class atributi bir nechta elementga bir xil uslub yoki funksiyani qo'llash uchun ishlatiladi. Bir elementda bir nechta class bo'lishi mumkin.`,
       howToUse: `class atributi class="nomi" formatida yoziladi. Bir nechta class bo'lsa, ular bo'sh joy bilan ajratiladi: class="class1 class2".`,
       whenToUse: `class atributi bir xil dizaynga ega bo'lgan elementlarni guruhlash, CSS va JavaScript bilan ishlash uchun ishlatiladi.`,

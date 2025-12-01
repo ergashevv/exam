@@ -23,7 +23,7 @@ export default async function HTMLLinksPage({
 
   const content = {
     uz: {
-      title: 'HTML Havolalar',
+      title: 'HTML Links',
       whatIs: `Havola - bu bosilganda boshqa sahifaga o'tadigan matn. Xuddi telefon'da link bosgandek. HTML'da <a> tegi bilan yaratiladi.`,
       simpleExplanation: `O'ylab ko'ring: sizga "Google'ga o'tish" deb yozish kerak. Foydalanuvchi buni bosganda Google ochilishi kerak. HTML'da havola shu vazifani bajaradi!`,
       howToUse: `Qadam 1: <a href="https://google.com">Google'ga o'tish</a> yozing. Qadam 2: href="..." ichiga qaysi sahifaga o'tish kerakligini yozing. Qadam 3: Matn o'rtasiga qaysi so'z bosilishi kerakligini yozing.`,
@@ -340,7 +340,7 @@ export default async function HTMLLinksPage({
         locale={locale}
         videos={[
           {
-            title: locale === 'uz' ? 'HTML Havolalar - To\'liq dars' : 'HTML Ссылки - Полный урок',
+            title: locale === 'uz' ? 'HTML Links - To\'liq dars' : 'HTML Ссылки - Полный урок',
             url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
             platform: 'youtube',
             duration: '12:00'

@@ -13,7 +13,7 @@ export default async function HTMLStylesPage({
 
   const content = {
     uz: {
-      title: 'HTML Uslublar - CSS',
+      title: 'HTML Styles - CSS',
       whatIs: `HTML elementlariga uslub qo'shish uchun 3 ta usul mavjud: inline style, <style> tegi va tashqi CSS fayl. CSS (Cascading Style Sheets) HTML elementlarining ko'rinishini boshqaradi.`,
       howToUse: `1. Inline style - style atributi yordamida to'g'ridan-to'g'ri elementga qo'shiladi. 2. <style> tegi - <head> bo'limida yoziladi. 3. Tashqi CSS fayl - alohida .css fayl yaratiladi va <link> orqali ulashadi.`,
       whenToUse: `Inline style - kichik o'zgarishlar uchun. <style> tegi - bitta sahifa uchun. Tashqi CSS fayl - butun sayt uchun, eng yaxshi amaliyot.`,

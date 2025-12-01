@@ -13,7 +13,7 @@ export default async function HTMLInputTypesPage({
 
   const content = {
     uz: {
-      title: 'HTML Input Turlari',
+      title: 'HTML Input Types',
       whatIs: `HTML input elementlari turli xil ma'lumotlarni olish uchun ishlatiladi. type atributi input turini belgilaydi.`,
       howToUse: `<input type="text">, <input type="email">, <input type="password"> va boshqa turlar mavjud. Har bir tur o'ziga xos funksiyaga ega.`,
       whenToUse: `Har xil input turlari turli ma'lumotlar uchun ishlatiladi: matn, email, parol, sana, raqam va boshqalar.`,

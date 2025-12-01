@@ -13,7 +13,7 @@ export default async function CSSPositionPage({
 
   const content = {
     uz: {
-      title: 'CSS Position Xususiyati',
+      title: 'CSS Position Property',
       whatIs: `Position xususiyati elementning joylashuvini boshqaradi. Static, relative, absolute, fixed va sticky qiymatlari mavjud.`,
       howToUse: `position: static;, position: relative;, position: absolute;, position: fixed;, position: sticky; va top, right, bottom, left xususiyatlari ishlatiladi.`,
       whenToUse: `Elementlarni aniq joylashtirish, overlay yaratish, sticky header, fixed navigation, modal oynalar uchun ishlatiladi.`,

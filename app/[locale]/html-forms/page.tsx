@@ -13,7 +13,7 @@ export default async function HTMLFormsPage({
 
   const content = {
     uz: {
-      title: 'HTML Formalar',
+      title: 'HTML Forms',
       whatIs: `HTML formalar foydalanuvchidan ma'lumot olish uchun ishlatiladi. <form> tegi bilan yaratiladi va ichida turli input elementlar bo'ladi.`,
       howToUse: `<form> tegi ochiladi, action atributi ma'lumot yuboriladigan URL'ni, method atributi esa yuborish usulini (GET yoki POST) belgilaydi.`,
       whenToUse: `Formalar foydalanuvchi ma'lumotlarini to'plash, login, ro'yxatdan o'tish, fikr-mulohaza qoldirish uchun ishlatiladi.`,

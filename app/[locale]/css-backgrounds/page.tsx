@@ -13,7 +13,7 @@ export default async function CSSBackgroundsPage({
 
   const content = {
     uz: {
-      title: 'CSS Fonlar',
+      title: 'CSS Backgrounds',
       whatIs: `CSS fonlar elementning fonini boshqarish uchun ishlatiladi. Rang, rasm, takrorlash, pozitsiya va boshqa xususiyatlar mavjud.`,
       howToUse: `background-color, background-image, background-repeat, background-position, background-size va background-attachment xususiyatlari ishlatiladi.`,
       whenToUse: `Fonlar dizayn yaratish, rasm fonlari qo'shish, gradientlar yaratish uchun ishlatiladi.`,
@@ -45,16 +45,17 @@ export default async function CSSBackgroundsPage({
       <div className="example-box">
         <h4>{t.common.codeExample}</h4>
         <pre>
-          <code>{`/* Oddiy fon rangi */
+          <code>{locale === 'uz' 
+            ? `/* Simple background color */
 background-color: #3498db;
 
-/* Rasm fon */
+/* Image background */
 background-image: url('/images/bg.jpg');
 background-size: cover;
 background-position: center;
 background-repeat: no-repeat;
 
-/* Qisqa yozuv */
+/* Shorthand */
 background: #3498db url('/images/bg.jpg') center/cover no-repeat;
 
 /* Gradient */
@@ -63,12 +64,41 @@ background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 /* Radial gradient */
 background: radial-gradient(circle, #667eea, #764ba2);
 
-/* Bir nechta fon */
+/* Multiple backgrounds */
 background-image: 
   url('/images/pattern.png'),
   linear-gradient(135deg, #667eea, #764ba2);
 
-/* Misol */
+/* Example */
+.hero {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background-size: cover;
+  height: 500px;
+}`
+            : `/* Простой цвет фона */
+background-color: #3498db;
+
+/* Фоновое изображение */
+background-image: url('/images/bg.jpg');
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+
+/* Краткая запись */
+background: #3498db url('/images/bg.jpg') center/cover no-repeat;
+
+/* Градиент */
+background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+
+/* Радиальный градиент */
+background: radial-gradient(circle, #667eea, #764ba2);
+
+/* Несколько фонов */
+background-image: 
+  url('/images/pattern.png'),
+  linear-gradient(135deg, #667eea, #764ba2);
+
+/* Пример */
 .hero {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   background-size: cover;

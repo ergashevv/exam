@@ -69,26 +69,47 @@ export default async function CSSPaddingPage({
       <div className="example-box">
         <h4>{t.common.codeExample}</h4>
         <pre>
-          <code>{`/* Barcha tomonlar */
+          <code>{locale === 'uz' 
+            ? `/* All sides */
 padding: 20px;
 
-/* Yuqori/pastki, chap/o'ng */
+/* Top/bottom, left/right */
 padding: 10px 20px;
 
-/* Yuqori, chap/o'ng, pastki */
+/* Top, left/right, bottom */
 padding: 10px 20px 30px;
 
-/* Yuqori, o'ng, pastki, chap */
+/* Top, right, bottom, left */
 padding: 10px 20px 30px 40px;
 
-/* Alohida tomonlar */
+/* Separate sides */
 padding-top: 20px;
 padding-right: 15px;
 padding-bottom: 10px;
 padding-left: 5px;
 
-/* Box-sizing bilan */
-box-sizing: border-box; /* Padding o'lchamga kiritiladi */`}</code>
+/* With box-sizing */
+box-sizing: border-box; /* Padding included in size */`
+            : `/* Все стороны */
+padding: 20px;
+
+/* Верх/низ, лево/право */
+padding: 10px 20px;
+
+/* Верх, лево/право, низ */
+padding: 10px 20px 30px;
+
+/* Верх, право, низ, лево */
+padding: 10px 20px 30px 40px;
+
+/* Отдельные стороны */
+padding-top: 20px;
+padding-right: 15px;
+padding-bottom: 10px;
+padding-left: 5px;
+
+/* С box-sizing */
+box-sizing: border-box; /* Padding включен в размер */`}</code>
         </pre>
       </div>
 

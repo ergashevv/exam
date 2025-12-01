@@ -26,7 +26,7 @@ export default function MotivationalNotification({
   useEffect(() => {
     if (locale !== 'ru') return
 
-    const MIN_INTERVAL = 30000 // Minimum 30 seconds between notifications
+    const MIN_INTERVAL = 3000 // Minimum 30 seconds between notifications
 
     if (trigger === 'time') {
       const timer = setTimeout(() => {

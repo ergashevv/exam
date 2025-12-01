@@ -13,7 +13,7 @@ export default async function HTMLColorsPage({
 
   const content = {
     uz: {
-      title: 'HTML Ranglar',
+      title: 'HTML Colors',
       whatIs: `HTML ranglar matn, fon va boshqa elementlarning rangini belgilash uchun ishlatiladi. Ranglar nom, hex kod, RGB yoki HSL formatida ko'rsatilishi mumkin.`,
       howToUse: `Ranglar style atributi yoki CSS yordamida belgilanadi. Eng keng tarqalgan usullar: rang nomi (red, blue), hex kod (#FF0000), RGB (rgb(255,0,0)) va HSL (hsl(0,100%,50%)).`,
       whenToUse: `Ranglar dizayn yaratishda, muhim ma'lumotlarni ajratib ko'rsatishda va foydalanuvchi e'tiborini jalb qilishda ishlatiladi.`,

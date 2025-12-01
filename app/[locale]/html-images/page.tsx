@@ -13,7 +13,7 @@ export default async function HTMLImagesPage({
 
   const content = {
     uz: {
-      title: 'HTML Rasmlar',
+      title: 'HTML Images',
       whatIs: `Rasm - bu sahifaga qo'shiladigan tasvir. Xuddi Word'ga rasm qo'shgandek. HTML'da <img> tegi bilan yaratiladi.`,
       simpleExplanation: `O'ylab ko'ring: sizga sahifaga rasm qo'shish kerak. Rasm faylini topasiz va HTML'da ko'rsatasiz. Brauzer rasmni ko'rsatadi!`,
       howToUse: `Qadam 1: <img src="rasm.jpg" alt="Tavsif"> yozing. Qadam 2: src="..." ichiga rasm fayl manzilini yozing. Qadam 3: alt="..." ichiga rasm haqida qisqa ma'lumot yozing (ko'rlar uchun).`,

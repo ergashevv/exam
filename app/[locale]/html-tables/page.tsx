@@ -13,7 +13,7 @@ export default async function HTMLTablesPage({
 
   const content = {
     uz: {
-      title: 'HTML Jadval',
+      title: 'HTML Tables',
       whatIs: `HTML jadvallar ma'lumotlarni qator va ustunlar shaklida ko'rsatish uchun ishlatiladi. <table>, <tr>, <td>, <th> teglari yordamida yaratiladi.`,
       howToUse: `Jadval <table> tegi bilan boshlanadi. Har bir qator <tr>, har bir katak <td> (oddiy) yoki <th> (sarlavha) tegi bilan yaratiladi.`,
       whenToUse: `Jadvallar jadval ma'lumotlarini ko'rsatish, narx ro'yxatlari, jadval shaklidagi ma'lumotlar uchun ishlatiladi.`,
@@ -45,12 +45,13 @@ export default async function HTMLTablesPage({
       <div className="example-box">
         <h4>{t.common.codeExample}</h4>
         <pre>
-          <code>{`<table border="1">
+          <code>{locale === 'uz' 
+            ? `<table border="1">
   <thead>
     <tr>
-      <th>Ism</th>
-      <th>Familiya</th>
-      <th>Yosh</th>
+      <th>Name</th>
+      <th>Surname</th>
+      <th>Age</th>
     </tr>
   </thead>
   <tbody>
@@ -67,7 +68,33 @@ export default async function HTMLTablesPage({
   </tbody>
   <tfoot>
     <tr>
-      <td colspan="3">Jami: 2 ta odam</td>
+      <td colspan="3">Total: 2 people</td>
+    </tr>
+  </tfoot>
+</table>`
+            : `<table border="1">
+  <thead>
+    <tr>
+      <th>Имя</th>
+      <th>Фамилия</th>
+      <th>Возраст</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Али</td>
+      <td>Валиев</td>
+      <td>25</td>
+    </tr>
+    <tr>
+      <td>Вали</td>
+      <td>Алиев</td>
+      <td>30</td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td colspan="3">Всего: 2 человека</td>
     </tr>
   </tfoot>
 </table>`}</code>
