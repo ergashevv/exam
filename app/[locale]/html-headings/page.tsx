@@ -13,16 +13,18 @@ export default function HTMLHeadingsPage({
   const content = {
     uz: {
       title: 'HTML Sarlavhalar',
-      whatIs: `HTML sarlavhalar matnni muhimligiga ko'ra tuzilishga yordam beradi. <h1> dan <h6> gacha 6 ta sarlavha darajasi mavjud, bu yerda <h1> eng muhim va eng katta, <h6> esa eng kam muhim va eng kichik.`,
-      howToUse: `Sarlavhalarni <h1> dan <h6> gacha teglar yordamida yaratasiz. <h1> faqat bir marta, sahifa sarlavhasi sifatida ishlatilishi kerak. Qolgan sarlavhalar esa kerak bo'lganda bir necha marta ishlatilishi mumkin.`,
-      whenToUse: `Sarlavhalar sahifa strukturasini yaratishda, SEO optimizatsiyasida va foydalanuvchilar uchun kontentni tushunishda muhim rol o'ynaydi. Har bir bo'lim uchun mos darajadagi sarlavha ishlatilishi kerak.`,
+      whatIs: `Sarlavha - bu matnning eng muhim qismi. Xuddi kitobda bo'lgandek: katta sarlavha - asosiy mavzu, kichik sarlavhalar - kichik mavzular. HTML'da 6 xil o'lchamdagi sarlavha bor: <h1> eng katta, <h6> eng kichik.`,
+      simpleExplanation: `O'ylab ko'ring: sizga kitob yozish kerak. Birinchi siz katta sarlavha yozasiz - "Mening kitobim". Keyin kichikroq sarlavhalar - "1-bob", "2-bob". HTML'da ham xuddi shunday!`,
+      howToUse: `Qadam 1: Eng katta sarlavha uchun <h1>Matn</h1> yozing. Bu faqat bir marta ishlatiladi - sahifa nomi uchun. Qadam 2: Kichik sarlavhalar uchun <h2>, <h3> va hokazo ishlating. Qadam 3: Har bir sarlavhani yopishni unutmang - </h1>, </h2> va hokazo.`,
+      whenToUse: `Har doim ishlating! Har bir bo'lim uchun sarlavha qo'ying. Masalan: "Mening haqimda" - <h2>, "Mening ishim" - <h2>, "Aloqa" - <h2>. Bu o'quvchiga nima borligini tushunishga yordam beradi.`,
       example: `Quyida HTML sarlavhalarining misoli keltirilgan:`,
     },
     ru: {
       title: 'HTML Заголовки',
-      whatIs: `HTML заголовки помогают структурировать текст по важности. Существует 6 уровней заголовков от <h1> до <h6>, где <h1> самый важный и крупный, а <h6> наименее важный и самый маленький.`,
-      howToUse: `Заголовки создаются с помощью тегов от <h1> до <h6>. <h1> должен использоваться только один раз, как заголовок страницы. Остальные заголовки можно использовать несколько раз по необходимости.`,
-      whenToUse: `Заголовки играют важную роль в создании структуры страницы, SEO оптимизации и понимании контента пользователями. Для каждого раздела должен использоваться соответствующий уровень заголовка.`,
+      whatIs: `Заголовок - это самая важная часть текста. Как в книге: большой заголовок - главная тема, маленькие заголовки - подтемы. В HTML есть 6 разных размеров заголовков: <h1> самый большой, <h6> самый маленький.`,
+      simpleExplanation: `Представьте: вам нужно написать книгу. Сначала вы пишете большой заголовок - "Моя книга". Потом заголовки поменьше - "Глава 1", "Глава 2". В HTML точно так же!`,
+      howToUse: `Шаг 1: Для самого большого заголовка напишите <h1>Текст</h1>. Это используется только один раз - для названия страницы. Шаг 2: Для маленьких заголовков используйте <h2>, <h3> и так далее. Шаг 3: Не забудьте закрыть каждый заголовок - </h1>, </h2> и так далее.`,
+      whenToUse: `Используйте всегда! Для каждого раздела добавьте заголовок. Например: "Обо мне" - <h2>, "Моя работа" - <h2>, "Контакты" - <h2>. Это помогает читателю понять, что есть на странице.`,
       example: `Ниже приведен пример HTML заголовков:`,
     },
   }
@@ -39,9 +41,23 @@ export default function HTMLHeadingsPage({
     >
       <h2>{t.common.whatIs}</h2>
       <p>{c.whatIs}</p>
+      
+      <div className="info-box" style={{ background: '#e8f5e9', borderLeftColor: '#4caf50' }}>
+        <strong>💡 Oddiy tushuntirish:</strong> {c.simpleExplanation}
+      </div>
 
       <h2>{t.common.howToUse}</h2>
       <p>{c.howToUse}</p>
+      
+      <div className="example-box" style={{ background: '#fff3e0', borderColor: '#ff9800' }}>
+        <h4>📝 Qadam-baqadam:</h4>
+        <ol>
+          <li>Kod yozishni boshlang: <code>&lt;h1&gt;</code></li>
+          <li>Sarlavha matnini yozing: <code>&lt;h1&gt;Mening saytim&lt;/h1&gt;</code></li>
+          <li>Tegni yoping: <code>&lt;/h1&gt;</code></li>
+          <li>Brauzerda ko'ring - katta matn ko'rinadi!</li>
+        </ol>
+      </div>
 
       <div className="example-box">
         <h4>{t.common.codeExample}</h4>
@@ -79,18 +95,33 @@ export default function HTMLHeadingsPage({
 
       <h2>{t.common.whenToUse}</h2>
       <p>{c.whenToUse}</p>
-
-      <div className="info-box">
-        <strong>Muhim:</strong> SEO uchun <code>&lt;h1&gt;</code> tegi sahifada
-        faqat bir marta ishlatilishi kerak va u asosiy mavzuni ifodalashi kerak.
+      
+      <div className="example-box" style={{ background: '#f3e5f5', borderColor: '#9c27b0' }}>
+        <h4>🎯 Real hayotdan misol:</h4>
+        <p>Veb-sayt yaratasiz. Quyidagicha qiling:</p>
+        <ul>
+          <li><code>&lt;h1&gt;</code> - Sayt nomi (masalan: "Mening blogim") - faqat 1 marta</li>
+          <li><code>&lt;h2&gt;</code> - Katta bo'limlar (masalan: "Maqolalar", "Haqimda")</li>
+          <li><code>&lt;h3&gt;</code> - Kichik bo'limlar (masalan: "Maqola 1", "Maqola 2")</li>
+        </ul>
       </div>
 
-      <h3>Dizaynda qanday ishlaydi?</h3>
+      <div className="info-box">
+        <strong>⚠️ Muhim qoida:</strong> <code>&lt;h1&gt;</code> faqat bir marta! 
+        Xuddi kitobda bitta katta sarlavha bo'lgandek. Agar 2 marta yozsangiz, Google xato deb biladi.
+      </div>
+
+      <h3>🎨 Dizaynda qanday ko'rinadi?</h3>
       <p>
-        {params.locale === 'uz'
-          ? 'Sarlavhalar sahifa ierarxiyasini yaratadi va foydalanuvchiga kontent strukturasini tushunishga yordam beradi. To\'g\'ri ishlatilgan sarlavhalar saytning navigatsiyasini yaxshilaydi va SEO reytingini oshiradi.'
-          : 'Заголовки создают иерархию страницы и помогают пользователю понять структуру контента. Правильно использованные заголовки улучшают навигацию сайта и повышают SEO рейтинг.'}
+        {locale === 'uz'
+          ? 'Sarlavhalar avtomatik ravishda turli o\'lchamda ko\'rinadi. <h1> eng katta va qalin, <h6> eng kichik va ingichka. Siz CSS bilan ularning rangini, o\'lchamini o\'zgartirishingiz mumkin.'
+          : 'Заголовки автоматически отображаются разного размера. <h1> самый большой и жирный, <h6> самый маленький и тонкий. Вы можете изменить их цвет и размер с помощью CSS.'}
       </p>
+      
+      <div className="result-box" style={{ background: '#e1f5fe', borderColor: '#0288d1' }}>
+        <h4>👀 Ko'rib chiqing:</h4>
+        <p>Yuqoridagi "Natija" bo'limida sarlavhalar qanday ko'rinishini ko'rdingiz. <code>&lt;h1&gt;</code> eng katta, <code>&lt;h6&gt;</code> eng kichik!</p>
+      </div>
     </TutorialLayout>
   )
 }

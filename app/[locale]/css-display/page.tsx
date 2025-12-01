@@ -13,15 +13,19 @@ export default function CSSDisplayPage({
   const content = {
     uz: {
       title: 'CSS Display Xususiyati',
-      whatIs: `Display xususiyati elementning ko'rinishini va layout'dagi o'rnini belgilaydi. Block, inline, flex, grid va boshqa qiymatlar mavjud.`,
-      howToUse: `display: block;, display: inline;, display: flex;, display: grid;, display: none; va boshqa qiymatlar ishlatiladi.`,
-      whenToUse: `Layout yaratish, elementlarni joylashtirish, responsive dizayn, flexbox va grid layout uchun ishlatiladi.`,
+      whatIs: `Display - bu elementning qanday ko'rinishini aytadi. Xuddi quti qanday qo'yilishini: to'liq qator (block), qator ichida (inline), yoki yonma-yon (flex).`,
+      simpleExplanation: `O'ylab ko'ring: sizga qutilar qo'yish kerak. Agar "block" desangiz - har bir quti to'liq qatorni egallaydi. Agar "inline" desangiz - qutilar yonma-yon bo'ladi.`,
+      howToUse: `Qadam 1: <code>display: block;</code> yozing - element to'liq qatorni egallaydi. Qadam 2: <code>display: inline;</code> yozing - elementlar yonma-yon bo'ladi. Qadam 3: <code>display: flex;</code> yozing - zamonaviy usul (eng yaxshi!).`,
+      whenToUse: `Har doim ishlating! Elementlarni yonma-yon qo'yish, markazga joylashtirish, responsive dizayn uchun. Masalan: tugmalar yonma-yon, kartalar yonma-yon.`,
+      blockVsInline: `Block = to'liq qator (div, p, h1). Inline = qator ichida (span, a, img). Flex = zamonaviy usul (yaxshi layout).`,
     },
     ru: {
       title: 'CSS Свойство display',
-      whatIs: `Свойство display определяет способ отображения элемента и его место в макете. Существуют значения block, inline, flex, grid и другие.`,
-      howToUse: `Используются display: block;, display: inline;, display: flex;, display: grid;, display: none; и другие значения.`,
-      whenToUse: `Используется для создания макета, размещения элементов, адаптивного дизайна, flexbox и grid layout.`,
+      whatIs: `Display - это говорит, как элемент должен отображаться. Как коробки должны стоять: полная строка (block), в строке (inline), или рядом (flex).`,
+      simpleExplanation: `Представьте: вам нужно поставить коробки. Если скажете "block" - каждая коробка займет всю строку. Если скажете "inline" - коробки будут рядом.`,
+      howToUse: `Шаг 1: Напишите <code>display: block;</code> - элемент займет всю строку. Шаг 2: Напишите <code>display: inline;</code> - элементы будут рядом. Шаг 3: Напишите <code>display: flex;</code> - современный способ (лучший!).`,
+      whenToUse: `Используйте всегда! Для размещения элементов рядом, центрирования, адаптивного дизайна. Например: кнопки рядом, карточки рядом.`,
+      blockVsInline: `Block = полная строка (div, p, h1). Inline = в строке (span, a, img). Flex = современный способ (хороший layout).`,
     },
   }
 
@@ -37,9 +41,28 @@ export default function CSSDisplayPage({
     >
       <h2>{t.common.whatIs}</h2>
       <p>{c.whatIs}</p>
+      
+      <div className="info-box" style={{ background: '#e8f5e9', borderLeftColor: '#4caf50' }}>
+        <strong>💡 Oddiy tushuntirish:</strong> {c.simpleExplanation}
+      </div>
 
       <h2>{t.common.howToUse}</h2>
       <p>{c.howToUse}</p>
+      
+      <div className="example-box" style={{ background: '#fff3e0', borderColor: '#ff9800' }}>
+        <h4>📝 Qadam-baqadam:</h4>
+        <ol>
+          <li>Elementni tanlang (masalan: div, span)</li>
+          <li>CSS yozing: <code>display: block;</code> yoki <code>display: flex;</code></li>
+          <li>Brauzerda ko'ring - element qanday ko'rinishini o'zgartirdi!</li>
+        </ol>
+        <p style={{ marginTop: '15px' }}><strong>Eng muhim 3 ta:</strong></p>
+        <ul>
+          <li><code>display: block;</code> - to'liq qator (div, p, h1)</li>
+          <li><code>display: inline;</code> - qator ichida (span, a)</li>
+          <li><code>display: flex;</code> - zamonaviy usul (eng yaxshi!)</li>
+        </ul>
+      </div>
 
       <div className="example-box">
         <h4>{t.common.codeExample}</h4>
@@ -120,8 +143,26 @@ display: none; /* Yashirish */
 
       <h2>{t.common.whenToUse}</h2>
       <p>{c.whenToUse}</p>
+      
+      <div className="example-box" style={{ background: '#f3e5f5', borderColor: '#9c27b0' }}>
+        <h4>🎯 Real hayotdan misol:</h4>
+        <ul>
+          <li><strong>Tugmalar yonma-yon:</strong> <code>display: flex;</code> ishlating</li>
+          <li><strong>Kartalar yonma-yon:</strong> <code>display: grid;</code> ishlating</li>
+          <li><strong>Elementni yashirish:</strong> <code>display: none;</code> ishlating</li>
+        </ul>
+      </div>
 
-      <h3>Asosiy display qiymatlari:</h3>
+      <div className="info-box" style={{ background: '#fff3e0', borderLeftColor: '#ff9800' }}>
+        <strong>🤔 Block vs Inline vs Flex - farqi nima?</strong>
+        <p style={{ marginTop: '10px' }}>{c.blockVsInline}</p>
+        <p style={{ marginTop: '10px' }}>
+          <strong>Maslahat:</strong> Zamonaviy saytlar uchun <code>display: flex;</code> yoki <code>display: grid;</code> ishlating. 
+          Bu eng oson va eng kuchli usul!
+        </p>
+      </div>
+
+      <h3>📋 Asosiy display qiymatlari:</h3>
       <ul>
         <li>
           <strong>block</strong> - blok element

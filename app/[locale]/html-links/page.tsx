@@ -13,15 +13,17 @@ export default function HTMLLinksPage({
   const content = {
     uz: {
       title: 'HTML Havolalar',
-      whatIs: `HTML havolalar (<a> tegi) boshqa sahifalar, fayllar yoki sahifa ichidagi bo'limlarga o'tish uchun ishlatiladi. Havolalar internetning asosiy qismidir.`,
-      howToUse: `Havolalar <a href="url">Matn</a> formatida yaratiladi. href atributi havola manzilini belgilaydi. target="_blank" yangi oynada ochish uchun ishlatiladi.`,
-      whenToUse: `Havolalar navigatsiya, tashqi resurslarga havola, email yoki telefon raqamiga havola qilish uchun ishlatiladi.`,
+      whatIs: `Havola - bu bosilganda boshqa sahifaga o'tadigan matn. Xuddi telefon'da link bosgandek. HTML'da <a> tegi bilan yaratiladi.`,
+      simpleExplanation: `O'ylab ko'ring: sizga "Google'ga o'tish" deb yozish kerak. Foydalanuvchi buni bosganda Google ochilishi kerak. HTML'da havola shu vazifani bajaradi!`,
+      howToUse: `Qadam 1: <a href="https://google.com">Google'ga o'tish</a> yozing. Qadam 2: href="..." ichiga qaysi sahifaga o'tish kerakligini yozing. Qadam 3: Matn o'rtasiga qaysi so'z bosilishi kerakligini yozing.`,
+      whenToUse: `Har doim ishlating! Boshqa sahifaga o'tish, email yuborish, telefon qilish uchun. Masalan: "Mening blogim" havolasi, "Email yuborish" havolasi.`,
     },
     ru: {
       title: 'HTML Ссылки',
-      whatIs: `HTML ссылки (тег <a>) используются для перехода на другие страницы, файлы или разделы внутри страницы. Ссылки являются основой интернета.`,
-      howToUse: `Ссылки создаются в формате <a href="url">Текст</a>. Атрибут href определяет адрес ссылки. target="_blank" используется для открытия в новом окне.`,
-      whenToUse: `Ссылки используются для навигации, ссылок на внешние ресурсы, email или телефонные номера.`,
+      whatIs: `Ссылка - это текст, при нажатии на который переходишь на другую страницу. Как нажать на ссылку в телефоне. В HTML создается с помощью тега <a>.`,
+      simpleExplanation: `Представьте: вам нужно написать "Перейти в Google". Когда пользователь нажмет, должен открыться Google. В HTML ссылка делает именно это!`,
+      howToUse: `Шаг 1: Напишите <a href="https://google.com">Перейти в Google</a>. Шаг 2: В href="..." напишите, на какую страницу перейти. Шаг 3: Между тегами напишите, какое слово нужно нажать.`,
+      whenToUse: `Используйте всегда! Для перехода на другую страницу, отправки email, звонка. Например: ссылка "Мой блог", ссылка "Отправить email".`,
     },
   }
 
@@ -37,9 +39,24 @@ export default function HTMLLinksPage({
     >
       <h2>{t.common.whatIs}</h2>
       <p>{c.whatIs}</p>
+      
+      <div className="info-box" style={{ background: '#e8f5e9', borderLeftColor: '#4caf50' }}>
+        <strong>💡 Oddiy tushuntirish:</strong> {c.simpleExplanation}
+      </div>
 
       <h2>{t.common.howToUse}</h2>
       <p>{c.howToUse}</p>
+      
+      <div className="example-box" style={{ background: '#fff3e0', borderColor: '#ff9800' }}>
+        <h4>📝 Qadam-baqadam:</h4>
+        <ol>
+          <li>Havola boshlash: <code>&lt;a href="..."&gt;</code> yozing</li>
+          <li>href="..." ichiga qaysi sahifaga o'tish kerakligini yozing</li>
+          <li>Matnni yozing: <code>&lt;a href="..."&gt;Matn&lt;/a&gt;</code></li>
+          <li>Havolani yoping: <code>&lt;/a&gt;</code> yozing</li>
+          <li>Brauzerda ko'ring - matn ko'k rangda va bosiladi!</li>
+        </ol>
+      </div>
 
       <div className="example-box">
         <h4>{t.common.codeExample}</h4>
@@ -84,10 +101,26 @@ export default function HTMLLinksPage({
 
       <h2>{t.common.whenToUse}</h2>
       <p>{c.whenToUse}</p>
+      
+      <div className="example-box" style={{ background: '#f3e5f5', borderColor: '#9c27b0' }}>
+        <h4>🎯 Real hayotdan misollar:</h4>
+        <ul>
+          <li><strong>Boshqa sahifaga:</strong> <code>&lt;a href="/about"&gt;Haqimda&lt;/a&gt;</code></li>
+          <li><strong>Internet saytiga:</strong> <code>&lt;a href="https://google.com"&gt;Google&lt;/a&gt;</code></li>
+          <li><strong>Email yuborish:</strong> <code>&lt;a href="mailto:info@example.com"&gt;Email&lt;/a&gt;</code></li>
+          <li><strong>Telefon qilish:</strong> <code>&lt;a href="tel:+998901234567"&gt;Qo'ng'iroq&lt;/a&gt;</code></li>
+        </ul>
+      </div>
 
       <div className="info-box">
-        <strong>Xavfsizlik:</strong> Tashqi havolalar uchun{' '}
-        <code>rel="noopener noreferrer"</code> qo'shish tavsiya etiladi.
+        <strong>🔒 Xavfsizlik:</strong> Agar tashqi saytga havola qilsangiz (masalan: Google), 
+        <code>target="_blank"</code> bilan birga <code>rel="noopener noreferrer"</code> qo'shing. 
+        Bu xavfsizlik uchun kerak!
+      </div>
+      
+      <div className="result-box" style={{ background: '#e1f5fe', borderColor: '#0288d1' }}>
+        <h4>👀 Ko'rib chiqing:</h4>
+        <p>Yuqoridagi "Natija" bo'limida turli xil havolalar ko'rsatilgan. Ularni bosib ko'ring - qaysi bir qanday ishlaydi!</p>
       </div>
     </TutorialLayout>
   )

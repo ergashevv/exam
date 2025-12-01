@@ -13,15 +13,19 @@ export default function CSSPaddingPage({
   const content = {
     uz: {
       title: 'CSS Padding',
-      whatIs: `Padding elementning ichki bo'shlig'ini boshqaradi. U kontent va chegara orasidagi masofani belgilaydi.`,
-      howToUse: `padding: 20px; (barcha tomonlar), padding: 10px 20px; (yuqori/pastki, chap/o'ng), padding-top, padding-right, padding-bottom, padding-left.`,
-      whenToUse: `Padding kontent atrofidagi bo'shlikni yaratish, o'qish qulayligini yaxshilash, dizayn yaratishda ishlatiladi.`,
+      whatIs: `Padding - bu elementning ICHKIDAGI bo'sh joy. Xuddi quti ichidagi matn va quti devori orasidagi masofa. Agar padding bo'lmasa, matn chegara ichida yopishib qoladi.`,
+      simpleExplanation: `O'ylab ko'ring: sizga quti ichiga matn yozish kerak. Agar matn quti devoriga yopishib qolsa, o'qish qiyin bo'ladi. Padding - bu matn va devor orasidagi bo'sh joy!`,
+      howToUse: `Qadam 1: <code>padding: 20px;</code> yozing - barcha tomonlarda 20px bo'sh joy. Qadam 2: <code>padding-left: 10px;</code> - faqat chapdan. Qadam 3: Brauzerda ko'ring - matn chegara ichida bo'sh joy oldi!`,
+      whenToUse: `Har doim ishlating! Matn chegara ichida yopishib qolganda, o'qish qiyin bo'lganda. Masalan: tugma ichidagi matn, karta ichidagi matn.`,
+      marginVsPadding: `Padding = ICHKIDAGI bo'sh joy (matn va chegara orasi). Margin = TASHQARIDAGI bo'sh joy (elementlar orasi).`,
     },
     ru: {
       title: 'CSS Padding',
-      whatIs: `Padding управляет внутренним пространством элемента. Определяет расстояние между контентом и границей.`,
-      howToUse: `padding: 20px; (все стороны), padding: 10px 20px; (верх/низ, лево/право), padding-top, padding-right, padding-bottom, padding-left.`,
-      whenToUse: `Padding используется для создания пространства вокруг контента, улучшения читаемости, создания дизайна.`,
+      whatIs: `Padding - это пространство ВНУТРИ элемента. Как расстояние между текстом в коробке и стенкой коробки. Если padding нет, текст прилипает к границе.`,
+      simpleExplanation: `Представьте: вам нужно написать текст в коробке. Если текст прилипнет к стенке коробки, читать будет трудно. Padding - это пространство между текстом и стенкой!`,
+      howToUse: `Шаг 1: Напишите <code>padding: 20px;</code> - 20px пространства со всех сторон. Шаг 2: <code>padding-left: 10px;</code> - только слева. Шаг 3: Посмотрите в браузере - появилось пространство внутри элемента!`,
+      whenToUse: `Используйте всегда! Когда текст прилипает к границе внутри, когда трудно читать. Например: текст внутри кнопки, текст внутри карточки.`,
+      marginVsPadding: `Padding = пространство ВНУТРИ (между текстом и границей). Margin = пространство СНАРУЖИ (между элементами).`,
     },
   }
 
@@ -37,9 +41,29 @@ export default function CSSPaddingPage({
     >
       <h2>{t.common.whatIs}</h2>
       <p>{c.whatIs}</p>
+      
+      <div className="info-box" style={{ background: '#e8f5e9', borderLeftColor: '#4caf50' }}>
+        <strong>💡 Oddiy tushuntirish:</strong> {c.simpleExplanation}
+      </div>
 
       <h2>{t.common.howToUse}</h2>
       <p>{c.howToUse}</p>
+      
+      <div className="example-box" style={{ background: '#fff3e0', borderColor: '#ff9800' }}>
+        <h4>📝 Qadam-baqadam:</h4>
+        <ol>
+          <li>CSS yozing: <code>padding: 20px;</code></li>
+          <li>Bu degani: element ICHIDA barcha tomonlarda 20px bo'sh joy</li>
+          <li>Brauzerda ko'ring - matn chegara ichida bo'sh joy oldi!</li>
+        </ol>
+        <p><strong>Yoki alohida tomonlar uchun:</strong></p>
+        <ul>
+          <li><code>padding-top: 10px;</code> - faqat yuqoridan</li>
+          <li><code>padding-bottom: 10px;</code> - faqat pastdan</li>
+          <li><code>padding-left: 10px;</code> - faqat chapdan</li>
+          <li><code>padding-right: 10px;</code> - faqat o'ngdan</li>
+        </ul>
+      </div>
 
       <div className="example-box">
         <h4>{t.common.codeExample}</h4>
@@ -105,11 +129,40 @@ box-sizing: border-box; /* Padding o'lchamga kiritiladi */`}</code>
 
       <h2>{t.common.whenToUse}</h2>
       <p>{c.whenToUse}</p>
+      
+      <div className="example-box" style={{ background: '#f3e5f5', borderColor: '#9c27b0' }}>
+        <h4>🎯 Real hayotdan misol:</h4>
+        <p>Tugma yaratasiz va ichidagi matn chegara ichida yopishib qolgan. Nima qilish kerak?</p>
+        <ul>
+          <li>Tugmaga: <code>padding: 15px 30px;</code> qo'shing</li>
+          <li>Bu degani: yuqori/pastki 15px, chap/o'ng 30px bo'sh joy</li>
+          <li>Natija: Tugma ichidagi matn endi qulay o'qiladi!</li>
+        </ul>
+      </div>
 
+      <div className="info-box" style={{ background: '#fff3e0', borderLeftColor: '#ff9800' }}>
+        <strong>🤔 Margin vs Padding - farqi nima?</strong>
+        <p style={{ marginTop: '10px' }}>{c.marginVsPadding}</p>
+        <p style={{ marginTop: '10px' }}>
+          <strong>Oddiy qoida:</strong> Agar matn chegara ICHIDA yopishib qolgan bo'lsa - Padding ishlating. 
+          Agar elementlar bir-biriga TASHQARIDA yopishib qolgan bo'lsa - Margin ishlating.
+        </p>
+      </div>
+      
       <div className="info-box">
-        <strong>Box-sizing:</strong> <code>box-sizing: border-box;</code>{' '}
-        qo'shganda, padding va border elementning umumiy o'lchamiga kiritiladi.
-        Bu layout hisob-kitoblarini osonlashtiradi.
+        <strong>💡 Box-sizing nima?</strong>
+        <p style={{ marginTop: '10px' }}>
+          <code>box-sizing: border-box;</code> qo'shsangiz, padding va border elementning o'lchamiga kiritiladi. 
+          Bu degani: agar width: 200px va padding: 20px bo'lsa, umumiy o'lcham 200px bo'ladi (padding ichida).
+        </p>
+        <p style={{ marginTop: '10px' }}><strong>Maslahat:</strong> Har doim <code>box-sizing: border-box;</code> ishlating - bu osonroq!</p>
+      </div>
+      
+      <div className="result-box" style={{ background: '#e1f5fe', borderColor: '#0288d1' }}>
+        <h4>👀 Ko'rib chiqing:</h4>
+        <p>Yuqoridagi "Natija" bo'limida 3 ta div ko'rsatilgan. Birinchisida padding: 20px (barcha tomonlar), 
+        ikkinchisida padding: 10px 30px (yuqori/pastki, chap/o'ng), uchinchisida padding: 5px 10px 15px 20px (yuqori, o'ng, pastki, chap).</p>
+        <p style={{ marginTop: '10px' }}>Ko'ring, qanday farq bor! Matn chegara ichida bo'sh joy oldi.</p>
       </div>
     </TutorialLayout>
   )

@@ -13,15 +13,17 @@ export default function HTMLParagraphsPage({
   const content = {
     uz: {
       title: 'HTML Paragraflar',
-      whatIs: `HTML paragraflar matn bo'limlarini ifodalash uchun ishlatiladi. <p> tegi yordamida yaratiladi va avtomatik ravishda yuqori va pastki margin qo'shiladi.`,
-      howToUse: `Paragraflarni yaratish uchun <p> tegi ochiladi va yopiladi. Har bir paragraf alohida bo'lim sifatida ko'rsatiladi.`,
-      whenToUse: `Paragraflar matnni tuzilgan va o'qish oson qilish uchun ishlatiladi. Har bir fikr yoki mavzu uchun alohida paragraf yaratiladi.`,
+      whatIs: `Paragraf - bu oddiy matn bo'limi. Xuddi maktabda insho yozgandek: har bir yangi fikr yangi paragrafdan boshlanadi. HTML'da paragraf <p> tegi bilan yoziladi.`,
+      simpleExplanation: `O'ylab ko'ring: sizga xabar yozish kerak. Birinchi paragrafda salom aytasiz. Ikkinchi paragrafda asosiy xabarni yozasiz. Uchinchi paragrafda xayrlashasiz. HTML'da ham xuddi shunday!`,
+      howToUse: `Qadam 1: <p> yozing. Qadam 2: Matnni yozing. Qadam 3: </p> yozing. Tugadi! Har bir paragraf alohida bo'lim bo'ladi va orasida bo'sh joy bo'ladi.`,
+      whenToUse: `Har doim ishlating! Har bir yangi fikr uchun yangi paragraf. Masalan: birinchi paragraf - "Salom", ikkinchi paragraf - "Men haqimda", uchinchi paragraf - "Aloqa".`,
     },
     ru: {
       title: 'HTML Параграфы',
-      whatIs: `HTML параграфы используются для представления текстовых блоков. Создаются с помощью тега <p> и автоматически добавляют верхний и нижний отступ.`,
-      howToUse: `Для создания параграфов используется открывающий и закрывающий тег <p>. Каждый параграф отображается как отдельный блок.`,
-      whenToUse: `Параграфы используются для структурирования текста и облегчения чтения. Для каждой мысли или темы создается отдельный параграф.`,
+      whatIs: `Параграф - это простой текстовый блок. Как в школе при написании сочинения: каждая новая мысль начинается с нового параграфа. В HTML параграф пишется с помощью тега <p>.`,
+      simpleExplanation: `Представьте: вам нужно написать сообщение. В первом параграфе вы здороваетесь. Во втором параграфе пишете основное сообщение. В третьем параграфе прощаетесь. В HTML точно так же!`,
+      howToUse: `Шаг 1: Напишите <p>. Шаг 2: Напишите текст. Шаг 3: Напишите </p>. Готово! Каждый параграф будет отдельным блоком с промежутком между ними.`,
+      whenToUse: `Используйте всегда! Для каждой новой мысли - новый параграф. Например: первый параграф - "Привет", второй параграф - "Обо мне", третий параграф - "Контакты".`,
     },
   }
 
@@ -37,9 +39,23 @@ export default function HTMLParagraphsPage({
     >
       <h2>{t.common.whatIs}</h2>
       <p>{c.whatIs}</p>
+      
+      <div className="info-box" style={{ background: '#e8f5e9', borderLeftColor: '#4caf50' }}>
+        <strong>💡 Oddiy tushuntirish:</strong> {c.simpleExplanation}
+      </div>
 
       <h2>{t.common.howToUse}</h2>
       <p>{c.howToUse}</p>
+      
+      <div className="example-box" style={{ background: '#fff3e0', borderColor: '#ff9800' }}>
+        <h4>📝 Qadam-baqadam:</h4>
+        <ol>
+          <li>Kod yozishni boshlang: <code>&lt;p&gt;</code></li>
+          <li>Matnni yozing: <code>&lt;p&gt;Bu mening birinchi paragrafim&lt;/p&gt;</code></li>
+          <li>Yangi paragraf uchun yana <code>&lt;p&gt;</code> yozing</li>
+          <li>Brauzerda ko'ring - har bir paragraf alohida bo'lim bo'ladi!</li>
+        </ol>
+      </div>
 
       <div className="example-box">
         <h4>{t.common.codeExample}</h4>
@@ -59,10 +75,26 @@ export default function HTMLParagraphsPage({
 
       <h2>{t.common.whenToUse}</h2>
       <p>{c.whenToUse}</p>
+      
+      <div className="example-box" style={{ background: '#f3e5f5', borderColor: '#9c27b0' }}>
+        <h4>🎯 Real hayotdan misol:</h4>
+        <p>Veb-sayt yaratasiz. Quyidagicha qiling:</p>
+        <ul>
+          <li>Birinchi paragraf: <code>&lt;p&gt;Salom! Mening ismim Ali.&lt;/p&gt;</code></li>
+          <li>Ikkinchi paragraf: <code>&lt;p&gt;Men dasturchiman va veb-saytlar yarataman.&lt;/p&gt;</code></li>
+          <li>Uchinchi paragraf: <code>&lt;p&gt;Agar savolingiz bo'lsa, yozing!&lt;/p&gt;</code></li>
+        </ul>
+        <p><strong>Natija:</strong> Har bir paragraf alohida bo'lim bo'ladi va o'qish oson bo'ladi!</p>
+      </div>
 
       <div className="info-box">
-        <strong>Eslatma:</strong> Paragraflar orasida avtomatik bo'sh joy qo'shiladi.
-        Bu CSS yordamida o'zgartirilishi mumkin.
+        <strong>💡 Eslatma:</strong> Paragraflar orasida avtomatik bo'sh joy bo'ladi. 
+        Bu xuddi Word'da "Enter" bosgandek. Agar bo'sh joyni o'zgartirmoqchi bo'lsangiz, CSS ishlating.
+      </div>
+      
+      <div className="result-box" style={{ background: '#e1f5fe', borderColor: '#0288d1' }}>
+        <h4>👀 Ko'rib chiqing:</h4>
+        <p>Yuqoridagi "Natija" bo'limida 3 ta paragraf ko'rsatilgan. Har biri alohida bo'lim va orasida bo'sh joy bor!</p>
       </div>
     </TutorialLayout>
   )

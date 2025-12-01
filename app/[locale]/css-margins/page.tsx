@@ -13,15 +13,19 @@ export default function CSSMarginsPage({
   const content = {
     uz: {
       title: 'CSS Margin',
-      whatIs: `Margin elementning tashqi bo'shlig'ini boshqaradi. U elementlar orasidagi masofani belgilaydi.`,
-      howToUse: `margin: 20px; (barcha tomonlar), margin: 10px 20px; (yuqori/pastki, chap/o'ng), margin-top, margin-right, margin-bottom, margin-left.`,
-      whenToUse: `Margin elementlar orasidagi masofani yaratish, layout dizaynida, elementlarni joylashtirishda ishlatiladi.`,
+      whatIs: `Margin - bu elementning TASHQARIDAGI bo'sh joy. Xuddi ikki quti orasidagi masofa. Agar margin bo'lmasa, elementlar bir-biriga yopishib qoladi.`,
+      simpleExplanation: `O'ylab ko'ring: sizga 2 ta quti qo'yish kerak. Agar ular orasida bo'sh joy bo'lmasa, ular bir-biriga yopishib qoladi. Margin - bu shu bo'sh joy!`,
+      howToUse: `Qadam 1: <code>margin: 20px;</code> yozing - barcha tomonlarda 20px bo'sh joy. Qadam 2: <code>margin-top: 10px;</code> - faqat yuqoridan. Qadam 3: Brauzerda ko'ring - elementlar orasida bo'sh joy paydo bo'ldi!`,
+      whenToUse: `Har doim ishlating! Elementlar bir-biriga yopishib qolganda, orasiga bo'sh joy kerak bo'lganda. Masalan: 2 ta paragraf orasida, rasm va matn orasida.`,
+      marginVsPadding: `Margin = TASHQARIDAGI bo'sh joy (elementlar orasi). Padding = ICHKIDAGI bo'sh joy (matn va chegara orasi).`,
     },
     ru: {
       title: 'CSS Margin',
-      whatIs: `Margin управляет внешним пространством элемента. Определяет расстояние между элементами.`,
-      howToUse: `margin: 20px; (все стороны), margin: 10px 20px; (верх/низ, лево/право), margin-top, margin-right, margin-bottom, margin-left.`,
-      whenToUse: `Margin используется для создания расстояния между элементами, в дизайне макета, размещении элементов.`,
+      whatIs: `Margin - это пространство СНАРУЖИ элемента. Как расстояние между двумя коробками. Если margin нет, элементы прилипают друг к другу.`,
+      simpleExplanation: `Представьте: вам нужно поставить 2 коробки. Если между ними нет пространства, они прилипнут друг к другу. Margin - это это пространство!`,
+      howToUse: `Шаг 1: Напишите <code>margin: 20px;</code> - 20px пространства со всех сторон. Шаг 2: <code>margin-top: 10px;</code> - только сверху. Шаг 3: Посмотрите в браузере - появилось пространство между элементами!`,
+      whenToUse: `Используйте всегда! Когда элементы прилипают друг к другу, когда нужно пространство между ними. Например: между 2 параграфами, между изображением и текстом.`,
+      marginVsPadding: `Margin = пространство СНАРУЖИ (между элементами). Padding = пространство ВНУТРИ (между текстом и границей).`,
     },
   }
 
@@ -37,9 +41,29 @@ export default function CSSMarginsPage({
     >
       <h2>{t.common.whatIs}</h2>
       <p>{c.whatIs}</p>
+      
+      <div className="info-box" style={{ background: '#e8f5e9', borderLeftColor: '#4caf50' }}>
+        <strong>💡 Oddiy tushuntirish:</strong> {c.simpleExplanation}
+      </div>
 
       <h2>{t.common.howToUse}</h2>
       <p>{c.howToUse}</p>
+      
+      <div className="example-box" style={{ background: '#fff3e0', borderColor: '#ff9800' }}>
+        <h4>📝 Qadam-baqadam:</h4>
+        <ol>
+          <li>CSS yozing: <code>margin: 20px;</code></li>
+          <li>Bu degani: barcha tomonlarda 20px bo'sh joy</li>
+          <li>Brauzerda ko'ring - element atrofida bo'sh joy paydo bo'ldi!</li>
+        </ol>
+        <p><strong>Yoki alohida tomonlar uchun:</strong></p>
+        <ul>
+          <li><code>margin-top: 10px;</code> - faqat yuqoridan</li>
+          <li><code>margin-bottom: 10px;</code> - faqat pastdan</li>
+          <li><code>margin-left: 10px;</code> - faqat chapdan</li>
+          <li><code>margin-right: 10px;</code> - faqat o'ngdan</li>
+        </ul>
+      </div>
 
       <div className="example-box">
         <h4>{t.common.codeExample}</h4>
@@ -109,10 +133,31 @@ margin-top: -10px; /* Elementlarni bir-biriga yaqinlashtiradi */`}</code>
 
       <h2>{t.common.whenToUse}</h2>
       <p>{c.whenToUse}</p>
+      
+      <div className="example-box" style={{ background: '#f3e5f5', borderColor: '#9c27b0' }}>
+        <h4>🎯 Real hayotdan misol:</h4>
+        <p>2 ta paragraf bor va ular bir-biriga yopishib qolgan. Nima qilish kerak?</p>
+        <ul>
+          <li>Birinchi paragrafga: <code>margin-bottom: 20px;</code> qo'shing</li>
+          <li>Yoki ikkinchi paragrafga: <code>margin-top: 20px;</code> qo'shing</li>
+          <li>Natija: Paragraflar orasida 20px bo'sh joy bo'ladi!</li>
+        </ul>
+      </div>
 
-      <div className="info-box">
-        <strong>Margin vs Padding:</strong> Margin - tashqi bo'shlik (elementlar
-        orasi), Padding - ichki bo'shlik (kontent va chegara orasi).
+      <div className="info-box" style={{ background: '#fff3e0', borderLeftColor: '#ff9800' }}>
+        <strong>🤔 Margin vs Padding - farqi nima?</strong>
+        <p style={{ marginTop: '10px' }}>{c.marginVsPadding}</p>
+        <p style={{ marginTop: '10px' }}>
+          <strong>Oddiy qoida:</strong> Agar elementlar bir-biriga yopishib qolgan bo'lsa - Margin ishlating. 
+          Agar matn chegara ichida yopishib qolgan bo'lsa - Padding ishlating.
+        </p>
+      </div>
+      
+      <div className="result-box" style={{ background: '#e1f5fe', borderColor: '#0288d1' }}>
+        <h4>👀 Ko'rib chiqing:</h4>
+        <p>Yuqoridagi "Natija" bo'limida 3 ta div ko'rsatilgan. Birinchisida margin: 20px (barcha tomonlar), 
+        ikkinchisida margin: 10px 30px (yuqori/pastki, chap/o'ng), uchinchisida margin: 0 auto (markazga).</p>
+        <p style={{ marginTop: '10px' }}>Ko'ring, qanday farq bor!</p>
       </div>
     </TutorialLayout>
   )
