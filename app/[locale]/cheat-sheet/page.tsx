@@ -1,5 +1,6 @@
 import React from 'react'
 import TutorialLayout from '@/components/TutorialLayout'
+import PrintButton from '@/components/PrintButton'
 import { translations, Locale } from '@/lib/translations'
 import './cheat-sheet.scss'
 
@@ -88,12 +89,7 @@ export default async function CheatSheetPage({
         </div>
 
         <div className="cheat-actions">
-          <button
-            className="print-btn"
-            onClick={() => window.print()}
-          >
-            {locale === 'uz' ? '🖨️ Chop etish' : '🖨️ Печать'}
-          </button>
+          <PrintButton locale={locale} />
         </div>
       </div>
     </TutorialLayout>
