@@ -97,18 +97,20 @@ export default function HomePage({
             transition={{ duration: 0.6, delay: 0.3 }}
           >
             <h2>{t.common.htmlTopics}</h2>
-            <StaggerAnimation locale={locale} animationType="scale" staggerDelay={50}>
-              {htmlTopics.map((topic, index) => (
-                <SpringAnimation key={topic.slug} locale={locale}>
-                  <Link
-                    href={`/${locale}/${topic.slug}`}
-                    className="topic-card"
-                  >
-                    <h3>{t.html[topic.key as keyof typeof t.html]}</h3>
-                  </Link>
-                </SpringAnimation>
-              ))}
-            </StaggerAnimation>
+            <div className="topics-grid">
+              <StaggerAnimation locale={locale} animationType="scale" staggerDelay={50}>
+                {htmlTopics.map((topic, index) => (
+                  <SpringAnimation key={topic.slug} locale={locale}>
+                    <Link
+                      href={`/${locale}/${topic.slug}`}
+                      className="topic-card"
+                    >
+                      <h3>{t.html[topic.key as keyof typeof t.html]}</h3>
+                    </Link>
+                  </SpringAnimation>
+                ))}
+              </StaggerAnimation>
+            </div>
           </motion.div>
         </ScrollAnimation>
 
@@ -120,18 +122,20 @@ export default function HomePage({
             transition={{ duration: 0.6, delay: 0.5 }}
           >
             <h2>{t.common.cssTopics}</h2>
-            <StaggerAnimation locale={locale} animationType="scale" staggerDelay={50}>
-              {cssTopics.map((topic, index) => (
-                <SpringAnimation key={topic.slug} locale={locale}>
-                  <Link
-                    href={`/${locale}/${topic.slug}`}
-                    className="topic-card"
-                  >
-                    <h3>{t.css[topic.key as keyof typeof t.css]}</h3>
-                  </Link>
-                </SpringAnimation>
-              ))}
-            </StaggerAnimation>
+            <div className="topics-grid">
+              <StaggerAnimation locale={locale} animationType="scale" staggerDelay={50}>
+                {cssTopics.map((topic, index) => (
+                  <SpringAnimation key={topic.slug} locale={locale}>
+                    <Link
+                      href={`/${locale}/${topic.slug}`}
+                      className="topic-card"
+                    >
+                      <h3>{t.css[topic.key as keyof typeof t.css]}</h3>
+                    </Link>
+                  </SpringAnimation>
+                ))}
+              </StaggerAnimation>
+            </div>
           </motion.div>
         </ScrollAnimation>
       </section>

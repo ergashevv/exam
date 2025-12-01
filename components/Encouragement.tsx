@@ -36,19 +36,16 @@ export default function Encouragement({ locale, progress, topicName }: Encourage
   const [currentMessage, setCurrentMessage] = useState<{ text: string; emoji: string } | null>(null)
 
   useEffect(() => {
+    // Only show for Russian locale
+    if (locale !== 'ru') return
+
     // Show encouragement after scrolling 30% of the page
     const handleScroll = () => {
       const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100
       
       if (scrollPercent > 30 && !showMessage) {
-        // Use motivational messages for Russian, regular messages for Uzbek
-        if (locale === 'ru') {
-          const motivationalText = getRandomMotivationalMessage('ru')
-          setCurrentMessage({ text: motivationalText, emoji: '💪' })
-        } else {
-          const randomMessage = messages[locale][Math.floor(Math.random() * messages[locale].length)]
-          setCurrentMessage(randomMessage)
-        }
+        const motivationalText = getRandomMotivationalMessage('ru')
+        setCurrentMessage({ text: motivationalText, emoji: '💪' })
         setShowMessage(true)
         
         setTimeout(() => {
@@ -61,7 +58,7 @@ export default function Encouragement({ locale, progress, topicName }: Encourage
     return () => window.removeEventListener('scroll', handleScroll)
   }, [locale, showMessage])
 
-  if (!showMessage || !currentMessage) return null
+  if (locale !== 'ru' || !showMessage || !currentMessage) return null
 
   return (
     <AnimatePresence>
