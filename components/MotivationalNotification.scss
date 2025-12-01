@@ -3,30 +3,23 @@
   bottom: 2rem;
   right: 2rem;
   z-index: 1001;
-  background: #ffffff;
-  color: #1a1a1a;
-  border-radius: 20px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15), 0 4px 12px rgba(0, 0, 0, 0.1);
-  padding: 1.5rem;
-  min-width: 340px;
-  max-width: 420px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 16px;
+  box-shadow: 
+    0 20px 60px rgba(102, 126, 234, 0.4),
+    0 8px 24px rgba(118, 75, 162, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  padding: 1.25rem 1.5rem;
+  min-width: 320px;
+  max-width: 400px;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 1rem;
-  border: 1px solid rgba(102, 126, 234, 0.1);
   position: relative;
   overflow: hidden;
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
-    animation: shimmer 3s infinite;
-  }
+  transform-style: preserve-3d;
+  perspective: 1000px;
 
   @media (max-width: 768px) {
     bottom: 1rem;
@@ -34,107 +27,94 @@
     left: 1rem;
     min-width: auto;
     max-width: none;
-    padding: 1.25rem;
-    border-radius: 16px;
+    padding: 1rem 1.25rem;
+    border-radius: 14px;
+  }
+
+  .notification-glow {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.15) 0%, transparent 70%);
+    animation: glowRotate 8s linear infinite;
+    pointer-events: none;
   }
 
   .notification-icon-wrapper {
     position: relative;
     flex-shrink: 0;
-    width: 48px;
-    height: 48px;
+    width: 44px;
+    height: 44px;
     display: flex;
     align-items: center;
     justify-content: center;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
 
     .notification-icon {
-      font-size: 1.75rem;
+      font-size: 1.5rem;
       z-index: 2;
       position: relative;
-      animation: iconFloat 3s ease-in-out infinite;
-    }
-
-    .notification-pulse {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 48px;
-      height: 48px;
-      background: linear-gradient(135deg, rgba(102, 126, 234, 0.2), rgba(118, 75, 162, 0.2));
-      border-radius: 50%;
-      animation: pulse 2s ease-in-out infinite;
+      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
     }
   }
 
   .notification-content {
     flex: 1;
     display: flex;
-    align-items: flex-start;
+    align-items: center;
+    min-height: 44px;
 
     .notification-text {
       margin: 0;
       font-size: 0.95rem;
-      line-height: 1.6;
-      font-weight: 500;
-      color: #1a1a1a;
-      letter-spacing: -0.01em;
+      line-height: 1.5;
+      font-weight: 600;
+      color: white;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
     }
   }
 
   .notification-close {
-    background: transparent;
+    background: rgba(255, 255, 255, 0.2);
     border: none;
-    color: #666;
-    width: 24px;
-    height: 24px;
+    color: white;
+    width: 28px;
+    height: 28px;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
     transition: all 0.2s ease;
-    border-radius: 6px;
+    border-radius: 8px;
     padding: 0;
+    backdrop-filter: blur(10px);
 
     &:hover {
-      background: rgba(0, 0, 0, 0.05);
-      color: #1a1a1a;
-      transform: rotate(90deg);
+      background: rgba(255, 255, 255, 0.3);
+      transform: scale(1.1) rotate(90deg);
     }
 
     &:active {
-      transform: rotate(90deg) scale(0.95);
+      transform: scale(0.95) rotate(90deg);
+    }
+
+    svg {
+      filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2));
     }
   }
 }
 
-@keyframes shimmer {
+@keyframes glowRotate {
   0% {
-    background-position: -200% 0;
+    transform: rotate(0deg);
   }
   100% {
-    background-position: 200% 0;
-  }
-}
-
-@keyframes iconFloat {
-  0%, 100% {
-    transform: translateY(0) rotate(0deg);
-  }
-  50% {
-    transform: translateY(-6px) rotate(5deg);
-  }
-}
-
-@keyframes pulse {
-  0%, 100% {
-    transform: translate(-50%, -50%) scale(1);
-    opacity: 0.6;
-  }
-  50% {
-    transform: translate(-50%, -50%) scale(1.2);
-    opacity: 0.3;
+    transform: rotate(360deg);
   }
 }
 

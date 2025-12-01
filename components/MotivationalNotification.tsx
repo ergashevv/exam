@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Locale } from '@/lib/translations'
 import { getRandomMotivationalMessage } from '@/lib/motivationalMessages'
@@ -19,52 +19,71 @@ export default function MotivationalNotification({
 }: MotivationalNotificationProps) {
   const [showNotification, setShowNotification] = useState(false)
   const [message, setMessage] = useState('')
-  const [hasShown, setHasShown] = useState(false)
+  const hasShownRef = useRef(false)
+  const lastShownTimeRef = useRef(0)
+  const scrollTimeoutRef = useRef<NodeJS.Timeout>()
 
   useEffect(() => {
-    if (locale !== 'ru' || hasShown) return
+    if (locale !== 'ru') return
+
+    const MIN_INTERVAL = 45000 // Minimum 45 seconds between notifications
+    const now = Date.now()
 
     if (trigger === 'time') {
       const timer = setTimeout(() => {
-        setMessage(getRandomMotivationalMessage('ru'))
+        if (now - lastShownTimeRef.current < MIN_INTERVAL) return
+        
+        const newMessage = getRandomMotivationalMessage('ru')
+        setMessage(newMessage)
         setShowNotification(true)
-        setHasShown(true)
+        hasShownRef.current = true
+        lastShownTimeRef.current = now
         
         setTimeout(() => {
           setShowNotification(false)
-        }, 8000)
+        }, 7000)
       }, delay)
 
       return () => clearTimeout(timer)
     } else if (trigger === 'scroll') {
-      let scrollTimeout: NodeJS.Timeout
-      
       const handleScroll = () => {
-        clearTimeout(scrollTimeout)
+        if (scrollTimeoutRef.current) {
+          clearTimeout(scrollTimeoutRef.current)
+        }
         
-        scrollTimeout = setTimeout(() => {
+        scrollTimeoutRef.current = setTimeout(() => {
           const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100
           
-          // Show notification when user stops scrolling at 40-60% of page
-          if (scrollPercent > 40 && scrollPercent < 60 && !hasShown) {
-            setMessage(getRandomMotivationalMessage('ru'))
+          // Show notification when user stops scrolling at 30-70% of page
+          if (scrollPercent > 30 && scrollPercent < 70 && !hasShownRef.current) {
+            if (now - lastShownTimeRef.current < MIN_INTERVAL) return
+            
+            const newMessage = getRandomMotivationalMessage('ru')
+            setMessage(newMessage)
             setShowNotification(true)
-            setHasShown(true)
+            hasShownRef.current = true
+            lastShownTimeRef.current = now
             
             setTimeout(() => {
               setShowNotification(false)
-            }, 8000)
+              // Reset after 2 minutes to allow next notification
+              setTimeout(() => {
+                hasShownRef.current = false
+              }, 120000)
+            }, 7000)
           }
-        }, 1000)
+        }, 1500)
       }
 
-      window.addEventListener('scroll', handleScroll)
+      window.addEventListener('scroll', handleScroll, { passive: true })
       return () => {
         window.removeEventListener('scroll', handleScroll)
-        clearTimeout(scrollTimeout)
+        if (scrollTimeoutRef.current) {
+          clearTimeout(scrollTimeoutRef.current)
+        }
       }
     }
-  }, [locale, trigger, delay, hasShown])
+  }, [locale, trigger, delay])
 
   const handleClose = () => {
     setShowNotification(false)
@@ -77,21 +96,49 @@ export default function MotivationalNotification({
       {showNotification && (
         <motion.div
           className="motivational-notification"
-          initial={{ opacity: 0, x: 400, scale: 0.9 }}
-          animate={{ opacity: 1, x: 0, scale: 1 }}
-          exit={{ opacity: 0, x: 400, scale: 0.9 }}
-          transition={{ duration: 0.5, type: 'spring', stiffness: 150, damping: 15 }}
+          initial={{ opacity: 0, y: 100, scale: 0.8, rotateX: -15 }}
+          animate={{ opacity: 1, y: 0, scale: 1, rotateX: 0 }}
+          exit={{ opacity: 0, y: 100, scale: 0.8, rotateX: 15 }}
+          transition={{ 
+            duration: 0.6, 
+            type: 'spring', 
+            stiffness: 200, 
+            damping: 20 
+          }}
         >
+          <div className="notification-glow"></div>
           <div className="notification-icon-wrapper">
-            <div className="notification-icon">📚</div>
-            <div className="notification-pulse"></div>
+            <motion.div 
+              className="notification-icon"
+              animate={{ 
+                rotate: [0, 10, -10, 0],
+                scale: [1, 1.1, 1]
+              }}
+              transition={{ 
+                duration: 2, 
+                repeat: Infinity, 
+                repeatDelay: 3,
+                ease: 'easeInOut'
+              }}
+            >
+              💪
+            </motion.div>
           </div>
           <div className="notification-content">
             <p className="notification-text">{message}</p>
           </div>
-          <button className="notification-close" onClick={handleClose} aria-label="Close">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-              <path d="M12 4L4 12M4 4l8 8" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+          <button 
+            className="notification-close" 
+            onClick={handleClose} 
+            aria-label="Close"
+          >
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+              <path 
+                d="M10 4L4 10M4 4l6 6" 
+                stroke="currentColor" 
+                strokeWidth="2" 
+                strokeLinecap="round"
+              />
             </svg>
           </button>
         </motion.div>

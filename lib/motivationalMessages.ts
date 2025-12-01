@@ -36,8 +36,46 @@ export const motivationalMessages = {
   uz: []
 }
 
+// Get random message without repetition using localStorage
 export function getRandomMotivationalMessage(locale: 'ru' | 'uz' = 'ru'): string {
+  if (typeof window === 'undefined') {
+    // Server-side: return random message
+    const messages = motivationalMessages[locale]
+    return messages[Math.floor(Math.random() * messages.length)]
+  }
+
   const messages = motivationalMessages[locale]
-  return messages[Math.floor(Math.random() * messages.length)]
+  const storageKey = `motivational_messages_${locale}`
+  
+  // Get used messages from localStorage
+  const usedMessagesStr = localStorage.getItem(storageKey)
+  let usedIndices: number[] = []
+  
+  if (usedMessagesStr) {
+    try {
+      usedIndices = JSON.parse(usedMessagesStr)
+    } catch (e) {
+      usedIndices = []
+    }
+  }
+
+  // If all messages have been used, reset
+  if (usedIndices.length >= messages.length) {
+    usedIndices = []
+  }
+
+  // Get available indices
+  const availableIndices = messages
+    .map((_, index) => index)
+    .filter(index => !usedIndices.includes(index))
+
+  // Pick random from available
+  const randomIndex = availableIndices[Math.floor(Math.random() * availableIndices.length)]
+  
+  // Add to used list
+  usedIndices.push(randomIndex)
+  localStorage.setItem(storageKey, JSON.stringify(usedIndices))
+
+  return messages[randomIndex]
 }
 
