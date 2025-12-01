@@ -4,6 +4,7 @@ import React from 'react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { Locale } from '@/lib/translations'
+import PrintButton from './PrintButton'
 import './TutorialLayout.scss'
 
 interface TutorialLayoutProps {
@@ -44,13 +45,22 @@ export default function TutorialLayout({
             ← {translations.common.backToHome}
           </Link>
         </motion.div>
-        <motion.h1
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-        >
-          {title}
-        </motion.h1>
+        <div className="tutorial-title-row">
+          <motion.h1
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
+            {title}
+          </motion.h1>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+          >
+            <PrintButton locale={locale} />
+          </motion.div>
+        </div>
       </motion.div>
 
       <motion.div
