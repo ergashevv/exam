@@ -130,6 +130,34 @@ export default function Sidebar({ locale, translations }: SidebarProps) {
             })}
           </ul>
         </motion.div>
+
+        <motion.div
+          className="sidebar-section"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.5 }}
+        >
+          <h3>{locale === 'uz' ? 'Yordam' : 'Помощь'}</h3>
+          <ul>
+            <motion.li
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.3, delay: 0.5 }}
+            >
+              <motion.div
+                whileHover={{ x: 5 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Link
+                  href={`/${locale}/cheat-sheet`}
+                  className={pathname === `/${locale}/cheat-sheet` ? 'active' : ''}
+                >
+                  {locale === 'uz' ? '📋 Cheat Sheet' : '📋 Шпаргалка'}
+                </Link>
+              </motion.div>
+            </motion.li>
+          </ul>
+        </motion.div>
       </div>
     </motion.aside>
   )
