@@ -25,7 +25,33 @@ export default function HTMLFaviconPage({
     },
   }
 
-  const c = content[locale]
+  const c = content[locale] || content.uz
+
+  const codeExample = `<!DOCTYPE html>
+<html>
+<head>
+  <title>Mening saytim</title>
+  
+  <!-- ICO format -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  
+  <!-- PNG format -->
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  
+  <!-- SVG format (zamonaviy brauzerlar) -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  
+  <!-- Apple touch icon -->
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  
+  <!-- Bir nechta o'lchamlar -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+</head>
+<body>
+  <!-- Kontent -->
+</body>
+</html>`
 
   return (
     <TutorialLayout
@@ -44,31 +70,7 @@ export default function HTMLFaviconPage({
       <div className="example-box">
         <h4>{t.common.codeExample}</h4>
         <pre>
-          <code>{`<!DOCTYPE html>
-<html>
-<head>
-  <title>Mening saytim</title>
-  
-  <!-- ICO format -->
-  <link rel="icon" type="image/x-icon" href="/favicon.ico">
-  
-  <!-- PNG format -->
-  <link rel="icon" type="image/png" href="/favicon.png">
-  
-  <!-- SVG format (zamonaviy brauzerlar) -->
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  
-  <!-- Apple touch icon -->
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  
-  <!-- Bir nechta o'lchamlar -->
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-</head>
-<body>
-  <!-- Kontent -->
-</body>
-</html>`}</code>
+          <code>{codeExample}</code>
         </pre>
       </div>
 
@@ -79,15 +81,14 @@ export default function HTMLFaviconPage({
       <ol>
         <li>Rasm yarating yoki logoni oling (kvadrat format, 16x16 yoki 32x32 piksel)</li>
         <li>Favicon generator saytlaridan foydalaning (favicon.io, realfavicongenerator.net)</li>
-        <li>Yaratilgan fayllarni public yoki root papkasiga qo'ying</li>
-        <li>HTML <head> bo'limiga <link> teglarini qo'shing</li>
+        <li>Yaratilgan fayllarni public yoki root papkasiga qo&apos;ying</li>
+        <li>HTML <code>&lt;head&gt;</code> bo&apos;limiga <code>&lt;link&gt;</code> teglarini qo&apos;shing</li>
       </ol>
 
       <div className="info-box">
         <strong>Eslatma:</strong> Favicon fayli odatda 16x16 yoki 32x32 piksel
-        bo'lishi kerak. SVG formatida favicon kattalashtirganda sifat yo'qotmaydi.
+        bo&apos;lishi kerak. SVG formatida favicon kattalashtirganda sifat yo&apos;qotmaydi.
       </div>
     </TutorialLayout>
   )
 }
-

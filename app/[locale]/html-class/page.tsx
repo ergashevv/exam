@@ -25,7 +25,7 @@ export default function HTMLClassPage({
     },
   }
 
-  const c = content[locale]
+  const c = content[locale] || content.uz
 
   return (
     <TutorialLayout

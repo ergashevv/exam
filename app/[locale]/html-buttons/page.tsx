@@ -25,7 +25,7 @@ export default function HTMLButtonsPage({
     },
   }
 
-  const c = content[locale]
+  const c = content[locale] || content.uz
 
   return (
     <TutorialLayout
