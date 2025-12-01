@@ -4,6 +4,15 @@
   padding: 2rem;
   margin-top: auto;
   width: 100%;
+  transition: background-color 0.3s ease;
+}
+
+[data-theme='dark'] {
+  .footer {
+    background: #1a1a1a;
+    border-top: 1px solid #333;
+  }
+}
 
   @media (max-width: 1024px) {
     padding: 1.5rem;

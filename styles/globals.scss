@@ -19,6 +19,15 @@ body {
   color: #333;
   background: #f5f5f5;
   overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+[data-theme='dark'] {
+  html,
+  body {
+    color: #e0e0e0;
+    background: #1a1a1a;
+  }
 }
 
 code {
@@ -28,10 +37,18 @@ code {
   border-radius: 4px;
   font-size: 0.9em;
   word-break: break-word;
+  transition: background-color 0.3s ease, color 0.3s ease;
 
   @media (max-width: 480px) {
     font-size: 0.8em;
     padding: 0.15rem 0.3rem;
+  }
+}
+
+[data-theme='dark'] {
+  code {
+    background: #2d2d2d;
+    color: #f8f8f2;
   }
 }
 
@@ -45,6 +62,7 @@ pre {
   position: relative;
   animation: fadeInUp 0.5s ease;
   -webkit-overflow-scrolling: touch;
+  transition: background-color 0.3s ease;
 
   @media (max-width: 768px) {
     padding: 1rem;
@@ -74,6 +92,13 @@ pre {
     color: inherit;
     white-space: pre-wrap;
     word-wrap: break-word;
+  }
+}
+
+[data-theme='dark'] {
+  pre {
+    background: #1e1e1e;
+    border: 1px solid #333;
   }
 }
 
