@@ -26,12 +26,15 @@ export default function MotivationalNotification({
   useEffect(() => {
     if (locale !== 'ru') return
 
-    const MIN_INTERVAL = 3000 // Minimum 30 seconds between notifications
+    const MIN_INTERVAL = 30000 // Minimum 30 seconds between notifications
 
     if (trigger === 'time') {
       const timer = setTimeout(() => {
         const now = Date.now()
-        if (now - lastShownTimeRef.current < MIN_INTERVAL) return
+        // Only check interval if we've shown before
+        if (lastShownTimeRef.current > 0 && now - lastShownTimeRef.current < MIN_INTERVAL) {
+          return
+        }
         
         const newMessage = getRandomMotivationalMessage('ru')
         setMessage(newMessage)
@@ -58,7 +61,7 @@ export default function MotivationalNotification({
           // Show notification when user stops scrolling at 25-75% of page
           if (scrollPercent > 25 && scrollPercent < 75) {
             // Check if enough time has passed and hasn't been shown yet
-            if (now - lastShownTimeRef.current >= MIN_INTERVAL && !hasShownRef.current) {
+            if ((lastShownTimeRef.current === 0 || now - lastShownTimeRef.current >= MIN_INTERVAL) && !hasShownRef.current) {
               const newMessage = getRandomMotivationalMessage('ru')
               setMessage(newMessage)
               setShowNotification(true)

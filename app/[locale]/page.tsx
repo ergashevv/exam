@@ -1,6 +1,6 @@
 'use client'
 
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { translations, Locale } from '@/lib/translations'
@@ -15,9 +15,19 @@ export default function HomePage({
 }: {
   params: { locale: Locale } | Promise<{ locale: Locale }>
 }) {
+  const [locale, setLocale] = useState<Locale>('uz')
+  
   // Handle both sync and async params
-  const resolvedParams = params instanceof Promise ? undefined : params
-  const locale = resolvedParams?.locale || 'uz'
+  useEffect(() => {
+    if (params instanceof Promise) {
+      params.then((resolved) => {
+        setLocale(resolved.locale || 'uz')
+      })
+    } else {
+      setLocale(params.locale || 'uz')
+    }
+  }, [params])
+  
   const t = translations[locale] || translations.uz
 
   const htmlTopics = [
