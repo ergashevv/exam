@@ -1,4 +1,7 @@
+'use client'
+
 import Link from 'next/link'
+import { motion } from 'framer-motion'
 import { Locale, translations } from '@/lib/translations'
 import './Header.scss'
 
@@ -12,21 +15,48 @@ export default function Header({ locale, translations: propsTranslations }: Head
   const t = propsTranslations || translations[locale] || translations.uz
 
   return (
-    <header className="header">
+    <motion.header
+      className="header"
+      initial={{ y: -100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.5, ease: 'easeOut' }}
+    >
       <div className="header-container">
-        <Link href={`/${locale}`} className="logo">
-          HTML & CSS Darslik
-        </Link>
+        <motion.div
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          <Link href={`/${locale}`} className="logo">
+            HTML & CSS Darslik
+          </Link>
+        </motion.div>
         <nav className="nav">
-          <Link href={`/${locale}`}>{t.nav.home}</Link>
-          <Link href={`/${locale}#html`}>{t.nav.html}</Link>
-          <Link href={`/${locale}#css`}>{t.nav.css}</Link>
+          {[
+            { href: `/${locale}`, label: t.nav.home },
+            { href: `/${locale}#html`, label: t.nav.html },
+            { href: `/${locale}#css`, label: t.nav.css },
+          ].map((item, index) => (
+            <motion.div
+              key={item.href}
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 * index + 0.2 }}
+              whileHover={{ y: -2 }}
+            >
+              <Link href={item.href}>{item.label}</Link>
+            </motion.div>
+          ))}
         </nav>
-        <Link href={`/${switchLocale}`} className="lang-switcher">
-          {switchLocale.toUpperCase()}
-        </Link>
+        <motion.div
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+        >
+          <Link href={`/${switchLocale}`} className="lang-switcher">
+            {switchLocale.toUpperCase()}
+          </Link>
+        </motion.div>
       </div>
-    </header>
+    </motion.header>
   )
 }
 

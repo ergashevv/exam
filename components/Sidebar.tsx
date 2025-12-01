@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import { motion } from 'framer-motion'
 import { usePathname } from 'next/navigation'
 import { Locale } from '@/lib/translations'
 import './Sidebar.scss'
@@ -53,49 +54,84 @@ export default function Sidebar({ locale, translations }: SidebarProps) {
   ]
 
   return (
-    <aside className="sidebar">
+    <motion.aside
+      className="sidebar"
+      initial={{ x: -280, opacity: 0 }}
+      animate={{ x: 0, opacity: 1 }}
+      transition={{ duration: 0.5, ease: 'easeOut' }}
+    >
       <div className="sidebar-content">
-        <div className="sidebar-section">
+        <motion.div
+          className="sidebar-section"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+        >
           <h3>{translations.nav.html}</h3>
           <ul>
-            {htmlTopics.map((topic) => {
+            {htmlTopics.map((topic, index) => {
               const href = `/${locale}/${topic.slug}`
               const isActive = pathname === href
               return (
-                <li key={topic.slug}>
-                  <Link
-                    href={href}
-                    className={isActive ? 'active' : ''}
+                <motion.li
+                  key={topic.slug}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.3, delay: 0.1 + index * 0.02 }}
+                >
+                  <motion.div
+                    whileHover={{ x: 5 }}
+                    whileTap={{ scale: 0.95 }}
                   >
-                    {translations.html[topic.key as keyof typeof translations.html]}
-                  </Link>
-                </li>
+                    <Link
+                      href={href}
+                      className={isActive ? 'active' : ''}
+                    >
+                      {translations.html[topic.key as keyof typeof translations.html]}
+                    </Link>
+                  </motion.div>
+                </motion.li>
               )
             })}
           </ul>
-        </div>
+        </motion.div>
 
-        <div className="sidebar-section">
+        <motion.div
+          className="sidebar-section"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+        >
           <h3>{translations.nav.css}</h3>
           <ul>
-            {cssTopics.map((topic) => {
+            {cssTopics.map((topic, index) => {
               const href = `/${locale}/${topic.slug}`
               const isActive = pathname === href
               return (
-                <li key={topic.slug}>
-                  <Link
-                    href={href}
-                    className={isActive ? 'active' : ''}
+                <motion.li
+                  key={topic.slug}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.3, delay: 0.3 + index * 0.02 }}
+                >
+                  <motion.div
+                    whileHover={{ x: 5 }}
+                    whileTap={{ scale: 0.95 }}
                   >
-                    {translations.css[topic.key as keyof typeof translations.css]}
-                  </Link>
-                </li>
+                    <Link
+                      href={href}
+                      className={isActive ? 'active' : ''}
+                    >
+                      {translations.css[topic.key as keyof typeof translations.css]}
+                    </Link>
+                  </motion.div>
+                </motion.li>
               )
             })}
           </ul>
-        </div>
+        </motion.div>
       </div>
-    </aside>
+    </motion.aside>
   )
 }
 

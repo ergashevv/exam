@@ -42,18 +42,42 @@
             text-decoration: none;
             color: #333;
             border-radius: 6px;
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             font-size: 0.9rem;
+            position: relative;
+            overflow: hidden;
+
+            &::before {
+              content: '';
+              position: absolute;
+              left: 0;
+              top: 0;
+              height: 100%;
+              width: 3px;
+              background: #667eea;
+              transform: scaleY(0);
+              transition: transform 0.3s ease;
+            }
 
             &:hover {
               background: #e8eaf6;
               color: #667eea;
+              padding-left: 1.25rem;
+              
+              &::before {
+                transform: scaleY(1);
+              }
             }
 
             &.active {
-              background: #667eea;
+              background: linear-gradient(90deg, #667eea, #764ba2);
               color: white;
               font-weight: 600;
+              box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+              
+              &::before {
+                display: none;
+              }
             }
           }
         }

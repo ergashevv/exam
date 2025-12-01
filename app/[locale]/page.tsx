@@ -1,15 +1,20 @@
+'use client'
+
 import React from 'react'
 import Link from 'next/link'
+import { motion } from 'framer-motion'
 import { translations, Locale } from '@/lib/translations'
+import AnimatedCard from '@/components/AnimatedCard'
+import AnimatedText from '@/components/AnimatedText'
 import './page.scss'
 
-export default async function HomePage({
+export default function HomePage({
   params,
 }: {
   params: { locale: Locale } | Promise<{ locale: Locale }>
 }) {
   // Handle both sync and async params
-  const resolvedParams = params instanceof Promise ? await params : params
+  const resolvedParams = params instanceof Promise ? undefined : params
   const locale = resolvedParams?.locale || 'uz'
   const t = translations[locale] || translations.uz
 
@@ -53,48 +58,74 @@ export default async function HomePage({
   ]
 
   return (
-    <div className="home-page">
-      <div className="hero-section">
-        <h1>HTML & CSS To'liq Darslik</h1>
-        <p className="subtitle">
-          {locale === 'uz'
-            ? 'HTML va CSS bo\'yicha barcha mavzularni o\'rganing'
-            : 'Изучите все темы по HTML и CSS'}
-        </p>
-      </div>
+    <motion.div
+      className="home-page"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+    >
+      <motion.div
+        className="hero-section"
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.6, ease: 'easeOut' }}
+      >
+        <AnimatedText>
+          <h1>HTML & CSS To'liq Darslik</h1>
+        </AnimatedText>
+        <AnimatedText delay={0.2}>
+          <p className="subtitle">
+            {locale === 'uz'
+              ? 'HTML va CSS bo\'yicha barcha mavzularni o\'rganing'
+              : 'Изучите все темы по HTML и CSS'}
+          </p>
+        </AnimatedText>
+      </motion.div>
 
       <section className="topics-section">
-        <div className="html-topics">
+        <motion.div
+          className="html-topics"
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+        >
           <h2>HTML Mavzular</h2>
           <div className="topics-grid">
-            {htmlTopics.map((topic) => (
-              <Link
-                key={topic.slug}
-                href={`/${locale}/${topic.slug}`}
-                className="topic-card"
-              >
-                <h3>{t.html[topic.key as keyof typeof t.html]}</h3>
-              </Link>
+            {htmlTopics.map((topic, index) => (
+              <AnimatedCard key={topic.slug} index={index}>
+                <Link
+                  href={`/${locale}/${topic.slug}`}
+                  className="topic-card"
+                >
+                  <h3>{t.html[topic.key as keyof typeof t.html]}</h3>
+                </Link>
+              </AnimatedCard>
             ))}
           </div>
-        </div>
+        </motion.div>
 
-        <div className="css-topics">
+        <motion.div
+          className="css-topics"
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6, delay: 0.5 }}
+        >
           <h2>CSS Mavzular</h2>
           <div className="topics-grid">
-            {cssTopics.map((topic) => (
-              <Link
-                key={topic.slug}
-                href={`/${locale}/${topic.slug}`}
-                className="topic-card"
-              >
-                <h3>{t.css[topic.key as keyof typeof t.css]}</h3>
-              </Link>
+            {cssTopics.map((topic, index) => (
+              <AnimatedCard key={topic.slug} index={index}>
+                <Link
+                  href={`/${locale}/${topic.slug}`}
+                  className="topic-card"
+                >
+                  <h3>{t.css[topic.key as keyof typeof t.css]}</h3>
+                </Link>
+              </AnimatedCard>
             ))}
           </div>
-        </div>
+        </motion.div>
       </section>
-    </div>
+    </motion.div>
   )
 }
 
