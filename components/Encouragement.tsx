@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Locale } from '@/lib/translations'
+import { getRandomMotivationalMessage } from '@/lib/motivationalMessages'
 import './Encouragement.scss'
 
 interface EncouragementProps {
@@ -40,13 +41,19 @@ export default function Encouragement({ locale, progress, topicName }: Encourage
       const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100
       
       if (scrollPercent > 30 && !showMessage) {
-        const randomMessage = messages[locale][Math.floor(Math.random() * messages[locale].length)]
-        setCurrentMessage(randomMessage)
+        // Use motivational messages for Russian, regular messages for Uzbek
+        if (locale === 'ru') {
+          const motivationalText = getRandomMotivationalMessage('ru')
+          setCurrentMessage({ text: motivationalText, emoji: '💪' })
+        } else {
+          const randomMessage = messages[locale][Math.floor(Math.random() * messages[locale].length)]
+          setCurrentMessage(randomMessage)
+        }
         setShowMessage(true)
         
         setTimeout(() => {
           setShowMessage(false)
-        }, 5000)
+        }, 6000)
       }
     }
 

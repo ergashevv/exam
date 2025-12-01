@@ -23,25 +23,29 @@ export default function SpringAnimation({
   useEffect(() => {
     if (typeof window !== 'undefined' && elementRef.current) {
       import('animejs').then((animeModule: any) => {
-        const anime = (animeModule.default || animeModule) as any
+        const anime = animeModule.default || animeModule
+        if (!anime || typeof anime !== 'function') {
+          console.error('Anime.js is not a function')
+          return
+        }
 
         if (isHovered) {
-        anime({
-          targets: elementRef.current,
-          scale: 1.1,
-          rotate: 5,
-          duration: 300,
-          easing: `spring(${stiffness}, ${damping})`,
-        })
-      } else {
-        anime({
-          targets: elementRef.current,
-          scale: 1,
-          rotate: 0,
-          duration: 300,
-          easing: `spring(${stiffness}, ${damping})`,
-        })
-      }
+          anime({
+            targets: elementRef.current,
+            scale: 1.1,
+            rotate: 5,
+            duration: 300,
+            easing: 'easeOutElastic(1, .6)',
+          })
+        } else {
+          anime({
+            targets: elementRef.current,
+            scale: 1,
+            rotate: 0,
+            duration: 300,
+            easing: 'easeOutElastic(1, .6)',
+          })
+        }
       }).catch((err) => {
         console.error('Failed to load anime.js:', err)
       })

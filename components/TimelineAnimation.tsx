@@ -15,22 +15,24 @@ export default function TimelineAnimation({ locale, items }: TimelineAnimationPr
   useEffect(() => {
     if (typeof window !== 'undefined' && containerRef.current) {
       import('animejs').then((animeModule: any) => {
-        const anime = (animeModule.default || animeModule) as any
-
-        const timeline = anime.timeline({
-          easing: 'easeOutExpo',
-          duration: 600,
-        })
+        const anime = animeModule.default || animeModule
+        if (!anime || typeof anime !== 'function') {
+          console.error('Anime.js is not a function')
+          return
+        }
 
         items.forEach((item, index) => {
           const element = containerRef.current?.querySelector(`[data-item-id="${item.id}"]`)
           if (element) {
-            timeline.add({
+            anime({
               targets: element,
               opacity: [0, 1],
               translateX: [-50, 0],
               scale: [0.8, 1],
-            }, index * 100)
+              duration: 600,
+              delay: index * 100,
+              easing: 'easeOutExpo',
+            })
           }
         })
       }).catch((err) => {

@@ -23,7 +23,11 @@ export default function SVGAnimation({
   useEffect(() => {
     if (typeof window !== 'undefined' && pathRef.current) {
       import('animejs').then((animeModule: any) => {
-        const anime = (animeModule.default || animeModule) as any
+        const anime = animeModule.default || animeModule
+        if (!anime || typeof anime !== 'function') {
+          console.error('Anime.js is not a function')
+          return
+        }
 
         if (!pathRef.current) return
 
@@ -32,45 +36,45 @@ export default function SVGAnimation({
           pathRef.current.style.strokeDasharray = `${pathLength}`
           pathRef.current.style.strokeDashoffset = `${pathLength}`
 
-        anime({
-          targets: pathRef.current,
-          strokeDashoffset: [pathLength, 0],
-          duration: 2000,
-          easing: 'easeInOutSine',
-          delay: 500,
-        })
-      } else if (type === 'morph') {
-        const morphPaths = [
-            'M10 10 L90 10 L90 90 L10 90 Z',
-            'M50 10 L90 50 L50 90 L10 50 Z',
-            'M50 10 Q90 50 50 90 Q10 50 50 10 Z',
+          anime({
+            targets: pathRef.current,
+            strokeDashoffset: [pathLength, 0],
+            duration: 2000,
+            easing: 'easeInOutSine',
+            delay: 500,
+          })
+        } else if (type === 'morph') {
+          const morphPaths = [
+            { d: 'M10 10 L90 10 L90 90 L10 90 Z' },
+            { d: 'M50 10 L90 50 L50 90 L10 50 Z' },
+            { d: 'M50 10 Q90 50 50 90 Q10 50 50 10 Z' },
           ]
 
-        anime({
-          targets: pathRef.current,
-          d: morphPaths,
-          duration: 3000,
-          easing: 'easeInOutQuad',
-          loop: true,
-          direction: 'alternate',
-        })
-      } else if (type === 'rotate') {
-        anime({
-          targets: svgRef.current,
-          rotate: 360,
-          duration: 2000,
-          easing: 'linear',
-          loop: true,
-        })
-      } else if (type === 'scale') {
-        anime({
-          targets: pathRef.current,
-          scale: [1, 1.2, 1],
-          duration: 1500,
-          easing: 'easeInOutQuad',
-          loop: true,
-        })
-      }
+          anime({
+            targets: pathRef.current,
+            d: morphPaths.map(p => p.d),
+            duration: 3000,
+            easing: 'easeInOutQuad',
+            loop: true,
+            direction: 'alternate',
+          })
+        } else if (type === 'rotate') {
+          anime({
+            targets: svgRef.current,
+            rotate: 360,
+            duration: 2000,
+            easing: 'linear',
+            loop: true,
+          })
+        } else if (type === 'scale') {
+          anime({
+            targets: pathRef.current,
+            scale: [1, 1.2, 1],
+            duration: 1500,
+            easing: 'easeInOutQuad',
+            loop: true,
+          })
+        }
       }).catch((err) => {
         console.error('Failed to load anime.js:', err)
       })

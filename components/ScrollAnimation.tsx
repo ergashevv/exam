@@ -22,7 +22,11 @@ export default function ScrollAnimation({
     if (typeof window === 'undefined' || !elementRef.current || hasAnimated.current) return
 
     import('animejs').then((animeModule: any) => {
-      const anime = (animeModule.default || animeModule) as any
+      const anime = animeModule.default || animeModule
+      if (!anime || typeof anime !== 'function') {
+        console.error('Anime.js is not a function')
+        return
+      }
 
       const observer = new IntersectionObserver(
         (entries) => {
@@ -37,7 +41,6 @@ export default function ScrollAnimation({
                 scale: [0.9, 1],
                 duration: 1000,
                 easing: 'easeOutExpo',
-                delay: anime.stagger(100, { from: 'center' }),
               })
 
               observer.unobserve(entry.target)

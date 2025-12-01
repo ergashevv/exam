@@ -11,6 +11,7 @@ import StaggerAnimation from '@/components/StaggerAnimation'
 import ScrollAnimation from '@/components/ScrollAnimation'
 import SVGAnimation from '@/components/SVGAnimation'
 import SpringAnimation from '@/components/SpringAnimation'
+import MotivationalNotification from '@/components/MotivationalNotification'
 import './page.scss'
 
 export default function HomePage({
@@ -152,6 +153,8 @@ export default function HomePage({
       >
         <LearningPath locale={locale} />
       </motion.section>
+
+      <MotivationalNotification locale={locale} trigger="time" delay={20000} />
     </motion.div>
   )
 }

@@ -21,32 +21,39 @@ export default function CodeBlockAnimation({
   useEffect(() => {
     if (typeof window !== 'undefined' && containerRef.current && codeRef.current) {
       import('animejs').then((animeModule: any) => {
-        const anime = (animeModule.default || animeModule) as any
+        const anime = animeModule.default || animeModule
+        if (!anime || typeof anime !== 'function') {
+          console.error('Anime.js is not a function')
+          return
+        }
 
         // Animate code block appearance
         anime({
-        targets: containerRef.current,
-        opacity: [0, 1],
-        scale: [0.95, 1],
-        duration: 600,
-        easing: 'easeOutExpo',
-      })
+          targets: containerRef.current,
+          opacity: [0, 1],
+          scale: [0.95, 1],
+          duration: 600,
+          easing: 'easeOutExpo',
+        })
 
         // Animate code characters
         if (!codeRef.current) return
         const text = codeRef.current.textContent || ''
         codeRef.current.textContent = ''
 
-      anime({
-        targets: { value: 0 },
-        value: text.length,
-        duration: 2000,
-        easing: 'linear',
-        update: function(anim: any) {
-          const currentLength = Math.floor(anim.progress / 100 * text.length)
-          codeRef.current!.textContent = text.substring(0, currentLength)
-        },
-      })
+        let currentLength = 0
+        anime({
+          targets: { value: 0 },
+          value: text.length,
+          duration: 2000,
+          easing: 'linear',
+          update: function(anim: any) {
+            currentLength = Math.floor(anim.progress / 100 * text.length)
+            if (codeRef.current) {
+              codeRef.current.textContent = text.substring(0, currentLength)
+            }
+          },
+        })
       }).catch((err) => {
         console.error('Failed to load anime.js:', err)
       })

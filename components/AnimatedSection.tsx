@@ -22,38 +22,42 @@ export default function AnimatedSection({
   useEffect(() => {
     if (typeof window !== 'undefined' && sectionRef.current) {
       import('animejs').then((animeModule: any) => {
-        const anime = (animeModule.default || animeModule) as any
+        const anime = animeModule.default || animeModule
+        if (!anime || typeof anime !== 'function') {
+          console.error('Anime.js is not a function')
+          return
+        }
 
         const animations = {
-        fadeIn: {
-          opacity: [0, 1],
-          translateY: [30, 0],
-        },
-        slideUp: {
-          translateY: [100, 0],
-          opacity: [0, 1],
-        },
-        scale: {
-          scale: [0.8, 1],
-          opacity: [0, 1],
-        },
-        rotate: {
-          rotate: [-180, 0],
-          opacity: [0, 1],
-        },
-        bounce: {
-          translateY: [0, -20, 0],
-          opacity: [0, 1],
-        },
-      }
+          fadeIn: {
+            opacity: [0, 1],
+            translateY: [30, 0],
+          },
+          slideUp: {
+            translateY: [100, 0],
+            opacity: [0, 1],
+          },
+          scale: {
+            scale: [0.8, 1],
+            opacity: [0, 1],
+          },
+          rotate: {
+            rotate: [-180, 0],
+            opacity: [0, 1],
+          },
+          bounce: {
+            translateY: [0, -20, 0],
+            opacity: [0, 1],
+          },
+        }
 
-      anime({
-        targets: sectionRef.current,
-        ...animations[animationType],
-        duration: 800,
-        delay: delay,
-        easing: 'easeOutExpo',
-      })
+        anime({
+          targets: sectionRef.current,
+          ...animations[animationType],
+          duration: 800,
+          delay: delay,
+          easing: 'easeOutExpo',
+        })
       }).catch((err) => {
         console.error('Failed to load anime.js:', err)
       })

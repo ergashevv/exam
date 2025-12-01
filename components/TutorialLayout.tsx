@@ -9,6 +9,7 @@ import TableOfContents from './TableOfContents'
 import Breadcrumbs from './Breadcrumbs'
 import RelatedTopics from './RelatedTopics'
 import Encouragement from './Encouragement'
+import MotivationalNotification from './MotivationalNotification'
 import './TutorialLayout.scss'
 
 interface TutorialLayoutProps {
@@ -92,6 +93,7 @@ export default function TutorialLayout({
 
       <TableOfContents locale={locale} />
       <Encouragement locale={locale} />
+      <MotivationalNotification locale={locale} trigger="scroll" />
 
       <motion.div
         className="tutorial-navigation"
