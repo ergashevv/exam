@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useState, useEffect, useRef } from 'react'
+import { createPortal } from 'react-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Locale } from '@/lib/translations'
 import { getRandomMotivationalMessage } from '@/lib/motivationalMessages'
@@ -19,9 +20,14 @@ export default function MotivationalNotification({
 }: MotivationalNotificationProps) {
   const [showNotification, setShowNotification] = useState(false)
   const [message, setMessage] = useState('')
+  const [mounted, setMounted] = useState(false)
   const hasShownRef = useRef(false)
   const lastShownTimeRef = useRef(0)
   const scrollTimeoutRef = useRef<NodeJS.Timeout>()
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   useEffect(() => {
     if (locale !== 'ru') return
@@ -94,9 +100,9 @@ export default function MotivationalNotification({
     setShowNotification(false)
   }
 
-  if (locale !== 'ru' || !showNotification || !message) return null
+  if (locale !== 'ru' || !showNotification || !message || !mounted) return null
 
-  return (
+  const notificationContent = (
     <AnimatePresence>
       {showNotification && (
         <motion.div
@@ -150,5 +156,8 @@ export default function MotivationalNotification({
       )}
     </AnimatePresence>
   )
+
+  // Render to body using portal to ensure it's above all content
+  return createPortal(notificationContent, document.body)
 }
 

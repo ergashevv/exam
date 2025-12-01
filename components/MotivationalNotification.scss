@@ -1,8 +1,8 @@
 .motivational-notification {
-  position: fixed;
+  position: fixed !important;
   bottom: 2rem;
   right: 2rem;
-  z-index: 1001;
+  z-index: 9999 !important;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
   border-radius: 16px;
@@ -16,10 +16,10 @@
   display: flex;
   align-items: center;
   gap: 1rem;
-  position: relative;
   overflow: hidden;
   transform-style: preserve-3d;
   perspective: 1000px;
+  pointer-events: auto;
 
   @media (max-width: 768px) {
     bottom: 1rem;
