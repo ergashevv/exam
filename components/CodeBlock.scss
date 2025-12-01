@@ -110,56 +110,76 @@
         display: block;
         min-width: 100%;
 
-        // Syntax highlighting colors
-        .token {
-          &.comment {
+        // Prism.js syntax highlighting colors
+        :global {
+          .token.comment,
+          .token.prolog,
+          .token.doctype,
+          .token.cdata {
             color: #6a9955;
             font-style: italic;
           }
 
-          &.keyword {
+          .token.punctuation {
+            color: #d4d4d4;
+          }
+
+          .token.property,
+          .token.tag,
+          .token.boolean,
+          .token.number,
+          .token.constant,
+          .token.symbol,
+          .token.deleted {
+            color: #569cd6;
+          }
+
+          .token.selector,
+          .token.attr-name,
+          .token.string,
+          .token.char,
+          .token.builtin,
+          .token.inserted {
+            color: #ce9178;
+          }
+
+          .token.operator,
+          .token.entity,
+          .token.url,
+          .language-css .token.string,
+          .style .token.string {
+            color: #d4d4d4;
+          }
+
+          .token.atrule,
+          .token.attr-value,
+          .token.keyword {
             color: #569cd6;
             font-weight: 500;
           }
 
-          &.string {
-            color: #ce9178;
-          }
-
-          &.function {
+          .token.function,
+          .token.class-name {
             color: #dcdcaa;
           }
 
-          &.number {
-            color: #b5cea8;
-          }
-
-          &.operator {
-            color: #d4d4d4;
-          }
-
-          &.punctuation {
-            color: #d4d4d4;
-          }
-
-          &.tag {
-            color: #569cd6;
-          }
-
-          &.attr-name {
-            color: #9cdcfe;
-          }
-
-          &.attr-value {
+          .token.regex,
+          .token.important,
+          .token.variable {
             color: #ce9178;
           }
 
-          &.selector {
-            color: #d7ba7d;
+          .token.important,
+          .token.bold {
+            font-weight: bold;
           }
 
-          &.property {
-            color: #9cdcfe;
+          .token.italic {
+            font-style: italic;
+          }
+
+          .token.entity {
+            cursor: help;
           }
         }
       }

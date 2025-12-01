@@ -37,11 +37,30 @@ export default function CodeBlock({
 
   useEffect(() => {
     if (codeRef.current && typeof window !== 'undefined') {
-      const Prism = require('prismjs')
-      require('prismjs/components/prism-markup')
-      require('prismjs/components/prism-css')
-      require('prismjs/components/prism-javascript')
-      Prism.highlightElement(codeRef.current)
+      // Use setTimeout to ensure DOM is ready
+      const timer = setTimeout(() => {
+        try {
+          const Prism = require('prismjs')
+          
+          // Load language components
+          if (language === 'html' || language === 'markup') {
+            require('prismjs/components/prism-markup')
+          } else if (language === 'css') {
+            require('prismjs/components/prism-css')
+          } else if (language === 'javascript' || language === 'js') {
+            require('prismjs/components/prism-javascript')
+          }
+          
+          // Highlight the code
+          if (codeRef.current) {
+            Prism.highlightElement(codeRef.current)
+          }
+        } catch (err) {
+          console.error('Failed to load Prism.js:', err)
+        }
+      }, 100)
+
+      return () => clearTimeout(timer)
     }
   }, [formattedCode, language])
 
@@ -75,7 +94,10 @@ export default function CodeBlock({
           </div>
         )}
         <pre className="code-block">
-          <code ref={codeRef} className={language ? `language-${language}` : ''}>
+          <code 
+            ref={codeRef} 
+            className={language ? `language-${language === 'html' ? 'markup' : language}` : ''}
+          >
             {formattedCode}
           </code>
         </pre>

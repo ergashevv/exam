@@ -49,6 +49,71 @@ export default function RootLayout({
       <head>
         <link rel="manifest" href="/manifest.json" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" />
+        <style dangerouslySetInnerHTML={{
+          __html: `
+            /* Override Prism.js colors for better visibility */
+            code[class*="language-"],
+            pre[class*="language-"] {
+              color: #d4d4d4;
+              background: #1e1e1e;
+            }
+            
+            .token.comment,
+            .token.prolog,
+            .token.doctype,
+            .token.cdata {
+              color: #6a9955;
+              font-style: italic;
+            }
+            
+            .token.punctuation {
+              color: #d4d4d4;
+            }
+            
+            .token.property,
+            .token.tag,
+            .token.boolean,
+            .token.number,
+            .token.constant,
+            .token.symbol,
+            .token.deleted {
+              color: #569cd6;
+            }
+            
+            .token.selector,
+            .token.attr-name,
+            .token.string,
+            .token.char,
+            .token.builtin,
+            .token.inserted {
+              color: #ce9178;
+            }
+            
+            .token.operator,
+            .token.entity,
+            .token.url {
+              color: #d4d4d4;
+            }
+            
+            .token.atrule,
+            .token.attr-value,
+            .token.keyword {
+              color: #569cd6;
+              font-weight: 500;
+            }
+            
+            .token.function,
+            .token.class-name {
+              color: #dcdcaa;
+            }
+            
+            .token.regex,
+            .token.important,
+            .token.variable {
+              color: #ce9178;
+            }
+          `
+        }} />
         <meta name="theme-color" content="#667eea" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />

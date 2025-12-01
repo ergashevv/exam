@@ -98,6 +98,64 @@ pre {
     font-size: inherit;
     line-height: inherit;
     display: block;
+
+    // Prism.js syntax highlighting
+    :global {
+      .token.comment,
+      .token.prolog,
+      .token.doctype,
+      .token.cdata {
+        color: #6a9955;
+        font-style: italic;
+      }
+
+      .token.punctuation {
+        color: #d4d4d4;
+      }
+
+      .token.property,
+      .token.tag,
+      .token.boolean,
+      .token.number,
+      .token.constant,
+      .token.symbol,
+      .token.deleted {
+        color: #569cd6;
+      }
+
+      .token.selector,
+      .token.attr-name,
+      .token.string,
+      .token.char,
+      .token.builtin,
+      .token.inserted {
+        color: #ce9178;
+      }
+
+      .token.operator,
+      .token.entity,
+      .token.url {
+        color: #d4d4d4;
+      }
+
+      .token.atrule,
+      .token.attr-value,
+      .token.keyword {
+        color: #569cd6;
+        font-weight: 500;
+      }
+
+      .token.function,
+      .token.class-name {
+        color: #dcdcaa;
+      }
+
+      .token.regex,
+      .token.important,
+      .token.variable {
+        color: #ce9178;
+      }
+    }
   }
 
   // Scrollbar styling
