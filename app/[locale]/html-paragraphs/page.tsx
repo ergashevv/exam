@@ -1,5 +1,16 @@
 import React from 'react'
 import TutorialLayout from '@/components/TutorialLayout'
+import CodeEditor from '@/components/CodeEditor'
+import KeyPoints from '@/components/KeyPoints'
+import CommonMistakes from '@/components/CommonMistakes'
+import VisualExample from '@/components/VisualExample'
+import RealWorldExample from '@/components/RealWorldExample'
+import SimpleExplanation from '@/components/SimpleExplanation'
+import PracticeMode from '@/components/PracticeMode'
+import Quiz from '@/components/Quiz'
+import Glossary from '@/components/Glossary'
+import VideoLinks from '@/components/VideoLinks'
+import Encouragement from '@/components/Encouragement'
 import { translations, Locale } from '@/lib/translations'
 
 export default async function HTMLParagraphsPage({
@@ -35,15 +46,37 @@ export default async function HTMLParagraphsPage({
       locale={locale}
       translations={t}
       title={c.title}
+      category="html"
       prevTopic={{ slug: 'html-headings', title: t.html.headings }}
       nextTopic={{ slug: 'html-colors', title: t.html.colors }}
     >
-      <h2>{t.common.whatIs}</h2>
-      <p>{c.whatIs}</p>
-      
-      <div className="info-box" style={{ background: '#e8f5e9', borderLeftColor: '#4caf50' }}>
-        <strong>💡 {t.common.simpleExplanation}</strong> {c.simpleExplanation}
-      </div>
+      <Encouragement locale={locale} topicName={c.title} />
+
+      <SimpleExplanation
+        locale={locale}
+        title={locale === 'uz' ? 'Bu nima?' : 'Что это?'}
+        explanation={c.whatIs}
+        emoji="📝"
+      />
+
+      <KeyPoints
+        locale={locale}
+        points={locale === 'uz' 
+          ? [
+              '<p> tegi paragraf yaratish uchun ishlatiladi',
+              'Har bir paragraf alohida bo\'lim bo\'ladi',
+              'Paragraflar orasida avtomatik bo\'sh joy bo\'ladi',
+              'Har bir yangi fikr uchun yangi paragraf yarating',
+              'Paragraflarni CSS bilan bezash mumkin'
+            ]
+          : [
+              'Тег <p> используется для создания параграфа',
+              'Каждый параграф будет отдельным блоком',
+              'Между параграфами автоматически будет пространство',
+              'Для каждой новой мысли создавайте новый параграф',
+              'Параграфы можно стилизовать с помощью CSS'
+            ]}
+      />
 
       <h2>{t.common.howToUse}</h2>
       <p>{c.howToUse}</p>
@@ -87,16 +120,182 @@ export default async function HTMLParagraphsPage({
       <h2>{t.common.whenToUse}</h2>
       <p>{c.whenToUse}</p>
       
-      <div className="example-box" style={{ background: '#f3e5f5', borderColor: '#9c27b0' }}>
-        <h4>🎯 {t.common.realWorldExample}</h4>
-        <p>{locale === 'uz' ? 'Veb-sayt yaratasiz. Quyidagicha qiling:' : 'Создаете веб-сайт. Сделайте так:'}</p>
-        <ul>
-          <li>{locale === 'uz' ? 'Birinchi paragraf:' : 'Первый параграф:'} <code>&lt;p&gt;{locale === 'uz' ? 'Salom! Mening ismim Ali.' : 'Привет! Меня зовут Али.'}&lt;/p&gt;</code></li>
-          <li>{locale === 'uz' ? 'Ikkinchi paragraf:' : 'Второй параграф:'} <code>&lt;p&gt;{locale === 'uz' ? 'Men dasturchiman va veb-saytlar yarataman.' : 'Я программист и создаю веб-сайты.'}&lt;/p&gt;</code></li>
-          <li>{locale === 'uz' ? 'Uchinchi paragraf:' : 'Третий параграф:'} <code>&lt;p&gt;{locale === 'uz' ? 'Agar savolingiz bo\'lsa, yozing!' : 'Если есть вопросы, напишите!'}&lt;/p&gt;</code></li>
-        </ul>
-        <p><strong>{t.common.result}:</strong> {locale === 'uz' ? 'Har bir paragraf alohida bo\'lim bo\'ladi va o\'qish oson bo\'ladi!' : 'Каждый параграф будет отдельным блоком и читать будет легко!'}</p>
-      </div>
+      <VisualExample
+        locale={locale}
+        html={locale === 'uz'
+          ? '<p style="color: #333; line-height: 1.6; margin-bottom: 1rem;">Bu birinchi paragraf. U matnning birinchi bo\'limini ifodalaydi.</p><p style="color: #333; line-height: 1.6; margin-bottom: 1rem;">Bu ikkinchi paragraf. U matnning ikkinchi bo\'limini ifodalaydi.</p>'
+          : '<p style="color: #333; line-height: 1.6; margin-bottom: 1rem;">Это первый параграф. Он представляет первую часть текста.</p><p style="color: #333; line-height: 1.6; margin-bottom: 1rem;">Это второй параграф. Он представляет вторую часть текста.</p>'}
+        css=""
+        description={locale === 'uz' ? 'Paragraflar qanday ko\'rinadi' : 'Как выглядят параграфы'}
+      />
+
+      <RealWorldExample
+        locale={locale}
+        title={locale === 'uz' ? 'Haqiqiy loyihada qanday ishlatiladi?' : 'Как используется в реальном проекте?'}
+        description={locale === 'uz'
+          ? 'Blog sayt yaratasiz. Quyidagicha qiling:'
+          : 'Создаете блог сайт. Сделайте так:'}
+        example={locale === 'uz'
+          ? `<article>
+  <h2>Maqola sarlavhasi</h2>
+  <p>Bu maqolaning kirish qismi. Bu yerda asosiy fikr yoziladi.</p>
+  <p>Bu maqolaning asosiy qismi. Bu yerda batafsil ma'lumot beriladi.</p>
+  <p>Bu maqolaning xulosa qismi. Bu yerda asosiy fikrlar jamlanadi.</p>
+</article>`
+          : `<article>
+  <h2>Заголовок статьи</h2>
+  <p>Это вводная часть статьи. Здесь пишется основная мысль.</p>
+  <p>Это основная часть статьи. Здесь дается подробная информация.</p>
+  <p>Это заключительная часть статьи. Здесь суммируются основные мысли.</p>
+</article>`}
+      />
+
+      <CommonMistakes
+        locale={locale}
+        mistakes={locale === 'uz'
+          ? [
+              {
+                mistake: '<p>Paragraf 1<p>Paragraf 2</p>',
+                correct: '<p>Paragraf 1</p><p>Paragraf 2</p>',
+                explanation: 'Har bir paragrafni yopishni unutmang! Birinchi paragrafni yopishni unutdingiz.'
+              },
+              {
+                mistake: '<p>Paragraf 1<br>Paragraf 2</p>',
+                correct: '<p>Paragraf 1</p><p>Paragraf 2</p>',
+                explanation: 'Yangi paragraf uchun <br> emas, yangi <p> tegi ishlating. <br> faqat qatorni yangilash uchun.'
+              },
+              {
+                mistake: '<p>Paragraf 1</p><p>Paragraf 2</p><p>Paragraf 3</p>',
+                correct: '<p>Paragraf 1</p>\n<p>Paragraf 2</p>\n<p>Paragraf 3</p>',
+                explanation: 'Kodni o\'qish oson bo\'lishi uchun har bir paragrafni yangi qatorda yozing.'
+              }
+            ]
+          : [
+              {
+                mistake: '<p>Параграф 1<p>Параграф 2</p>',
+                correct: '<p>Параграф 1</p><p>Параграф 2</p>',
+                explanation: 'Не забудьте закрыть каждый параграф! Вы забыли закрыть первый параграф.'
+              },
+              {
+                mistake: '<p>Параграф 1<br>Параграф 2</p>',
+                correct: '<p>Параграф 1</p><p>Параграф 2</p>',
+                explanation: 'Для нового параграфа используйте новый тег <p>, а не <br>. <br> только для новой строки.'
+              },
+              {
+                mistake: '<p>Параграф 1</p><p>Параграф 2</p><p>Параграф 3</p>',
+                correct: '<p>Параграф 1</p>\n<p>Параграф 2</p>\n<p>Параграф 3</p>',
+                explanation: 'Для удобства чтения кода пишите каждый параграф на новой строке.'
+              }
+            ]}
+      />
+
+      <PracticeMode
+        locale={locale}
+        task={locale === 'uz'
+          ? '3 ta paragraf yarating: salom, haqimda va aloqa.'
+          : 'Создайте 3 параграфа: приветствие, обо мне и контакты.'}
+        hint={locale === 'uz'
+          ? 'Har bir paragraf uchun <p>...</p> ishlating. Har birini yopishni unutmang!'
+          : 'Используйте <p>...</p> для каждого параграфа. Не забудьте закрыть каждый!'}
+        solution={locale === 'uz'
+          ? '<p>Salom! Mening ismim Ali.</p>\n<p>Men dasturchiman va veb-saytlar yarataman.</p>\n<p>Agar savolingiz bo\'lsa, yozing!</p>'
+          : '<p>Привет! Меня зовут Али.</p>\n<p>Я программист и создаю веб-сайты.</p>\n<p>Если есть вопросы, напишите!</p>'}
+      />
+
+      <Quiz
+        locale={locale}
+        questions={locale === 'uz'
+          ? [
+              {
+                question: 'Paragraf yaratish uchun qaysi teg ishlatiladi?',
+                options: ['<p>', '<para>', '<paragraph>', '<text>'],
+                correct: 0,
+                explanation: '<p> tegi paragraf yaratish uchun ishlatiladi. Bu eng keng tarqalgan matn tegi.'
+              },
+              {
+                question: 'Paragraflar orasida bo\'sh joy bo\'ladimi?',
+                options: ['Ha, avtomatik', 'Yo\'q, CSS kerak', 'Faqat <br> bilan', 'Hech qachon'],
+                correct: 0,
+                explanation: 'Ha, paragraflar orasida avtomatik bo\'sh joy bo\'ladi. Bu HTML\'ning standart xususiyati.'
+              },
+              {
+                question: 'Har bir yangi fikr uchun nima qilish kerak?',
+                options: ['Yangi paragraf', 'Yangi qator', 'Yangi div', 'Hech narsa'],
+                correct: 0,
+                explanation: 'Har bir yangi fikr uchun yangi <p> paragraf yarating. Bu o\'qishni osonlashtiradi.'
+              }
+            ]
+          : [
+              {
+                question: 'Какой тег используется для создания параграфа?',
+                options: ['<p>', '<para>', '<paragraph>', '<text>'],
+                correct: 0,
+                explanation: 'Тег <p> используется для создания параграфа. Это самый распространенный текстовый тег.'
+              },
+              {
+                question: 'Будет ли пространство между параграфами?',
+                options: ['Да, автоматически', 'Нет, нужен CSS', 'Только с <br>', 'Никогда'],
+                correct: 0,
+                explanation: 'Да, между параграфами автоматически будет пространство. Это стандартная функция HTML.'
+              },
+              {
+                question: 'Что нужно делать для каждой новой мысли?',
+                options: ['Новый параграф', 'Новая строка', 'Новый div', 'Ничего'],
+                correct: 0,
+                explanation: 'Для каждой новой мысли создавайте новый параграф <p>. Это облегчает чтение.'
+              }
+            ]}
+      />
+
+      <Glossary
+        locale={locale}
+        terms={locale === 'uz'
+          ? [
+              {
+                term: '<p>',
+                definition: 'Paragraf tegi. Matn bo\'limini yaratish uchun ishlatiladi.',
+                example: '<p>Bu paragraf</p>'
+              },
+              {
+                term: 'Paragraf',
+                definition: 'Matnning alohida bo\'limi. Har bir paragraf yangi fikrni ifodalaydi.',
+                example: 'Har bir paragraf <p> tegi bilan boshlanadi va </p> bilan tugaydi.'
+              }
+            ]
+          : [
+              {
+                term: '<p>',
+                definition: 'Тег параграфа. Используется для создания текстового блока.',
+                example: '<p>Это параграф</p>'
+              },
+              {
+                term: 'Параграф',
+                definition: 'Отдельный блок текста. Каждый параграф представляет новую мысль.',
+                example: 'Каждый параграф начинается с <p> и заканчивается </p>.'
+              }
+            ]}
+      />
+
+      <VideoLinks
+        locale={locale}
+        videos={[
+          {
+            title: locale === 'uz' ? 'HTML Paragraflar - To\'liq dars' : 'HTML Параграфы - Полный урок',
+            url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+            platform: 'youtube',
+            duration: '8:00'
+          }
+        ]}
+      />
+
+      <h3>💻 {locale === 'uz' ? 'O\'zingiz sinab ko\'ring' : 'Попробуйте сами'}</h3>
+      <CodeEditor
+        locale={locale}
+        initialCode={locale === 'uz' 
+          ? '<p>Bu birinchi paragraf</p>\n<p>Bu ikkinchi paragraf</p>\n<p>Bu uchinchi paragraf</p>'
+          : '<p>Это первый параграф</p>\n<p>Это второй параграф</p>\n<p>Это третий параграф</p>'}
+        initialCSS="p { color: #333; line-height: 1.6; margin-bottom: 1rem; }"
+      />
 
       <div className="info-box">
         <strong>💡 {t.common.note}</strong> {locale === 'uz' 

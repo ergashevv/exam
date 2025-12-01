@@ -8,6 +8,7 @@ import PrintButton from './PrintButton'
 import TableOfContents from './TableOfContents'
 import Breadcrumbs from './Breadcrumbs'
 import RelatedTopics from './RelatedTopics'
+import Encouragement from './Encouragement'
 import './TutorialLayout.scss'
 
 interface TutorialLayoutProps {
@@ -90,6 +91,7 @@ export default function TutorialLayout({
       </motion.div>
 
       <TableOfContents locale={locale} />
+      <Encouragement locale={locale} />
 
       <motion.div
         className="tutorial-navigation"

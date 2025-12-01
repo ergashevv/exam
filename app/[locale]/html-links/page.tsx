@@ -1,5 +1,16 @@
 import React from 'react'
 import TutorialLayout from '@/components/TutorialLayout'
+import CodeEditor from '@/components/CodeEditor'
+import KeyPoints from '@/components/KeyPoints'
+import CommonMistakes from '@/components/CommonMistakes'
+import VisualExample from '@/components/VisualExample'
+import RealWorldExample from '@/components/RealWorldExample'
+import SimpleExplanation from '@/components/SimpleExplanation'
+import PracticeMode from '@/components/PracticeMode'
+import Quiz from '@/components/Quiz'
+import Glossary from '@/components/Glossary'
+import VideoLinks from '@/components/VideoLinks'
+import Encouragement from '@/components/Encouragement'
 import { translations, Locale } from '@/lib/translations'
 
 export default async function HTMLLinksPage({
@@ -35,15 +46,37 @@ export default async function HTMLLinksPage({
       locale={locale}
       translations={t}
       title={c.title}
+      category="html"
       prevTopic={{ slug: 'html-styles', title: t.html.styles }}
       nextTopic={{ slug: 'html-images', title: t.html.images }}
     >
-      <h2>{t.common.whatIs}</h2>
-      <p>{c.whatIs}</p>
-      
-      <div className="info-box" style={{ background: '#e8f5e9', borderLeftColor: '#4caf50' }}>
-        <strong>💡 {t.common.simpleExplanation}</strong> {c.simpleExplanation}
-      </div>
+      <Encouragement locale={locale} topicName={c.title} />
+
+      <SimpleExplanation
+        locale={locale}
+        title={locale === 'uz' ? 'Bu nima?' : 'Что это?'}
+        explanation={c.whatIs}
+        emoji="🔗"
+      />
+
+      <KeyPoints
+        locale={locale}
+        points={locale === 'uz' 
+          ? [
+              '<a> tegi havola yaratish uchun ishlatiladi',
+              'href="..." ichiga qaysi sahifaga o\'tish kerakligini yozing',
+              'Matn o\'rtasiga bosiladigan so\'zni yozing',
+              'target="_blank" yangi oynada ochish uchun',
+              'rel="noopener noreferrer" xavfsizlik uchun'
+            ]
+          : [
+              'Тег <a> используется для создания ссылки',
+              'В href="..." напишите, на какую страницу перейти',
+              'Между тегами напишите слово, которое нужно нажать',
+              'target="_blank" для открытия в новом окне',
+              'rel="noopener noreferrer" для безопасности'
+            ]}
+      />
 
       <h2>{t.common.howToUse}</h2>
       <p>{c.howToUse}</p>
@@ -62,7 +95,8 @@ export default async function HTMLLinksPage({
       <div className="example-box">
         <h4>{t.common.codeExample}</h4>
         <pre>
-          <code>{`<!-- Oddiy havola -->
+          <code>{locale === 'uz' 
+            ? `<!-- Oddiy havola -->
 <a href="https://example.com">Example saytiga o'tish</a>
 
 <!-- Yangi oynada ochish -->
@@ -81,9 +115,38 @@ export default async function HTMLLinksPage({
 <!-- Havola bilan rasm -->
 <a href="https://example.com">
   <img src="image.jpg" alt="Rasm">
+</a>`
+            : `<!-- Простая ссылка -->
+<a href="https://example.com">Перейти на Example</a>
+
+<!-- Открыть в новом окне -->
+<a href="https://example.com" target="_blank">Открыть в новом окне</a>
+
+<!-- Email ссылка -->
+<a href="mailto:info@example.com">Отправить email</a>
+
+<!-- Телефонная ссылка -->
+<a href="tel:+998901234567">Позвонить</a>
+
+<!-- Ссылка на раздел внутри страницы -->
+<a href="#section1">Перейти к разделу</a>
+<div id="section1">Этот раздел</div>
+
+<!-- Ссылка с изображением -->
+<a href="https://example.com">
+  <img src="image.jpg" alt="Изображение">
 </a>`}</code>
         </pre>
       </div>
+
+      <VisualExample
+        locale={locale}
+        html={locale === 'uz'
+          ? '<a href="https://example.com" style="color: #667eea; text-decoration: none; padding: 10px; background: #f0f4ff; border-radius: 5px; display: inline-block;">Example saytiga o\'tish</a>'
+          : '<a href="https://example.com" style="color: #667eea; text-decoration: none; padding: 10px; background: #f0f4ff; border-radius: 5px; display: inline-block;">Перейти на Example</a>'}
+        css=""
+        description={locale === 'uz' ? 'Havola qanday ko\'rinadi' : 'Как выглядит ссылка'}
+      />
 
       <div className="result-box">
         <h4>{t.common.result}</h4>
@@ -103,15 +166,199 @@ export default async function HTMLLinksPage({
       <h2>{t.common.whenToUse}</h2>
       <p>{c.whenToUse}</p>
       
-      <div className="example-box" style={{ background: '#f3e5f5', borderColor: '#9c27b0' }}>
-        <h4>🎯 {t.common.realWorldExamples}</h4>
-        <ul>
-          <li><strong>{locale === 'uz' ? 'Boshqa sahifaga:' : 'На другую страницу:'}</strong> <code>&lt;a href="/about"&gt;{locale === 'uz' ? 'Haqimda' : 'Обо мне'}&lt;/a&gt;</code></li>
-          <li><strong>{locale === 'uz' ? 'Internet saytiga:' : 'На интернет сайт:'}</strong> <code>&lt;a href="https://google.com"&gt;Google&lt;/a&gt;</code></li>
-          <li><strong>{locale === 'uz' ? 'Email yuborish:' : 'Отправить email:'}</strong> <code>&lt;a href="mailto:info@example.com"&gt;Email&lt;/a&gt;</code></li>
-          <li><strong>{locale === 'uz' ? 'Telefon qilish:' : 'Позвонить:'}</strong> <code>&lt;a href="tel:+998901234567"&gt;{locale === 'uz' ? 'Qo\'ng\'iroq' : 'Звонок'}&lt;/a&gt;</code></li>
-        </ul>
-      </div>
+      <RealWorldExample
+        locale={locale}
+        title={locale === 'uz' ? 'Haqiqiy loyihada qanday ishlatiladi?' : 'Как используется в реальном проекте?'}
+        description={locale === 'uz'
+          ? 'Blog sayt yaratasiz. Quyidagicha qiling:'
+          : 'Создаете блог сайт. Сделайте так:'}
+        example={locale === 'uz'
+          ? `<nav>
+  <a href="/">Bosh sahifa</a>
+  <a href="/about">Haqimda</a>
+  <a href="/blog">Blog</a>
+  <a href="/contact">Aloqa</a>
+</nav>
+
+<article>
+  <h2>Maqola sarlavhasi</h2>
+  <p>Maqola matni...</p>
+  <a href="https://example.com" target="_blank" rel="noopener noreferrer">
+    To'liq o'qish
+  </a>
+</article>`
+          : `<nav>
+  <a href="/">Главная</a>
+  <a href="/about">Обо мне</a>
+  <a href="/blog">Блог</a>
+  <a href="/contact">Контакты</a>
+</nav>
+
+<article>
+  <h2>Заголовок статьи</h2>
+  <p>Текст статьи...</p>
+  <a href="https://example.com" target="_blank" rel="noopener noreferrer">
+    Читать полностью
+  </a>
+</article>`}
+      />
+
+      <CommonMistakes
+        locale={locale}
+        mistakes={locale === 'uz'
+          ? [
+              {
+                mistake: '<a href="example.com">Havola</a>',
+                correct: '<a href="https://example.com">Havola</a>',
+                explanation: 'Internet saytlarga havola qilganda https:// yoki http:// qo\'shishni unutmang!'
+              },
+              {
+                mistake: '<a href="https://example.com" target="_blank">Havola</a>',
+                correct: '<a href="https://example.com" target="_blank" rel="noopener noreferrer">Havola</a>',
+                explanation: 'target="_blank" ishlatganda rel="noopener noreferrer" qo\'shishni unutmang - bu xavfsizlik uchun kerak!'
+              },
+              {
+                mistake: '<a>Havola</a>',
+                correct: '<a href="https://example.com">Havola</a>',
+                explanation: 'href atributini yozishni unutmang! U holda havola ishlamaydi.'
+              }
+            ]
+          : [
+              {
+                mistake: '<a href="example.com">Ссылка</a>',
+                correct: '<a href="https://example.com">Ссылка</a>',
+                explanation: 'При ссылке на интернет сайты не забудьте добавить https:// или http://!'
+              },
+              {
+                mistake: '<a href="https://example.com" target="_blank">Ссылка</a>',
+                correct: '<a href="https://example.com" target="_blank" rel="noopener noreferrer">Ссылка</a>',
+                explanation: 'При использовании target="_blank" не забудьте добавить rel="noopener noreferrer" - это нужно для безопасности!'
+              },
+              {
+                mistake: '<a>Ссылка</a>',
+                correct: '<a href="https://example.com">Ссылка</a>',
+                explanation: 'Не забудьте написать атрибут href! Иначе ссылка не будет работать.'
+              }
+            ]}
+      />
+
+      <PracticeMode
+        locale={locale}
+        task={locale === 'uz'
+          ? '3 ta havola yarating: bosh sahifaga, email yuborish va telefon qilish.'
+          : 'Создайте 3 ссылки: на главную страницу, отправка email и звонок.'}
+        hint={locale === 'uz'
+          ? 'href="/" bosh sahifa uchun, href="mailto:..." email uchun, href="tel:..." telefon uchun.'
+          : 'href="/" для главной страницы, href="mailto:..." для email, href="tel:..." для телефона.'}
+        solution={locale === 'uz'
+          ? '<a href="/">Bosh sahifa</a>\n<a href="mailto:info@example.com">Email yuborish</a>\n<a href="tel:+998901234567">Telefon qilish</a>'
+          : '<a href="/">Главная</a>\n<a href="mailto:info@example.com">Отправить email</a>\n<a href="tel:+998901234567">Позвонить</a>'}
+      />
+
+      <Quiz
+        locale={locale}
+        questions={locale === 'uz'
+          ? [
+              {
+                question: 'Havola yaratish uchun qaysi teg ishlatiladi?',
+                options: ['<a>', '<link>', '<href>', '<url>'],
+                correct: 0,
+                explanation: '<a> tegi havola yaratish uchun ishlatiladi. href atributi ichiga qaysi sahifaga o\'tish kerakligini yozasiz.'
+              },
+              {
+                question: 'Yangi oynada ochish uchun qanday atribut ishlatiladi?',
+                options: ['target="_new"', 'target="_blank"', 'open="new"', 'window="new"'],
+                correct: 1,
+                explanation: 'target="_blank" yangi oynada ochish uchun ishlatiladi. Xavfsizlik uchun rel="noopener noreferrer" ham qo\'shing.'
+              },
+              {
+                question: 'Email yuborish uchun href ichiga nima yoziladi?',
+                options: ['email:info@example.com', 'mailto:info@example.com', 'send:info@example.com', 'href:info@example.com'],
+                correct: 1,
+                explanation: 'mailto: dan keyin email manzilini yozasiz. Masalan: mailto:info@example.com'
+              }
+            ]
+          : [
+              {
+                question: 'Какой тег используется для создания ссылки?',
+                options: ['<a>', '<link>', '<href>', '<url>'],
+                correct: 0,
+                explanation: 'Тег <a> используется для создания ссылки. В атрибут href пишете, на какую страницу перейти.'
+              },
+              {
+                question: 'Какой атрибут используется для открытия в новом окне?',
+                options: ['target="_new"', 'target="_blank"', 'open="new"', 'window="new"'],
+                correct: 1,
+                explanation: 'target="_blank" используется для открытия в новом окне. Для безопасности также добавьте rel="noopener noreferrer".'
+              },
+              {
+                question: 'Что пишется в href для отправки email?',
+                options: ['email:info@example.com', 'mailto:info@example.com', 'send:info@example.com', 'href:info@example.com'],
+                correct: 1,
+                explanation: 'После mailto: пишете email адрес. Например: mailto:info@example.com'
+              }
+            ]}
+      />
+
+      <Glossary
+        locale={locale}
+        terms={locale === 'uz'
+          ? [
+              {
+                term: '<a>',
+                definition: 'Havola tegi. href atributi bilan ishlatiladi.',
+                example: '<a href="https://example.com">Havola</a>'
+              },
+              {
+                term: 'href',
+                definition: 'Havola manzili. Qaysi sahifaga o\'tish kerakligini ko\'rsatadi.',
+                example: 'href="https://example.com"'
+              },
+              {
+                term: 'target="_blank"',
+                definition: 'Havolani yangi oynada ochish uchun.',
+                example: '<a href="..." target="_blank">Havola</a>'
+              }
+            ]
+          : [
+              {
+                term: '<a>',
+                definition: 'Тег ссылки. Используется с атрибутом href.',
+                example: '<a href="https://example.com">Ссылка</a>'
+              },
+              {
+                term: 'href',
+                definition: 'Адрес ссылки. Показывает, на какую страницу перейти.',
+                example: 'href="https://example.com"'
+              },
+              {
+                term: 'target="_blank"',
+                definition: 'Для открытия ссылки в новом окне.',
+                example: '<a href="..." target="_blank">Ссылка</a>'
+              }
+            ]}
+      />
+
+      <VideoLinks
+        locale={locale}
+        videos={[
+          {
+            title: locale === 'uz' ? 'HTML Havolalar - To\'liq dars' : 'HTML Ссылки - Полный урок',
+            url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+            platform: 'youtube',
+            duration: '12:00'
+          }
+        ]}
+      />
+
+      <h3>💻 {locale === 'uz' ? 'O\'zingiz sinab ko\'ring' : 'Попробуйте сами'}</h3>
+      <CodeEditor
+        locale={locale}
+        initialCode={locale === 'uz' 
+          ? '<a href="https://example.com">Example saytiga o\'tish</a>\n<a href="mailto:info@example.com">Email yuborish</a>'
+          : '<a href="https://example.com">Перейти на Example</a>\n<a href="mailto:info@example.com">Отправить email</a>'}
+        initialCSS="a { color: #667eea; text-decoration: none; padding: 10px; background: #f0f4ff; border-radius: 5px; display: inline-block; margin: 5px; }"
+      />
 
       <div className="info-box">
         <strong>🔒 {locale === 'uz' ? 'Xavfsizlik:' : 'Безопасность:'}</strong> {locale === 'uz' 

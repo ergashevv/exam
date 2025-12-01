@@ -1,0 +1,47 @@
+.encouragement-message {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 999;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  box-shadow: 0 8px 32px rgba(102, 126, 234, 0.4);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-weight: 600;
+  font-size: 1rem;
+  white-space: nowrap;
+
+  @media (max-width: 768px) {
+    bottom: 1rem;
+    padding: 0.75rem 1.5rem;
+    font-size: 0.9rem;
+    left: 1rem;
+    right: 1rem;
+    transform: none;
+    width: auto;
+  }
+
+  .encouragement-emoji {
+    font-size: 1.5rem;
+    animation: bounce 1s infinite;
+  }
+
+  .encouragement-text {
+    flex: 1;
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
