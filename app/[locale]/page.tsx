@@ -6,6 +6,7 @@ import { motion } from 'framer-motion'
 import { translations, Locale } from '@/lib/translations'
 import AnimatedCard from '@/components/AnimatedCard'
 import AnimatedText from '@/components/AnimatedText'
+import LearningPath from '@/components/LearningPath'
 import './page.scss'
 
 export default function HomePage({
@@ -125,6 +126,15 @@ export default function HomePage({
           </div>
         </motion.div>
       </section>
+
+      <motion.section
+        className="learning-path-section"
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.7 }}
+      >
+        <LearningPath locale={locale} />
+      </motion.section>
     </motion.div>
   )
 }

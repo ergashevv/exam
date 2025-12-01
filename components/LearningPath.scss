@@ -1,0 +1,106 @@
+.learning-path {
+  margin: 3rem 0;
+  padding: 2rem;
+  background: linear-gradient(135deg, #e8eaf6 0%, #c5cae9 100%);
+  border: 2px solid #667eea;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15);
+
+  @media (max-width: 768px) {
+    padding: 1.5rem;
+  }
+
+  @media (max-width: 480px) {
+    padding: 1rem;
+  }
+
+  h3 {
+    margin: 0 0 0.5rem 0;
+    color: #667eea;
+    font-size: 1.5rem;
+    font-weight: 600;
+
+    @media (max-width: 480px) {
+      font-size: 1.25rem;
+    }
+  }
+
+  .learning-path-description {
+    margin: 0 0 2rem 0;
+    color: #666;
+    font-size: 0.95rem;
+  }
+
+  .learning-path-sections {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .path-section {
+      h4 {
+        margin: 0 0 1rem 0;
+        color: #667eea;
+        font-size: 1.2rem;
+        font-weight: 600;
+      }
+
+      .path-steps {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+
+        .path-step {
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+          padding: 1rem;
+          background: white;
+          border-radius: 8px;
+          border-left: 4px solid #667eea;
+          transition: all 0.3s ease;
+
+          @media (max-width: 480px) {
+            padding: 0.75rem;
+          }
+
+          &:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+          }
+
+          .step-number {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 50%;
+            font-weight: 600;
+            flex-shrink: 0;
+            font-size: 0.9rem;
+          }
+
+          .step-link {
+            flex: 1;
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+
+            &:hover {
+              color: #667eea;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+

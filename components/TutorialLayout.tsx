@@ -5,6 +5,9 @@ import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { Locale } from '@/lib/translations'
 import PrintButton from './PrintButton'
+import TableOfContents from './TableOfContents'
+import Breadcrumbs from './Breadcrumbs'
+import RelatedTopics from './RelatedTopics'
 import './TutorialLayout.scss'
 
 interface TutorialLayoutProps {
@@ -14,6 +17,7 @@ interface TutorialLayoutProps {
   children: React.ReactNode
   prevTopic?: { slug: string; title: string }
   nextTopic?: { slug: string; title: string }
+  category?: 'html' | 'css'
 }
 
 export default function TutorialLayout({
@@ -23,7 +27,14 @@ export default function TutorialLayout({
   children,
   prevTopic,
   nextTopic,
+  category,
 }: TutorialLayoutProps) {
+  // Auto-detect category from prevTopic or nextTopic if not provided
+  const detectedCategory = category || 
+    (prevTopic?.slug.startsWith('html-') ? 'html' : 
+     prevTopic?.slug.startsWith('css-') ? 'css' :
+     nextTopic?.slug.startsWith('html-') ? 'html' :
+     nextTopic?.slug.startsWith('css-') ? 'css' : 'html')
   return (
     <motion.div
       className="tutorial-page"
@@ -45,6 +56,7 @@ export default function TutorialLayout({
             ← {translations.common.backToHome}
           </Link>
         </motion.div>
+        <Breadcrumbs locale={locale} category={detectedCategory} title={title} />
         <div className="tutorial-title-row">
           <motion.h1
             initial={{ opacity: 0, scale: 0.9 }}
@@ -70,7 +82,14 @@ export default function TutorialLayout({
         transition={{ duration: 0.5, delay: 0.3 }}
       >
         {children}
+        <RelatedTopics 
+          locale={locale} 
+          currentSlug={prevTopic?.slug || nextTopic?.slug || ''}
+          category={detectedCategory}
+        />
       </motion.div>
+
+      <TableOfContents locale={locale} />
 
       <motion.div
         className="tutorial-navigation"

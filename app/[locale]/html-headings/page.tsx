@@ -1,6 +1,15 @@
 import React from 'react'
 import TutorialLayout from '@/components/TutorialLayout'
 import CodeEditor from '@/components/CodeEditor'
+import KeyPoints from '@/components/KeyPoints'
+import CommonMistakes from '@/components/CommonMistakes'
+import VisualExample from '@/components/VisualExample'
+import RealWorldExample from '@/components/RealWorldExample'
+import SimpleExplanation from '@/components/SimpleExplanation'
+import PracticeMode from '@/components/PracticeMode'
+import Quiz from '@/components/Quiz'
+import Glossary from '@/components/Glossary'
+import VideoLinks from '@/components/VideoLinks'
 import { translations, Locale } from '@/lib/translations'
 import { getHeadingsFAQ } from './faq'
 
@@ -39,15 +48,33 @@ export default async function HTMLHeadingsPage({
       locale={locale}
       translations={t}
       title={c.title}
+      category="html"
       prevTopic={{ slug: 'html-paragraphs', title: t.html.paragraphs }}
       nextTopic={{ slug: 'html-colors', title: t.html.colors }}
     >
-      <h2>{t.common.whatIs}</h2>
-      <p>{c.whatIs}</p>
-      
-      <div className="info-box" style={{ background: '#e8f5e9', borderLeftColor: '#4caf50' }}>
-        <strong>💡 {t.common.simpleExplanation}</strong> {c.simpleExplanation}
-      </div>
+      <SimpleExplanation
+        locale={locale}
+        title={locale === 'uz' ? 'Bu nima?' : 'Что это?'}
+        explanation={c.whatIs}
+        emoji="💡"
+      />
+
+      <KeyPoints
+        locale={locale}
+        points={locale === 'uz' 
+          ? [
+              'h1 - eng katta sarlavha, faqat bir marta ishlatiladi',
+              'h2-h6 - kichikroq sarlavhalar, bir necha marta ishlatiladi',
+              'Sarlavhalar tartibida bo\'lishi kerak (h1, keyin h2, keyin h3)',
+              'Har bir sarlavhani yopishni unutmang (</h1>, </h2>)'
+            ]
+          : [
+              'h1 - самый большой заголовок, используется только один раз',
+              'h2-h6 - заголовки поменьше, можно использовать несколько раз',
+              'Заголовки должны быть в порядке (h1, потом h2, потом h3)',
+              'Не забудьте закрыть каждый заголовок (</h1>, </h2>)'
+            ]}
+      />
 
       <h2>{t.common.howToUse}</h2>
       <p>{c.howToUse}</p>
@@ -81,6 +108,15 @@ export default async function HTMLHeadingsPage({
         </pre>
       </div>
 
+      <VisualExample
+        locale={locale}
+        html={locale === 'uz'
+          ? '<h1>Eng muhim sarlavha</h1><h2>Ikkinchi sarlavha</h2><h3>Uchinchi sarlavha</h3>'
+          : '<h1>Самый важный заголовок</h1><h2>Второй заголовок</h2><h3>Третий заголовок</h3>'}
+        css="h1 { color: #667eea; font-size: 2em; } h2 { color: #764ba2; font-size: 1.5em; } h3 { color: #3498db; font-size: 1.2em; }"
+        description={locale === 'uz' ? 'Sarlavhalar qanday ko\'rinadi' : 'Как выглядят заголовки'}
+      />
+
       <div className="result-box">
         <h4>{t.common.result}</h4>
         <h1 style={{ fontSize: '2em', margin: '0.5em 0' }}>
@@ -106,22 +142,65 @@ export default async function HTMLHeadingsPage({
       <h2>{t.common.whenToUse}</h2>
       <p>{c.whenToUse}</p>
       
-      <div className="example-box" style={{ background: '#f3e5f5', borderColor: '#9c27b0' }}>
-        <h4>🎯 {t.common.realWorldExample}</h4>
-        <p>{locale === 'uz' ? 'Veb-sayt yaratasiz. Quyidagicha qiling:' : 'Создаете веб-сайт. Сделайте так:'}</p>
-        <ul>
-          <li><code>&lt;h1&gt;</code> - {locale === 'uz' ? 'Sayt nomi (masalan: "Mening blogim") - faqat 1 marta' : 'Название сайта (например: "Мой блог") - только 1 раз'}</li>
-          <li><code>&lt;h2&gt;</code> - {locale === 'uz' ? 'Katta bo\'limlar (masalan: "Maqolalar", "Haqimda")' : 'Большие разделы (например: "Статьи", "Обо мне")'}</li>
-          <li><code>&lt;h3&gt;</code> - {locale === 'uz' ? 'Kichik bo\'limlar (masalan: "Maqola 1", "Maqola 2")' : 'Маленькие разделы (например: "Статья 1", "Статья 2")'}</li>
-        </ul>
-      </div>
+      <RealWorldExample
+        locale={locale}
+        title={locale === 'uz' ? 'Haqiqiy loyihada qanday ishlatiladi?' : 'Как используется в реальном проекте?'}
+        description={locale === 'uz'
+          ? 'Blog sayt yaratasiz. Quyidagicha qiling:'
+          : 'Создаете блог сайт. Сделайте так:'}
+        example={locale === 'uz'
+          ? `<h1>Mening blogim</h1>
+<h2>Maqolalar</h2>
+<h3>HTML haqida</h3>
+<h3>CSS haqida</h3>
+<h2>Haqimda</h2>
+<h2>Aloqa</h2>`
+          : `<h1>Мой блог</h1>
+<h2>Статьи</h2>
+<h3>О HTML</h3>
+<h3>О CSS</h3>
+<h2>Обо мне</h2>
+<h2>Контакты</h2>`}
+      />
 
-      <div className="info-box">
-        <strong>⚠️ {t.common.importantRule}</strong> <code>&lt;h1&gt;</code> {locale === 'uz' ? 'faqat bir marta!' : 'только один раз!'} 
-        {locale === 'uz' 
-          ? 'Xuddi kitobda bitta katta sarlavha bo\'lgandek. Agar 2 marta yozsangiz, Google xato deb biladi.'
-          : 'Как в книге один большой заголовок. Если напишете 2 раза, Google посчитает это ошибкой.'}
-      </div>
+      <CommonMistakes
+        locale={locale}
+        mistakes={locale === 'uz'
+          ? [
+              {
+                mistake: '<h1>Bir sarlavha</h1><h1>Ikkinchi sarlavha</h1>',
+                correct: '<h1>Bir sarlavha</h1><h2>Ikkinchi sarlavha</h2>',
+                explanation: 'h1 faqat bir marta ishlatiladi. Keyingi sarlavhalar uchun h2, h3 va hokazo ishlating.'
+              },
+              {
+                mistake: '<h1>Sarlavha<h2>Kichik sarlavha</h2>',
+                correct: '<h1>Sarlavha</h1><h2>Kichik sarlavha</h2>',
+                explanation: 'Har bir tegnni yopishni unutmang. h1 ni yopishni unutdingiz!'
+              },
+              {
+                mistake: '<h3>Katta sarlavha</h3><h1>Kichik sarlavha</h1>',
+                correct: '<h1>Katta sarlavha</h1><h3>Kichik sarlavha</h3>',
+                explanation: 'Sarlavhalar tartibida bo\'lishi kerak. Avval h1, keyin h2, keyin h3.'
+              }
+            ]
+          : [
+              {
+                mistake: '<h1>Один заголовок</h1><h1>Второй заголовок</h1>',
+                correct: '<h1>Один заголовок</h1><h2>Второй заголовок</h2>',
+                explanation: 'h1 используется только один раз. Для следующих заголовков используйте h2, h3 и так далее.'
+              },
+              {
+                mistake: '<h1>Заголовок<h2>Маленький заголовок</h2>',
+                correct: '<h1>Заголовок</h1><h2>Маленький заголовок</h2>',
+                explanation: 'Не забудьте закрыть каждый тег. Вы забыли закрыть h1!'
+              },
+              {
+                mistake: '<h3>Большой заголовок</h3><h1>Маленький заголовок</h1>',
+                correct: '<h1>Большой заголовок</h1><h3>Маленький заголовок</h3>',
+                explanation: 'Заголовки должны быть в порядке. Сначала h1, потом h2, потом h3.'
+              }
+            ]}
+      />
 
       <h3>🎨 {t.common.howItLooksInDesign}</h3>
       <p>
@@ -144,6 +223,115 @@ export default async function HTMLHeadingsPage({
           ? '<h1>Mening birinchi sarlavham</h1>\n<h2>Ikkinchi sarlavha</h2>\n<h3>Uchinchi sarlavha</h3>'
           : '<h1>Мой первый заголовок</h1>\n<h2>Второй заголовок</h2>\n<h3>Третий заголовок</h3>'}
         initialCSS="h1 { color: #667eea; }\nh2 { color: #764ba2; }\nh3 { color: #3498db; }"
+      />
+
+      <PracticeMode
+        locale={locale}
+        task={locale === 'uz'
+          ? '3 ta sarlavha yarating: h1, h2 va h3. Ularga turli ranglar bering.'
+          : 'Создайте 3 заголовка: h1, h2 и h3. Придайте им разные цвета.'}
+        hint={locale === 'uz'
+          ? 'h1 uchun <h1>...</h1>, h2 uchun <h2>...</h2> ishlating. CSS da color xususiyatini ishlating.'
+          : 'Используйте <h1>...</h1> для h1, <h2>...</h2> для h2. В CSS используйте свойство color.'}
+        solution={locale === 'uz'
+          ? '<h1>Birinchi sarlavha</h1>\n<h2>Ikkinchi sarlavha</h2>\n<h3>Uchinchi sarlavha</h3>\n\nCSS:\nh1 { color: red; }\nh2 { color: blue; }\nh3 { color: green; }'
+          : '<h1>Первый заголовок</h1>\n<h2>Второй заголовок</h2>\n<h3>Третий заголовок</h3>\n\nCSS:\nh1 { color: red; }\nh2 { color: blue; }\nh3 { color: green; }'}
+      />
+
+      <Quiz
+        locale={locale}
+        questions={locale === 'uz'
+          ? [
+              {
+                question: 'h1 tegini necha marta ishlatish mumkin?',
+                options: ['1 marta', '2 marta', 'Cheksiz', 'Hech qachon'],
+                correct: 0,
+                explanation: 'h1 faqat bir marta ishlatiladi - sahifa nomi uchun. Bu SEO uchun juda muhim.'
+              },
+              {
+                question: 'Qaysi sarlavha eng katta?',
+                options: ['h1', 'h2', 'h6', 'Barchasi bir xil'],
+                correct: 0,
+                explanation: 'h1 eng katta sarlavha. h6 eng kichik.'
+              },
+              {
+                question: 'Sarlavhalar tartibida bo\'lishi kerakmi?',
+                options: ['Ha, albatta', 'Yo\'q, muhim emas', 'Faqat h1 uchun', 'Hech qachon'],
+                correct: 0,
+                explanation: 'Ha, sarlavhalar tartibida bo\'lishi kerak: h1, keyin h2, keyin h3 va hokazo.'
+              }
+            ]
+          : [
+              {
+                question: 'Сколько раз можно использовать тег h1?',
+                options: ['1 раз', '2 раза', 'Бесконечно', 'Никогда'],
+                correct: 0,
+                explanation: 'h1 используется только один раз - для названия страницы. Это очень важно для SEO.'
+              },
+              {
+                question: 'Какой заголовок самый большой?',
+                options: ['h1', 'h2', 'h6', 'Все одинаковые'],
+                correct: 0,
+                explanation: 'h1 - самый большой заголовок. h6 - самый маленький.'
+              },
+              {
+                question: 'Должны ли заголовки быть в порядке?',
+                options: ['Да, обязательно', 'Нет, не важно', 'Только для h1', 'Никогда'],
+                correct: 0,
+                explanation: 'Да, заголовки должны быть в порядке: h1, потом h2, потом h3 и так далее.'
+              }
+            ]}
+      />
+
+      <Glossary
+        locale={locale}
+        terms={locale === 'uz'
+          ? [
+              {
+                term: 'h1-h6',
+                definition: 'HTML sarlavha teglari. h1 eng katta, h6 eng kichik.',
+                example: '<h1>Sarlavha</h1>'
+              },
+              {
+                term: 'Semantic',
+                definition: 'Ma\'noli - elementning nima ekanligi aniq bo\'ladi.',
+                example: '<h1> - bu sarlavha ekanligi aniq'
+              },
+              {
+                term: 'SEO',
+                definition: 'Search Engine Optimization - qidiruv tizimlarida yaxshi ko\'rinish.',
+                example: 'h1 tegi SEO uchun juda muhim'
+              }
+            ]
+          : [
+              {
+                term: 'h1-h6',
+                definition: 'HTML теги заголовков. h1 самый большой, h6 самый маленький.',
+                example: '<h1>Заголовок</h1>'
+              },
+              {
+                term: 'Semantic',
+                definition: 'Семантический - понятно, что представляет элемент.',
+                example: '<h1> - понятно, что это заголовок'
+              },
+              {
+                term: 'SEO',
+                definition: 'Search Engine Optimization - хорошая видимость в поисковых системах.',
+                example: 'Тег h1 очень важен для SEO'
+              }
+            ]}
+      />
+
+      <VideoLinks
+        locale={locale}
+        videos={[
+          {
+            title: locale === 'uz' ? 'HTML Sarlavhalar - To\'liq dars' : 'HTML Заголовки - Полный урок',
+            url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+            platform: 'youtube',
+            duration: '10:30'
+          }
+        ]}
       />
 
       <h3>❓ {locale === 'uz' ? 'Tez-tez beriladigan savollar' : 'Часто задаваемые вопросы'}</h3>

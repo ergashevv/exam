@@ -1,0 +1,38 @@
+.code-block-wrapper {
+  position: relative;
+  margin: 1rem 0;
+
+  .code-block {
+    position: relative;
+    padding: 1.5rem;
+    padding-top: 3rem;
+    background: #2d2d2d;
+    color: #f8f8f2;
+    border-radius: 8px;
+    overflow-x: auto;
+    margin: 0;
+
+    @media (max-width: 768px) {
+      padding: 1rem;
+      padding-top: 2.5rem;
+      font-size: 0.85em;
+    }
+
+    @media (max-width: 480px) {
+      padding: 0.75rem;
+      padding-top: 2.5rem;
+      font-size: 0.75em;
+      border-radius: 6px;
+    }
+
+    code {
+      background: transparent;
+      padding: 0;
+      color: inherit;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      font-family: 'Courier New', Courier, monospace;
+    }
+  }
+}
+
