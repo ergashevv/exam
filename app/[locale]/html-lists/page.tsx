@@ -19,7 +19,7 @@ export default async function HTMLListsPage({
       whenToUse: `Ro'yxatlar navigatsiya, menyu, ma'lumotlarni tartibga solish uchun ishlatiladi.`,
     },
     ru: {
-      title: 'HTML Списки',
+      title: 'HTML Lists',
       whatIs: `HTML списки используются для отображения данных в упорядоченном или неупорядоченном виде. Существует два типа: упорядоченные (<ol>) и неупорядоченные (<ul>).`,
       howToUse: `Неупорядоченный список создается с помощью тега <ul>, упорядоченный - с помощью <ol>. Каждый элемент обозначается тегом <li>.`,
       whenToUse: `Списки используются для навигации, меню, упорядочивания информации.`,

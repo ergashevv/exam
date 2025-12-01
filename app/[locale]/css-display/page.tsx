@@ -21,7 +21,7 @@ export default async function CSSDisplayPage({
       blockVsInline: `Block = to'liq qator (div, p, h1). Inline = qator ichida (span, a, img). Flex = zamonaviy usul (yaxshi layout).`,
     },
     ru: {
-      title: 'CSS Свойство display',
+      title: 'CSS Display Property',
       whatIs: `Display - это говорит, как элемент должен отображаться. Как коробки должны стоять: полная строка (block), в строке (inline), или рядом (flex).`,
       simpleExplanation: `Представьте: вам нужно поставить коробки. Если скажете "block" - каждая коробка займет всю строку. Если скажете "inline" - коробки будут рядом.`,
       howToUse: `Шаг 1: Напишите <code>display: block;</code> - элемент займет всю строку. Шаг 2: Напишите <code>display: inline;</code> - элементы будут рядом. Шаг 3: Напишите <code>display: flex;</code> - современный способ (лучший!).`,

@@ -326,7 +326,7 @@ export default async function HTMLHeadingsPage({
         locale={locale}
         videos={[
           {
-            title: locale === 'uz' ? 'HTML Headings - To\'liq dars' : 'HTML Заголовки - Полный урок',
+            title: locale === 'uz' ? 'HTML Headings - To\'liq dars' : 'HTML Headings - Полный урок',
             url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
             platform: 'youtube',
             duration: '10:30'

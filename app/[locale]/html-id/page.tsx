@@ -19,7 +19,7 @@ export default async function HTMLIdPage({
       whenToUse: `id atributi noyob elementlarni belgilash, havolalar uchun anchor, JavaScript bilan ishlash uchun ishlatiladi.`,
     },
     ru: {
-      title: 'HTML Атрибут id',
+      title: 'HTML id Attribute',
       whatIs: `Атрибут id дает элементу уникальный идентификатор. На каждой странице один и тот же id должен использоваться только один раз.`,
       howToUse: `Атрибут id пишется в формате id="имя". В CSS используется с символом #, в JavaScript - с помощью getElementById().`,
       whenToUse: `Атрибут id используется для обозначения уникальных элементов, якорей для ссылок, работы с JavaScript.`,

@@ -19,7 +19,7 @@ export default async function HTMLInputTypesPage({
       whenToUse: `Har xil input turlari turli ma'lumotlar uchun ishlatiladi: matn, email, parol, sana, raqam va boshqalar.`,
     },
     ru: {
-      title: 'HTML Типы Input',
+      title: 'HTML Input Types',
       whatIs: `HTML элементы input используются для получения различных данных. Атрибут type определяет тип input.`,
       howToUse: `Существуют <input type="text">, <input type="email">, <input type="password"> и другие типы. Каждый тип имеет свою функцию.`,
       whenToUse: `Различные типы input используются для разных данных: текст, email, пароль, дата, число и другие.`,

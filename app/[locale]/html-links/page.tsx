@@ -30,7 +30,7 @@ export default async function HTMLLinksPage({
       whenToUse: `Har doim ishlating! Boshqa sahifaga o'tish, email yuborish, telefon qilish uchun. Masalan: "Mening blogim" havolasi, "Email yuborish" havolasi.`,
     },
     ru: {
-      title: 'HTML Ссылки',
+      title: 'HTML Links',
       whatIs: `Ссылка - это текст, при нажатии на который переходишь на другую страницу. Как нажать на ссылку в телефоне. В HTML создается с помощью тега <a>.`,
       simpleExplanation: `Представьте: вам нужно написать "Перейти в Google". Когда пользователь нажмет, должен открыться Google. В HTML ссылка делает именно это!`,
       howToUse: `Шаг 1: Напишите <a href="https://google.com">Перейти в Google</a>. Шаг 2: В href="..." напишите, на какую страницу перейти. Шаг 3: Между тегами напишите, какое слово нужно нажать.`,
@@ -340,7 +340,7 @@ export default async function HTMLLinksPage({
         locale={locale}
         videos={[
           {
-            title: locale === 'uz' ? 'HTML Links - To\'liq dars' : 'HTML Ссылки - Полный урок',
+            title: locale === 'uz' ? 'HTML Links - To\'liq dars' : 'HTML Links - Полный урок',
             url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
             platform: 'youtube',
             duration: '12:00'

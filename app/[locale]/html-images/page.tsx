@@ -20,7 +20,7 @@ export default async function HTMLImagesPage({
       whenToUse: `Har doim ishlating! Maqola rasmlari, logo, ikonkalar, dizayn uchun. Masalan: "Mening rasmi", "Logo", "Mahsulot rasmi".`,
     },
     ru: {
-      title: 'HTML Изображения',
+      title: 'HTML Images',
       whatIs: `Изображение - это картинка, которую добавляют на страницу. Как добавить картинку в Word. В HTML создается с помощью тега <img>.`,
       simpleExplanation: `Представьте: вам нужно добавить картинку на страницу. Вы находите файл картинки и показываете его в HTML. Браузер покажет картинку!`,
       howToUse: `Шаг 1: Напишите <img src="image.jpg" alt="Описание">. Шаг 2: В src="..." напишите адрес файла картинки. Шаг 3: В alt="..." напишите краткое описание картинки (для слепых).`,

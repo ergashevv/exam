@@ -19,7 +19,7 @@ export default async function HTMLButtonsPage({
       whenToUse: `Tugmalar formani yuborish, funksiyalarni ishga tushirish, foydalanuvchi harakatlarini boshqarish uchun ishlatiladi.`,
     },
     ru: {
-      title: 'HTML Кнопки',
+      title: 'HTML Buttons',
       whatIs: `HTML кнопки используются для взаимодействия с пользователем. Создаются с помощью тега <button> или <input type="button">.`,
       howToUse: `Кнопки создаются в формате <button>Текст</button> или <input type="button" value="Текст">. Функция добавляется через атрибут onclick или JavaScript.`,
       whenToUse: `Кнопки используются для отправки форм, запуска функций, управления действиями пользователя.`,

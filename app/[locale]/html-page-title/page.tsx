@@ -19,7 +19,7 @@ export default async function HTMLPageTitlePage({
       whenToUse: `Har bir HTML sahifada <title> tegi bo'lishi kerak. U SEO, brauzer yorlig'i va xatcho'plarda ko'rsatiladi.`,
     },
     ru: {
-      title: 'HTML Заголовок страницы',
+      title: 'HTML Page Title',
       whatIs: `Заголовок страницы (тег <title>) отображается на вкладке браузера и очень важен для SEO. Он должен быть уникальным для каждой страницы.`,
       howToUse: `Заголовок пишется в секции <head> в формате <title>Текст</title>. Рекомендуется не превышать 50-60 символов.`,
       whenToUse: `Тег <title> должен быть на каждой HTML странице. Он отображается в SEO, на вкладке браузера и в закладках.`,

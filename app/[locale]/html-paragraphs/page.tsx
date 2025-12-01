@@ -30,7 +30,7 @@ export default async function HTMLParagraphsPage({
       whenToUse: `Har doim ishlating! Har bir yangi fikr uchun yangi paragraf. Masalan: birinchi paragraf - "Salom", ikkinchi paragraf - "Men haqimda", uchinchi paragraf - "Aloqa".`,
     },
     ru: {
-      title: 'HTML Параграфы',
+      title: 'HTML Paragraphs',
       whatIs: `Параграф - это простой текстовый блок. Как в школе при написании сочинения: каждая новая мысль начинается с нового параграфа. В HTML параграф пишется с помощью тега <p>.`,
       simpleExplanation: `Представьте: вам нужно написать сообщение. В первом параграфе вы здороваетесь. Во втором параграфе пишете основное сообщение. В третьем параграфе прощаетесь. В HTML точно так же!`,
       howToUse: `Шаг 1: Напишите <p>. Шаг 2: Напишите текст. Шаг 3: Напишите </p>. Готово! Каждый параграф будет отдельным блоком с промежутком между ними.`,
@@ -277,7 +277,7 @@ export default async function HTMLParagraphsPage({
         locale={locale}
         videos={[
           {
-            title: locale === 'uz' ? 'HTML Paragraphs - To\'liq dars' : 'HTML Параграфы - Полный урок',
+            title: locale === 'uz' ? 'HTML Paragraphs - To\'liq dars' : 'HTML Paragraphs - Полный урок',
             url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
             platform: 'youtube',
             duration: '8:00'

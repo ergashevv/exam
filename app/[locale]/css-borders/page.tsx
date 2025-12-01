@@ -19,7 +19,7 @@ export default async function CSSBordersPage({
       whenToUse: `Chegaralar elementlarni ajratish, dizayn yaratish, fokus ko'rsatish uchun ishlatiladi.`,
     },
     ru: {
-      title: 'CSS Границы',
+      title: 'CSS Borders',
       whatIs: `CSS границы используются для управления линиями вокруг элемента. Можно изменять ширину, цвет, стиль и радиус углов.`,
       howToUse: `Используются свойства border-width, border-color, border-style или краткая запись border: 2px solid #333;.`,
       whenToUse: `Границы используются для разделения элементов, создания дизайна, показа фокуса.`,

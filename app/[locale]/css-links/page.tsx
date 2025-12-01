@@ -19,7 +19,7 @@ export default async function CSSLinksPage({
       whenToUse: `Havolalar dizaynini yaxshilash, foydalanuvchi interaksiyasini ko'rsatish, hover effektlari qo'shish uchun ishlatiladi.`,
     },
     ru: {
-      title: 'CSS Ссылки',
+      title: 'CSS Links',
       whatIs: `Для CSS ссылок (ссылок) существуют различные состояния: :link, :visited, :hover, :active. Эти состояния управляют внешним видом ссылки.`,
       howToUse: `Используются селекторы a:link, a:visited, a:hover, a:active. Добавляются эффекты наведения, изменения цвета, оформление.`,
       whenToUse: `Используется для улучшения дизайна ссылок, показа взаимодействия пользователя, добавления эффектов наведения.`,

@@ -19,7 +19,7 @@ export default async function HTMLBlockInlinePage({
       whenToUse: `Block elementlar strukturani yaratish, bo'limlarni ajratish uchun. Inline elementlar matn ichidagi kichik o'zgarishlar, havolalar uchun.`,
     },
     ru: {
-      title: 'HTML Блочные и Строчные Элементы',
+      title: 'HTML Block va Inline Elements',
       whatIs: `HTML элементы делятся на два основных типа: block (блочные) и inline (строчные). Блочные элементы начинаются с новой строки и занимают всю ширину. Строчные элементы размещаются внутри текста.`,
       howToUse: `Блочные элементы: <div>, <p>, <h1>-<h6>, <ul>, <ol>, <li>, <table> и другие. Строчные элементы: <span>, <a>, <img>, <strong>, <em>, <code> и другие.`,
       whenToUse: `Блочные элементы - для создания структуры, разделения секций. Строчные элементы - для небольших изменений внутри текста, ссылок.`,

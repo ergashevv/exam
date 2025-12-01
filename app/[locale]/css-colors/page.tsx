@@ -20,7 +20,7 @@ export default async function CSSColorsPage({
       whenToUse: `Har doim ishlating! Muhim matnni qizil qiling, xavfli matnni sariq qiling, muvaffaqiyatli matnni yashil qiling. Ranglar foydalanuvchiga nima muhimligini ko'rsatadi.`,
     },
     ru: {
-      title: 'CSS Цвета',
+      title: 'CSS Colors',
       whatIs: `Цвет - это цвет текста или фона. Как писать цветной ручкой на бумаге. В CSS вы можете изменить цвет текста и цвет фона.`,
       simpleExplanation: `Представьте: вам нужно написать на бумаге. Вы пишете красной ручкой - текст красный. В CSS точно так же: напишите "color: red" - текст станет красным!`,
       howToUse: `Шаг 1: Для цвета текста: напишите <code>color: red;</code>. Шаг 2: Для цвета фона: напишите <code>background-color: blue;</code>. Шаг 3: Посмотрите в браузере - цвет изменился!`,

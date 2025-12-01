@@ -19,7 +19,7 @@ export default async function HTMLStylesPage({
       whenToUse: `Inline style - kichik o'zgarishlar uchun. <style> tegi - bitta sahifa uchun. Tashqi CSS fayl - butun sayt uchun, eng yaxshi amaliyot.`,
     },
     ru: {
-      title: 'HTML Стили - CSS',
+      title: 'HTML Styles - CSS',
       whatIs: `Существует 3 способа добавления стилей к HTML элементам: inline стили, тег <style> и внешний CSS файл. CSS (Cascading Style Sheets) управляет внешним видом HTML элементов.`,
       howToUse: `1. Inline стили - добавляются напрямую к элементу через атрибут style. 2. Тег <style> - пишется в секции <head>. 3. Внешний CSS файл - создается отдельный .css файл и подключается через <link>.`,
       whenToUse: `Inline стили - для небольших изменений. Тег <style> - для одной страницы. Внешний CSS файл - для всего сайта, лучшая практика.`,

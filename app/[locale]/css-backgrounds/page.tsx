@@ -19,7 +19,7 @@ export default async function CSSBackgroundsPage({
       whenToUse: `Fonlar dizayn yaratish, rasm fonlari qo'shish, gradientlar yaratish uchun ishlatiladi.`,
     },
     ru: {
-      title: 'CSS Фоны',
+      title: 'CSS Backgrounds',
       whatIs: `CSS фоны используются для управления фоном элемента. Существуют свойства для цвета, изображения, повторения, позиции и другие.`,
       howToUse: `Используются свойства background-color, background-image, background-repeat, background-position, background-size и background-attachment.`,
       whenToUse: `Фоны используются для создания дизайна, добавления фоновых изображений, создания градиентов.`,

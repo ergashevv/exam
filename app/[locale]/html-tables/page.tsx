@@ -19,7 +19,7 @@ export default async function HTMLTablesPage({
       whenToUse: `Jadvallar jadval ma'lumotlarini ko'rsatish, narx ro'yxatlari, jadval shaklidagi ma'lumotlar uchun ishlatiladi.`,
     },
     ru: {
-      title: 'HTML Таблицы',
+      title: 'HTML Tables',
       whatIs: `HTML таблицы используются для отображения данных в виде строк и столбцов. Создаются с помощью тегов <table>, <tr>, <td>, <th>.`,
       howToUse: `Таблица начинается с тега <table>. Каждая строка создается с помощью <tr>, каждая ячейка - <td> (обычная) или <th> (заголовок).`,
       whenToUse: `Таблицы используются для отображения табличных данных, прайс-листов, информации в табличном формате.`,

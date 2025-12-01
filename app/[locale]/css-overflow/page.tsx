@@ -19,7 +19,7 @@ export default async function CSSOverflowPage({
       whenToUse: `Kontentni cheklash, scroll qo'shish, overflow'ni yashirish, responsive dizayn uchun ishlatiladi.`,
     },
     ru: {
-      title: 'CSS Свойство overflow',
+      title: 'CSS Overflow Property',
       whatIs: `Свойство overflow определяет, как управлять контентом, превышающим размер элемента. Существуют значения visible, hidden, scroll, auto.`,
       howToUse: `Используются overflow: visible;, overflow: hidden;, overflow: scroll;, overflow: auto; или отдельно overflow-x и overflow-y.`,
       whenToUse: `Используется для ограничения контента, добавления прокрутки, скрытия переполнения, адаптивного дизайна.`,

@@ -19,7 +19,7 @@ export default async function HTMLDivPage({
       whenToUse: `Div elementlar layout yaratish, elementlarni guruhlash, CSS bilan dizayn qilish uchun ishlatiladi.`,
     },
     ru: {
-      title: 'HTML Div Элемент',
+      title: 'HTML Div Element',
       whatIs: `Элемент <div> - это универсальный контейнер, используемый для группировки других элементов и создания структуры. Это блочный элемент.`,
       howToUse: `Тег <div> открывается и закрывается, внутрь помещаются другие элементы. Дизайн и расположение управляются с помощью CSS.`,
       whenToUse: `Div элементы используются для создания макета, группировки элементов, дизайна с помощью CSS.`,

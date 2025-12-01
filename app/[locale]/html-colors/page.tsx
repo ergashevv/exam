@@ -19,7 +19,7 @@ export default async function HTMLColorsPage({
       whenToUse: `Ranglar dizayn yaratishda, muhim ma'lumotlarni ajratib ko'rsatishda va foydalanuvchi e'tiborini jalb qilishda ishlatiladi.`,
     },
     ru: {
-      title: 'HTML Цвета',
+      title: 'HTML Colors',
       whatIs: `HTML цвета используются для определения цвета текста, фона и других элементов. Цвета могут быть представлены в формате имени, hex кода, RGB или HSL.`,
       howToUse: `Цвета определяются с помощью атрибута style или CSS. Наиболее распространенные методы: имя цвета (red, blue), hex код (#FF0000), RGB (rgb(255,0,0)) и HSL (hsl(0,100%,50%)).`,
       whenToUse: `Цвета используются при создании дизайна, выделении важной информации и привлечении внимания пользователя.`,

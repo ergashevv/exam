@@ -19,7 +19,7 @@ export default async function CSSListsPage({
       whenToUse: `Ro'yxatlarni bezash, markerlarni o'zgartirish, custom markerlar yaratish uchun ishlatiladi.`,
     },
     ru: {
-      title: 'CSS Списки',
+      title: 'CSS Lists',
       whatIs: `CSS используется для управления маркерами, позицией, изображениями маркеров и другими дизайнерскими свойствами для списков.`,
       howToUse: `Используются свойства list-style-type, list-style-position, list-style-image или краткая запись list-style.`,
       whenToUse: `Используется для оформления списков, изменения маркеров, создания пользовательских маркеров.`,

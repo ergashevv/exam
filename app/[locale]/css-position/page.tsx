@@ -19,7 +19,7 @@ export default async function CSSPositionPage({
       whenToUse: `Elementlarni aniq joylashtirish, overlay yaratish, sticky header, fixed navigation, modal oynalar uchun ishlatiladi.`,
     },
     ru: {
-      title: 'CSS Свойство position',
+      title: 'CSS Position Property',
       whatIs: `Свойство position управляет расположением элемента. Существуют значения static, relative, absolute, fixed и sticky.`,
       howToUse: `Используются position: static;, position: relative;, position: absolute;, position: fixed;, position: sticky; и свойства top, right, bottom, left.`,
       whenToUse: `Используется для точного размещения элементов, создания overlay, sticky header, fixed navigation, модальных окон.`,

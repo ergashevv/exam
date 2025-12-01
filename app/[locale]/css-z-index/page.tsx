@@ -19,7 +19,7 @@ export default async function CSSZIndexPage({
       whenToUse: `Overlay yaratish, modal oynalar, dropdown menular, tooltip'lar, elementlarni bir-birining ustiga qo'yishda ishlatiladi.`,
     },
     ru: {
-      title: 'CSS Свойство z-index',
+      title: 'CSS z-index Property',
       whatIs: `z-index определяет порядок слоев (stacking order). Большее значение отображается сверху, меньшее - снизу.`,
       howToUse: `Используются значения типа z-index: 1;, z-index: 999;, z-index: -1;. Работает только на positioned элементах (relative, absolute, fixed).`,
       whenToUse: `Используется для создания overlay, модальных окон, выпадающих меню, подсказок, размещения элементов друг над другом.`,

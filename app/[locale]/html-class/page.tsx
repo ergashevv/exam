@@ -19,7 +19,7 @@ export default async function HTMLClassPage({
       whenToUse: `class atributi bir xil dizaynga ega bo'lgan elementlarni guruhlash, CSS va JavaScript bilan ishlash uchun ishlatiladi.`,
     },
     ru: {
-      title: 'HTML Атрибут class',
+      title: 'HTML class Attribute',
       whatIs: `Атрибут class используется для применения одинакового стиля или функции к нескольким элементам. У одного элемента может быть несколько классов.`,
       howToUse: `Атрибут class пишется в формате class="имя". Если несколько классов, они разделяются пробелом: class="class1 class2".`,
       whenToUse: `Атрибут class используется для группировки элементов с одинаковым дизайном, работы с CSS и JavaScript.`,

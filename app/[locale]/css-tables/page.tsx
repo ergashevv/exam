@@ -19,7 +19,7 @@ export default async function CSSTablesPage({
       whenToUse: `Jadvallarni chiroyli ko'rinishga keltirish, ma'lumotlarni o'qish qulayligini yaxshilash, dizayn yaratishda ishlatiladi.`,
     },
     ru: {
-      title: 'CSS Таблицы',
+      title: 'CSS Tables',
       whatIs: `CSS используется для оформления таблиц, добавления границ, цветов, эффектов наведения и адаптивного дизайна.`,
       howToUse: `border-collapse, border-spacing, селекторы nth-child, эффекты наведения, создание полосатых таблиц.`,
       whenToUse: `Используется для придания таблицам красивого вида, улучшения читаемости данных, создания дизайна.`,

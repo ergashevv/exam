@@ -19,7 +19,7 @@ export default async function HTMLFormsPage({
       whenToUse: `Formalar foydalanuvchi ma'lumotlarini to'plash, login, ro'yxatdan o'tish, fikr-mulohaza qoldirish uchun ishlatiladi.`,
     },
     ru: {
-      title: 'HTML Формы',
+      title: 'HTML Forms',
       whatIs: `HTML формы используются для получения информации от пользователя. Создаются с помощью тега <form> и содержат различные элементы input.`,
       howToUse: `Тег <form> открывается, атрибут action определяет URL для отправки данных, атрибут method - способ отправки (GET или POST).`,
       whenToUse: `Формы используются для сбора пользовательских данных, входа, регистрации, оставления комментариев.`,
