@@ -100,12 +100,30 @@ export default async function HTMLStylesPage({
       <div className="example-box">
         <h4>{t.common.codeExample}</h4>
         <pre>
-          <code>{`<!-- HTML fayl -->
+          <code>{locale === 'uz' 
+            ? `<!-- HTML fayl -->
 <head>
   <link rel="stylesheet" href="styles.css">
 </head>
 
 /* styles.css fayl */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+}
+
+.header {
+  background-color: #333;
+  color: white;
+  padding: 20px;
+}`
+            : `<!-- HTML файл -->
+<head>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+/* styles.css файл */
 body {
   font-family: Arial, sans-serif;
   margin: 0;

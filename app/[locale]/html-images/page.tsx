@@ -62,7 +62,8 @@ export default async function HTMLImagesPage({
       <div className="example-box">
         <h4>{t.common.codeExample}</h4>
         <pre>
-          <code>{`<!-- Oddiy rasm -->
+          <code>{locale === 'uz' 
+            ? `<!-- Oddiy rasm -->
 <img src="/images/photo.jpg" alt="Rasm tavsifi">
 
 <!-- O'lcham bilan -->
@@ -84,7 +85,30 @@ export default async function HTMLImagesPage({
      sizes="(max-width: 600px) 300px,
             (max-width: 1200px) 600px,
             1200px"
-     alt="Responsive rasm">`}</code>
+     alt="Responsive rasm">`
+            : `<!-- Простое изображение -->
+<img src="/images/photo.jpg" alt="Описание изображения">
+
+<!-- С размером -->
+<img src="/images/photo.jpg" alt="Изображение" width="300" height="200">
+
+<!-- Размер с CSS -->
+<img src="/images/photo.jpg" alt="Изображение" style="width: 100%; max-width: 500px;">
+
+<!-- Изображение как ссылка -->
+<a href="https://example.com">
+  <img src="/images/logo.png" alt="Логотип">
+</a>
+
+<!-- Адаптивное изображение -->
+<img src="/images/photo.jpg" 
+     srcset="/images/photo-small.jpg 300w,
+             /images/photo-medium.jpg 600w,
+             /images/photo-large.jpg 1200w"
+     sizes="(max-width: 600px) 300px,
+            (max-width: 1200px) 600px,
+            1200px"
+     alt="Адаптивное изображение">`}</code>
         </pre>
       </div>
 

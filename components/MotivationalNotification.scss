@@ -3,17 +3,30 @@
   bottom: 2rem;
   right: 2rem;
   z-index: 1001;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  border-radius: 16px;
-  box-shadow: 0 8px 32px rgba(102, 126, 234, 0.4);
-  padding: 1.25rem 1.5rem;
-  min-width: 320px;
-  max-width: 400px;
+  background: #ffffff;
+  color: #1a1a1a;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15), 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  min-width: 340px;
+  max-width: 420px;
   display: flex;
   align-items: flex-start;
   gap: 1rem;
-  animation: slideInUp 0.4s ease;
+  border: 1px solid rgba(102, 126, 234, 0.1);
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+    animation: shimmer 3s infinite;
+  }
 
   @media (max-width: 768px) {
     bottom: 1rem;
@@ -21,69 +34,107 @@
     left: 1rem;
     min-width: auto;
     max-width: none;
-    padding: 1rem 1.25rem;
+    padding: 1.25rem;
+    border-radius: 16px;
+  }
+
+  .notification-icon-wrapper {
+    position: relative;
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .notification-icon {
+      font-size: 1.75rem;
+      z-index: 2;
+      position: relative;
+      animation: iconFloat 3s ease-in-out infinite;
+    }
+
+    .notification-pulse {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, rgba(102, 126, 234, 0.2), rgba(118, 75, 162, 0.2));
+      border-radius: 50%;
+      animation: pulse 2s ease-in-out infinite;
+    }
   }
 
   .notification-content {
     flex: 1;
     display: flex;
     align-items: flex-start;
-    gap: 0.75rem;
-
-    .notification-emoji {
-      font-size: 1.75rem;
-      flex-shrink: 0;
-      animation: bounce 2s infinite;
-    }
 
     .notification-text {
       margin: 0;
       font-size: 0.95rem;
-      line-height: 1.5;
+      line-height: 1.6;
       font-weight: 500;
-      color: white;
+      color: #1a1a1a;
+      letter-spacing: -0.01em;
     }
   }
 
   .notification-close {
-    background: rgba(255, 255, 255, 0.2);
+    background: transparent;
     border: none;
-    color: white;
-    font-size: 1.5rem;
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
+    color: #666;
+    width: 24px;
+    height: 24px;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
     transition: all 0.2s ease;
+    border-radius: 6px;
+    padding: 0;
 
     &:hover {
-      background: rgba(255, 255, 255, 0.3);
-      transform: scale(1.1);
+      background: rgba(0, 0, 0, 0.05);
+      color: #1a1a1a;
+      transform: rotate(90deg);
+    }
+
+    &:active {
+      transform: rotate(90deg) scale(0.95);
     }
   }
 }
 
-@keyframes slideInUp {
-  from {
-    transform: translateY(100%);
-    opacity: 0;
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
   }
-  to {
-    transform: translateY(0);
-    opacity: 1;
+  100% {
+    background-position: 200% 0;
   }
 }
 
-@keyframes bounce {
+@keyframes iconFloat {
   0%, 100% {
-    transform: translateY(0);
+    transform: translateY(0) rotate(0deg);
   }
   50% {
-    transform: translateY(-8px);
+    transform: translateY(-6px) rotate(5deg);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.2);
+    opacity: 0.3;
   }
 }
 

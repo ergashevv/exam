@@ -77,17 +77,22 @@ export default function MotivationalNotification({
       {showNotification && (
         <motion.div
           className="motivational-notification"
-          initial={{ opacity: 0, y: 50, scale: 0.8 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          exit={{ opacity: 0, y: 50, scale: 0.8 }}
-          transition={{ duration: 0.4, type: 'spring', stiffness: 200 }}
+          initial={{ opacity: 0, x: 400, scale: 0.9 }}
+          animate={{ opacity: 1, x: 0, scale: 1 }}
+          exit={{ opacity: 0, x: 400, scale: 0.9 }}
+          transition={{ duration: 0.5, type: 'spring', stiffness: 150, damping: 15 }}
         >
+          <div className="notification-icon-wrapper">
+            <div className="notification-icon">📚</div>
+            <div className="notification-pulse"></div>
+          </div>
           <div className="notification-content">
-            <div className="notification-emoji">💪</div>
             <p className="notification-text">{message}</p>
           </div>
-          <button className="notification-close" onClick={handleClose}>
-            ×
+          <button className="notification-close" onClick={handleClose} aria-label="Close">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M12 4L4 12M4 4l8 8" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+            </svg>
           </button>
         </motion.div>
       )}

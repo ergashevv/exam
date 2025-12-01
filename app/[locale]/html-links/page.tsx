@@ -370,7 +370,7 @@ export default async function HTMLLinksPage({
         <h4>👀 {t.common.takeALook}</h4>
         <p>{locale === 'uz' 
           ? `Yuqoridagi "${t.common.result}" bo'limida turli xil havolalar ko'rsatilgan. Ularni bosib ko'ring - qaysi bir qanday ishlaydi!`
-          : `В разделе "${t.common.result}" выше показаны разные ссылки. Нажмите на них - посмотрите, как каждая работает!`}</p>
+          : `В разделе "${t.common.result}" выше показаны различные ссылки. Нажмите на них - посмотрите, как каждая работает!`}</p>
       </div>
     </TutorialLayout>
   )

@@ -307,7 +307,7 @@ export default async function HTMLParagraphsPage({
         <h4>👀 {t.common.takeALook}</h4>
         <p>{locale === 'uz' 
           ? `Yuqoridagi "${t.common.result}" bo'limida 3 ta paragraf ko'rsatilgan. Har biri alohida bo'lim va orasida bo'sh joy bor!`
-          : `В разделе "${t.common.result}" выше показаны 3 параграфа. Каждый - отдельный блок и между ними есть пространство!`}</p>
+          : `В разделе "${t.common.result}" выше показаны 3 параграфа. Каждый - отдельный блок, и между ними есть пространство!`}</p>
       </div>
     </TutorialLayout>
   )
