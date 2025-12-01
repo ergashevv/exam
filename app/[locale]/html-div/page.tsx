@@ -44,7 +44,8 @@ export default function HTMLDivPage({
       <div className="example-box">
         <h4>{t.common.codeExample}</h4>
         <pre>
-          <code>{`<!-- Oddiy div -->
+          <code>{locale === 'uz' 
+            ? `<!-- Oddiy div -->
 <div>
   <p>Bu div ichidagi paragraf</p>
 </div>
@@ -70,6 +71,33 @@ export default function HTMLDivPage({
   <div class="header">Sarlavha</div>
   <div class="content">Kontent</div>
   <div class="footer">Pastki qism</div>
+</div>`
+            : `<!-- Простой div -->
+<div>
+  <p>Параграф внутри div</p>
+</div>
+
+<!-- Div с CSS -->
+<div style="background: #3498db; color: white; padding: 20px; border-radius: 8px;">
+  <h2>Синий div</h2>
+  <p>Этот div оформлен с помощью CSS</p>
+</div>
+
+<!-- Div для layout -->
+<div style="display: flex; gap: 20px;">
+  <div style="flex: 1; background: lightblue; padding: 15px;">
+    Первый раздел
+  </div>
+  <div style="flex: 1; background: lightgreen; padding: 15px;">
+    Второй раздел
+  </div>
+</div>
+
+<!-- Вложенные div -->
+<div class="container">
+  <div class="header">Заголовок</div>
+  <div class="content">Контент</div>
+  <div class="footer">Нижняя часть</div>
 </div>`}</code>
         </pre>
       </div>
@@ -115,9 +143,8 @@ export default function HTMLDivPage({
 
       <div className="info-box">
         <strong>{t.common.note}</strong> {locale === 'uz' 
-          ? 'Zamonaviy HTML5 da semantic elementlar (<code>&lt;header&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;article&gt;</code>, <code>&lt;footer&gt;</code>) ishlatish'
-          : 'В современном HTML5 использование семантических элементов (<code>&lt;header&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;article&gt;</code>, <code>&lt;footer&gt;</code>)'}
-        tavsiya etiladi, lekin <code>&lt;div&gt;</code> hali ham keng qo'llaniladi.
+          ? 'Zamonaviy HTML5 da semantic elementlar (<code>&lt;header&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;article&gt;</code>, <code>&lt;footer&gt;</code>) ishlatish tavsiya etiladi, lekin <code>&lt;div&gt;</code> hali ham keng qo\'llaniladi.'
+          : 'В современном HTML5 использование семантических элементов (<code>&lt;header&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;article&gt;</code>, <code>&lt;footer&gt;</code>) рекомендуется, но <code>&lt;div&gt;</code> все еще широко используется.'}
       </div>
     </TutorialLayout>
   )

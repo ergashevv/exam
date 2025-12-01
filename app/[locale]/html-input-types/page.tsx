@@ -44,7 +44,8 @@ export default function HTMLInputTypesPage({
       <div className="example-box">
         <h4>{t.common.codeExample}</h4>
         <pre>
-          <code>{`<!-- Matn -->
+          <code>{locale === 'uz' 
+            ? `<!-- Matn -->
 <input type="text" placeholder="Ismingizni kiriting">
 
 <!-- Email -->
@@ -86,7 +87,50 @@ export default function HTMLInputTypesPage({
 <input type="url" placeholder="https://example.com">
 
 <!-- Telefon -->
-<input type="tel" placeholder="+998901234567">`}</code>
+<input type="tel" placeholder="+998901234567">`
+            : `<!-- Текст -->
+<input type="text" placeholder="Введите ваше имя">
+
+<!-- Email -->
+<input type="email" placeholder="email@example.com">
+
+<!-- Пароль -->
+<input type="password" placeholder="Пароль">
+
+<!-- Число -->
+<input type="number" min="0" max="100" step="1">
+
+<!-- Дата -->
+<input type="date">
+
+<!-- Время -->
+<input type="time">
+
+<!-- Цвет -->
+<input type="color">
+
+<!-- Checkbox -->
+<input type="checkbox" id="check1">
+<label for="check1">Выбор</label>
+
+<!-- Radio -->
+<input type="radio" id="radio1" name="choice" value="1">
+<label for="radio1">Вариант 1</label>
+
+<!-- Файл -->
+<input type="file" accept="image/*">
+
+<!-- Range -->
+<input type="range" min="0" max="100" value="50">
+
+<!-- Поиск -->
+<input type="search" placeholder="Поиск...">
+
+<!-- URL -->
+<input type="url" placeholder="https://example.com">
+
+<!-- Телефон -->
+<input type="tel" placeholder="+79991234567">`}</code>
         </pre>
       </div>
 
@@ -95,7 +139,7 @@ export default function HTMLInputTypesPage({
         <div style={{ display: 'grid', gap: '15px', maxWidth: '400px' }}>
           <input
             type="text"
-            placeholder="Ismingizni kiriting"
+            placeholder={locale === 'uz' ? 'Ismingizni kiriting' : 'Введите ваше имя'}
             style={{ padding: '8px', border: '1px solid #ddd', borderRadius: '4px' }}
           />
           <input
@@ -105,12 +149,12 @@ export default function HTMLInputTypesPage({
           />
           <input
             type="password"
-            placeholder="Parol"
+            placeholder={locale === 'uz' ? 'Parol' : 'Пароль'}
             style={{ padding: '8px', border: '1px solid #ddd', borderRadius: '4px' }}
           />
           <input
             type="number"
-            placeholder="Raqam"
+            placeholder={locale === 'uz' ? 'Raqam' : 'Число'}
             min="0"
             max="100"
             style={{ padding: '8px', border: '1px solid #ddd', borderRadius: '4px' }}
@@ -126,7 +170,7 @@ export default function HTMLInputTypesPage({
           <div>
             <input type="checkbox" id="demo-check" />
             <label htmlFor="demo-check" style={{ marginLeft: '5px' }}>
-              Checkbox tanlov
+              {locale === 'uz' ? 'Checkbox tanlov' : 'Выбор checkbox'}
             </label>
           </div>
           <input
@@ -142,34 +186,34 @@ export default function HTMLInputTypesPage({
       <h2>{t.common.whenToUse}</h2>
       <p>{c.whenToUse}</p>
 
-      <h3>Asosiy input turlari:</h3>
+      <h3>{locale === 'uz' ? 'Asosiy input turlari:' : 'Основные типы input:'}</h3>
       <ul>
         <li>
-          <strong>text</strong> - oddiy matn
+          <strong>text</strong> - {locale === 'uz' ? 'oddiy matn' : 'обычный текст'}
         </li>
         <li>
-          <strong>email</strong> - email manzil (validatsiya)
+          <strong>email</strong> - {locale === 'uz' ? 'email manzil (validatsiya)' : 'email адрес (валидация)'}
         </li>
         <li>
-          <strong>password</strong> - parol (yashirin)
+          <strong>password</strong> - {locale === 'uz' ? 'parol (yashirin)' : 'пароль (скрыто)'}
         </li>
         <li>
-          <strong>number</strong> - raqam
+          <strong>number</strong> - {locale === 'uz' ? 'raqam' : 'число'}
         </li>
         <li>
-          <strong>date</strong> - sana
+          <strong>date</strong> - {locale === 'uz' ? 'sana' : 'дата'}
         </li>
         <li>
-          <strong>checkbox</strong> - ko'p tanlov
+          <strong>checkbox</strong> - {locale === 'uz' ? 'ko\'p tanlov' : 'множественный выбор'}
         </li>
         <li>
-          <strong>radio</strong> - bitta tanlov
+          <strong>radio</strong> - {locale === 'uz' ? 'bitta tanlov' : 'один выбор'}
         </li>
         <li>
-          <strong>file</strong> - fayl yuklash
+          <strong>file</strong> - {locale === 'uz' ? 'fayl yuklash' : 'загрузка файла'}
         </li>
         <li>
-          <strong>submit</strong> - yuborish tugmasi
+          <strong>submit</strong> - {locale === 'uz' ? 'yuborish tugmasi' : 'кнопка отправки'}
         </li>
       </ul>
     </TutorialLayout>

@@ -44,7 +44,8 @@ export default function HTMLListsPage({
       <div className="example-box">
         <h4>{t.common.codeExample}</h4>
         <pre>
-          <code>{`<!-- Tartibsiz ro'yxat (bullet points) -->
+          <code>{locale === 'uz' 
+            ? `<!-- Tartibsiz ro'yxat (bullet points) -->
 <ul>
   <li>Birinchi element</li>
   <li>Ikkinchi element</li>
@@ -80,6 +81,43 @@ export default function HTMLListsPage({
   <dd>HyperText Markup Language</dd>
   <dt>CSS</dt>
   <dd>Cascading Style Sheets</dd>
+</dl>`
+            : `<!-- Неупорядоченный список (маркеры) -->
+<ul>
+  <li>Первый элемент</li>
+  <li>Второй элемент</li>
+  <li>Третий элемент</li>
+</ul>
+
+<!-- Упорядоченный список (номера) -->
+<ol>
+  <li>Первый шаг</li>
+  <li>Второй шаг</li>
+  <li>Третий шаг</li>
+</ol>
+
+<!-- Вложенные списки -->
+<ul>
+  <li>Фрукты
+    <ul>
+      <li>Яблоко</li>
+      <li>Банан</li>
+    </ul>
+  </li>
+  <li>Овощи
+    <ul>
+      <li>Морковь</li>
+      <li>Картофель</li>
+    </ul>
+  </li>
+</ul>
+
+<!-- Список описаний -->
+<dl>
+  <dt>HTML</dt>
+  <dd>HyperText Markup Language</dd>
+  <dt>CSS</dt>
+  <dd>Cascading Style Sheets</dd>
 </dl>`}</code>
         </pre>
       </div>
@@ -87,23 +125,23 @@ export default function HTMLListsPage({
       <div className="result-box">
         <h4>{t.common.result}</h4>
         <div style={{ marginBottom: '20px' }}>
-          <strong>Tartibsiz ro'yxat:</strong>
+          <strong>{locale === 'uz' ? 'Tartibsiz ro\'yxat:' : 'Неупорядоченный список:'}</strong>
           <ul style={{ marginTop: '10px' }}>
-            <li>Birinchi element</li>
-            <li>Ikkinchi element</li>
-            <li>Uchinchi element</li>
+            <li>{locale === 'uz' ? 'Birinchi element' : 'Первый элемент'}</li>
+            <li>{locale === 'uz' ? 'Ikkinchi element' : 'Второй элемент'}</li>
+            <li>{locale === 'uz' ? 'Uchinchi element' : 'Третий элемент'}</li>
           </ul>
         </div>
         <div style={{ marginBottom: '20px' }}>
-          <strong>Tartibli ro'yxat:</strong>
+          <strong>{locale === 'uz' ? 'Tartibli ro\'yxat:' : 'Упорядоченный список:'}</strong>
           <ol style={{ marginTop: '10px' }}>
-            <li>Birinchi qadam</li>
-            <li>Ikkinchi qadam</li>
-            <li>Uchinchi qadam</li>
+            <li>{locale === 'uz' ? 'Birinchi qadam' : 'Первый шаг'}</li>
+            <li>{locale === 'uz' ? 'Ikkinchi qadam' : 'Второй шаг'}</li>
+            <li>{locale === 'uz' ? 'Uchinchi qadam' : 'Третий шаг'}</li>
           </ol>
         </div>
         <div>
-          <strong>Tavsif ro'yxati:</strong>
+          <strong>{locale === 'uz' ? 'Tavsif ro\'yxati:' : 'Список описаний:'}</strong>
           <dl style={{ marginTop: '10px' }}>
             <dt style={{ fontWeight: 'bold' }}>HTML</dt>
             <dd style={{ marginLeft: '20px', marginBottom: '10px' }}>
@@ -120,16 +158,16 @@ export default function HTMLListsPage({
       <h2>{t.common.whenToUse}</h2>
       <p>{c.whenToUse}</p>
 
-      <h3>Ro'yxat turlari:</h3>
+      <h3>{locale === 'uz' ? 'Ro\'yxat turlari:' : 'Типы списков:'}</h3>
       <ul>
         <li>
-          <strong>&lt;ul&gt;</strong> - tartibsiz ro'yxat (bullet points)
+          <strong>&lt;ul&gt;</strong> - {locale === 'uz' ? 'tartibsiz ro\'yxat (bullet points)' : 'неупорядоченный список (маркеры)'}
         </li>
         <li>
-          <strong>&lt;ol&gt;</strong> - tartibli ro'yxat (raqamlar, harflar)
+          <strong>&lt;ol&gt;</strong> - {locale === 'uz' ? 'tartibli ro\'yxat (raqamlar, harflar)' : 'упорядоченный список (номера, буквы)'}
         </li>
         <li>
-          <strong>&lt;dl&gt;</strong> - tavsif ro'yxati (description list)
+          <strong>&lt;dl&gt;</strong> - {locale === 'uz' ? 'tavsif ro\'yxati (description list)' : 'список описаний (description list)'}
         </li>
       </ul>
     </TutorialLayout>

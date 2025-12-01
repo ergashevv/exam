@@ -62,34 +62,41 @@ export default function HTMLHeadingsPage({
       <div className="example-box">
         <h4>{t.common.codeExample}</h4>
         <pre>
-          <code>{`<h1>Eng muhim sarlavha</h1>
+          <code>{locale === 'uz' 
+            ? `<h1>Eng muhim sarlavha</h1>
 <h2>Ikkinchi darajali sarlavha</h2>
 <h3>Uchinchi darajali sarlavha</h3>
 <h4>To'rtinchi darajali sarlavha</h4>
 <h5>Beshinchi darajali sarlavha</h5>
-<h6>Oltinchi darajali sarlavha</h6>`}</code>
+<h6>Oltinchi darajali sarlavha</h6>`
+            : `<h1>Самый важный заголовок</h1>
+<h2>Заголовок второго уровня</h2>
+<h3>Заголовок третьего уровня</h3>
+<h4>Заголовок четвертого уровня</h4>
+<h5>Заголовок пятого уровня</h5>
+<h6>Заголовок шестого уровня</h6>`}</code>
         </pre>
       </div>
 
       <div className="result-box">
         <h4>{t.common.result}</h4>
         <h1 style={{ fontSize: '2em', margin: '0.5em 0' }}>
-          Eng muhim sarlavha
+          {locale === 'uz' ? 'Eng muhim sarlavha' : 'Самый важный заголовок'}
         </h1>
         <h2 style={{ fontSize: '1.5em', margin: '0.5em 0' }}>
-          Ikkinchi darajali sarlavha
+          {locale === 'uz' ? 'Ikkinchi darajali sarlavha' : 'Заголовок второго уровня'}
         </h2>
         <h3 style={{ fontSize: '1.17em', margin: '0.5em 0' }}>
-          Uchinchi darajali sarlavha
+          {locale === 'uz' ? 'Uchinchi darajali sarlavha' : 'Заголовок третьего уровня'}
         </h3>
         <h4 style={{ fontSize: '1em', margin: '0.5em 0' }}>
-          To'rtinchi darajali sarlavha
+          {locale === 'uz' ? 'To\'rtinchi darajali sarlavha' : 'Заголовок четвертого уровня'}
         </h4>
         <h5 style={{ fontSize: '0.83em', margin: '0.5em 0' }}>
-          Beshinchi darajali sarlavha
+          {locale === 'uz' ? 'Beshinchi darajali sarlavha' : 'Заголовок пятого уровня'}
         </h5>
         <h6 style={{ fontSize: '0.67em', margin: '0.5em 0' }}>
-          Oltinchi darajali sarlavha
+          {locale === 'uz' ? 'Oltinchi darajali sarlavha' : 'Заголовок шестого уровня'}
         </h6>
       </div>
 

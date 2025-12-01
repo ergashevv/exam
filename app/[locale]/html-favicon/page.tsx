@@ -27,7 +27,8 @@ export default function HTMLFaviconPage({
 
   const c = content[locale] || content.uz
 
-  const codeExample = `<!DOCTYPE html>
+  const codeExample = locale === 'uz' 
+    ? `<!DOCTYPE html>
 <html>
 <head>
   <title>Mening saytim</title>
@@ -50,6 +51,31 @@ export default function HTMLFaviconPage({
 </head>
 <body>
   <!-- Kontent -->
+</body>
+</html>`
+    : `<!DOCTYPE html>
+<html>
+<head>
+  <title>Мой сайт</title>
+  
+  <!-- ICO формат -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  
+  <!-- PNG формат -->
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  
+  <!-- SVG формат (современные браузеры) -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  
+  <!-- Apple touch icon -->
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  
+  <!-- Несколько размеров -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+</head>
+<body>
+  <!-- Контент -->
 </body>
 </html>`
 

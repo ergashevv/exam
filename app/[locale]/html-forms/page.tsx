@@ -44,7 +44,8 @@ export default function HTMLFormsPage({
       <div className="example-box">
         <h4>{t.common.codeExample}</h4>
         <pre>
-          <code>{`<!-- Oddiy forma -->
+          <code>{locale === 'uz' 
+            ? `<!-- Oddiy forma -->
 <form action="/submit" method="POST">
   <label for="name">Ism:</label>
   <input type="text" id="name" name="name" required>
@@ -74,6 +75,37 @@ export default function HTMLFormsPage({
     <input type="radio" id="radio1" name="choice" value="1">
     <label for="radio1">Tanlov 1</label>
   </fieldset>
+</form>`
+            : `<!-- Простая форма -->
+<form action="/submit" method="POST">
+  <label for="name">Имя:</label>
+  <input type="text" id="name" name="name" required>
+  
+  <label for="email">Email:</label>
+  <input type="email" id="email" name="email" required>
+  
+  <label for="message">Сообщение:</label>
+  <textarea id="message" name="message" rows="4" required></textarea>
+  
+  <button type="submit">Отправить</button>
+</form>
+
+<!-- GET метод -->
+<form action="/search" method="GET">
+  <input type="text" name="q" placeholder="Поиск...">
+  <button type="submit">Поиск</button>
+</form>
+
+<!-- Checkbox и Radio -->
+<form>
+  <fieldset>
+    <legend>Выборы</legend>
+    <input type="checkbox" id="option1" name="options" value="1">
+    <label for="option1">Вариант 1</label>
+    
+    <input type="radio" id="radio1" name="choice" value="1">
+    <label for="radio1">Выбор 1</label>
+  </fieldset>
 </form>`}</code>
         </pre>
       </div>
@@ -90,7 +122,7 @@ export default function HTMLFormsPage({
         >
           <div style={{ marginBottom: '15px' }}>
             <label htmlFor="demo-name" style={{ display: 'block', marginBottom: '5px' }}>
-              Ism:
+              {locale === 'uz' ? 'Ism:' : 'Имя:'}
             </label>
             <input
               type="text"
@@ -129,7 +161,7 @@ export default function HTMLFormsPage({
               cursor: 'pointer',
             }}
           >
-            Yuborish
+            {locale === 'uz' ? 'Yuborish' : 'Отправить'}
           </button>
         </form>
       </div>
@@ -137,16 +169,16 @@ export default function HTMLFormsPage({
       <h2>{t.common.whenToUse}</h2>
       <p>{c.whenToUse}</p>
 
-      <h3>Form atributlari:</h3>
+      <h3>{locale === 'uz' ? 'Form atributlari:' : 'Атрибуты формы:'}</h3>
       <ul>
         <li>
-          <strong>action</strong> - ma'lumot yuboriladigan URL
+          <strong>action</strong> - {locale === 'uz' ? 'ma\'lumot yuboriladigan URL' : 'URL для отправки данных'}
         </li>
         <li>
-          <strong>method</strong> - GET (URL'da ko'rinadi) yoki POST (yashirin)
+          <strong>method</strong> - {locale === 'uz' ? 'GET (URL\'da ko\'rinadi) yoki POST (yashirin)' : 'GET (видно в URL) или POST (скрыто)'}
         </li>
         <li>
-          <strong>enctype</strong> - fayl yuborish uchun "multipart/form-data"
+          <strong>enctype</strong> - {locale === 'uz' ? 'fayl yuborish uchun "multipart/form-data"' : 'для отправки файлов "multipart/form-data"'}
         </li>
       </ul>
     </TutorialLayout>

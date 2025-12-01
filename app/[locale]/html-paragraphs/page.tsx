@@ -60,17 +60,27 @@ export default function HTMLParagraphsPage({
       <div className="example-box">
         <h4>{t.common.codeExample}</h4>
         <pre>
-          <code>{`<p>Bu birinchi paragraf. U matnning birinchi bo'limini ifodalaydi.</p>
+          <code>{locale === 'uz' 
+            ? `<p>Bu birinchi paragraf. U matnning birinchi bo'limini ifodalaydi.</p>
 <p>Bu ikkinchi paragraf. U matnning ikkinchi bo'limini ifodalaydi.</p>
-<p>Har bir paragraf alohida bo'lim sifatida ko'rsatiladi.</p>`}</code>
+<p>Har bir paragraf alohida bo'lim sifatida ko'rsatiladi.</p>`
+            : `<p>Это первый параграф. Он представляет первую часть текста.</p>
+<p>Это второй параграф. Он представляет вторую часть текста.</p>
+<p>Каждый параграф отображается как отдельный блок.</p>`}</code>
         </pre>
       </div>
 
       <div className="result-box">
         <h4>{t.common.result}</h4>
-        <p>Bu birinchi paragraf. U matnning birinchi bo'limini ifodalaydi.</p>
-        <p>Bu ikkinchi paragraf. U matnning ikkinchi bo'limini ifodalaydi.</p>
-        <p>Har bir paragraf alohida bo'lim sifatida ko'rsatiladi.</p>
+        <p>{locale === 'uz' 
+          ? 'Bu birinchi paragraf. U matnning birinchi bo\'limini ifodalaydi.'
+          : 'Это первый параграф. Он представляет первую часть текста.'}</p>
+        <p>{locale === 'uz' 
+          ? 'Bu ikkinchi paragraf. U matnning ikkinchi bo\'limini ifodalaydi.'
+          : 'Это второй параграф. Он представляет вторую часть текста.'}</p>
+        <p>{locale === 'uz' 
+          ? 'Har bir paragraf alohida bo\'lim sifatida ko\'rsatiladi.'
+          : 'Каждый параграф отображается как отдельный блок.'}</p>
       </div>
 
       <h2>{t.common.whenToUse}</h2>

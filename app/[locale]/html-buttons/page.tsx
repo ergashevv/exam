@@ -44,7 +44,8 @@ export default function HTMLButtonsPage({
       <div className="example-box">
         <h4>{t.common.codeExample}</h4>
         <pre>
-          <code>{`<!-- Oddiy tugma -->
+          <code>{locale === 'uz' 
+            ? `<!-- Oddiy tugma -->
 <button>Bosing</button>
 
 <!-- Tugma turi -->
@@ -66,14 +67,37 @@ export default function HTMLButtonsPage({
 <!-- Input tugma -->
 <input type="button" value="Input tugma">
 <input type="submit" value="Yuborish">
-<input type="reset" value="Tozalash">`}</code>
+<input type="reset" value="Tozalash">`
+            : `<!-- Простая кнопка -->
+<button>Нажмите</button>
+
+<!-- Тип кнопки -->
+<button type="button">Обычная кнопка</button>
+<button type="submit">Отправить</button>
+<button type="reset">Очистить</button>
+
+<!-- С CSS -->
+<button style="background: #667eea; color: white; padding: 10px 20px; border: none; border-radius: 5px;">
+  Красивая кнопка
+</button>
+
+<!-- Отключенная кнопка -->
+<button disabled>Отключенная кнопка</button>
+
+<!-- С JavaScript -->
+<button onclick="alert('Привет!')">Нажмите</button>
+
+<!-- Input кнопка -->
+<input type="button" value="Input кнопка">
+<input type="submit" value="Отправить">
+<input type="reset" value="Очистить">`}</code>
         </pre>
       </div>
 
       <div className="result-box">
         <h4>{t.common.result}</h4>
         <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', marginTop: '10px' }}>
-          <button>Bosing</button>
+          <button>{locale === 'uz' ? 'Bosing' : 'Нажмите'}</button>
           <button
             style={{
               background: '#667eea',
@@ -84,26 +108,26 @@ export default function HTMLButtonsPage({
               cursor: 'pointer',
             }}
           >
-            Chiroyli tugma
+            {locale === 'uz' ? 'Chiroyli tugma' : 'Красивая кнопка'}
           </button>
-          <button disabled>O'chirilgan tugma</button>
-          <input type="button" value="Input tugma" />
+          <button disabled>{locale === 'uz' ? 'O\'chirilgan tugma' : 'Отключенная кнопка'}</button>
+          <input type="button" value={locale === 'uz' ? 'Input tugma' : 'Input кнопка'} />
         </div>
       </div>
 
       <h2>{t.common.whenToUse}</h2>
       <p>{c.whenToUse}</p>
 
-      <h3>Tugma turlari:</h3>
+      <h3>{locale === 'uz' ? 'Tugma turlari:' : 'Типы кнопок:'}</h3>
       <ul>
         <li>
-          <strong>type="button"</strong> - oddiy tugma, hech narsa qilmaydi
+          <strong>type="button"</strong> - {locale === 'uz' ? 'oddiy tugma, hech narsa qilmaydi' : 'обычная кнопка, ничего не делает'}
         </li>
         <li>
-          <strong>type="submit"</strong> - formani yuboradi
+          <strong>type="submit"</strong> - {locale === 'uz' ? 'formani yuboradi' : 'отправляет форму'}
         </li>
         <li>
-          <strong>type="reset"</strong> - formani tozalaydi
+          <strong>type="reset"</strong> - {locale === 'uz' ? 'formani tozalaydi' : 'очищает форму'}
         </li>
       </ul>
     </TutorialLayout>

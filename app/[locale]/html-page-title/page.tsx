@@ -44,7 +44,8 @@ export default function HTMLPageTitlePage({
       <div className="example-box">
         <h4>{t.common.codeExample}</h4>
         <pre>
-          <code>{`<!DOCTYPE html>
+          <code>{locale === 'uz' 
+            ? `<!DOCTYPE html>
 <html>
 <head>
   <title>HTML & CSS Darslik - Bosh sahifa</title>
@@ -53,6 +54,17 @@ export default function HTMLPageTitlePage({
 </head>
 <body>
   <!-- Kontent -->
+</body>
+</html>`
+            : `<!DOCTYPE html>
+<html>
+<head>
+  <title>HTML & CSS Учебник - Главная</title>
+  <meta charset="UTF-8">
+  <meta name="description" content="Полный учебник по HTML и CSS">
+</head>
+<body>
+  <!-- Контент -->
 </body>
 </html>`}</code>
         </pre>

@@ -44,7 +44,8 @@ export default function HTMLColorsPage({
       <div className="example-box">
         <h4>{t.common.codeExample}</h4>
         <pre>
-          <code>{`<!-- Rang nomi -->
+          <code>{locale === 'uz' 
+            ? `<!-- Rang nomi -->
 <p style="color: red;">Qizil matn</p>
 
 <!-- Hex kod -->
@@ -59,6 +60,22 @@ export default function HTMLColorsPage({
 <!-- Fon rangi -->
 <div style="background-color: #3498db; color: white; padding: 20px;">
   Ko'k fon, oq matn
+</div>`
+            : `<!-- Название цвета -->
+<p style="color: red;">Красный текст</p>
+
+<!-- Hex код -->
+<p style="color: #FF0000;">Красный текст (hex)</p>
+
+<!-- RGB -->
+<p style="color: rgb(255, 0, 0);">Красный текст (RGB)</p>
+
+<!-- HSL -->
+<p style="color: hsl(0, 100%, 50%);">Красный текст (HSL)</p>
+
+<!-- Цвет фона -->
+<div style="background-color: #3498db; color: white; padding: 20px;">
+  Синий фон, белый текст
 </div>`}</code>
         </pre>
       </div>

@@ -45,9 +45,14 @@ export default function HTMLStylesPage({
       <div className="example-box">
         <h4>{t.common.codeExample}</h4>
         <pre>
-          <code>{`<p style="color: blue; font-size: 20px;">Bu ko'k rangdagi matn</p>
+          <code>{locale === 'uz' 
+            ? `<p style="color: blue; font-size: 20px;">Bu ko'k rangdagi matn</p>
 <div style="background-color: yellow; padding: 15px;">
   Sariq fonli div
+</div>`
+            : `<p style="color: blue; font-size: 20px;">Этот синий текст</p>
+<div style="background-color: yellow; padding: 15px;">
+  Желтый div
 </div>`}</code>
         </pre>
       </div>
@@ -56,7 +61,8 @@ export default function HTMLStylesPage({
       <div className="example-box">
         <h4>{t.common.codeExample}</h4>
         <pre>
-          <code>{`<head>
+          <code>{locale === 'uz' 
+            ? `<head>
   <style>
     .my-class {
       color: red;
@@ -70,6 +76,21 @@ export default function HTMLStylesPage({
 <body>
   <p class="my-class">Qizil matn</p>
   <div id="my-id">Och ko'k fon</div>
+</body>`
+            : `<head>
+  <style>
+    .my-class {
+      color: red;
+      font-size: 18px;
+    }
+    #my-id {
+      background-color: lightblue;
+    }
+  </style>
+</head>
+<body>
+  <p class="my-class">Красный текст</p>
+  <div id="my-id">Светло-синий фон</div>
 </body>`}</code>
         </pre>
       </div>
