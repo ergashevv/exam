@@ -38,10 +38,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     setTheme((prev) => (prev === 'light' ? 'dark' : 'light'))
   }
 
-  if (!mounted) {
-    return <>{children}</>
-  }
-
+  // Always provide context, even before mount
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
       {children}
