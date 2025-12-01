@@ -71,7 +71,7 @@ export default function HomePage({
         transition={{ duration: 0.6, ease: 'easeOut' }}
       >
         <AnimatedText>
-          <h1>HTML & CSS To'liq Darslik</h1>
+          <h1>{t.common.fullTutorial}</h1>
         </AnimatedText>
         <AnimatedText delay={0.2}>
           <p className="subtitle">
@@ -89,7 +89,7 @@ export default function HomePage({
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
         >
-          <h2>HTML Mavzular</h2>
+          <h2>{t.common.htmlTopics}</h2>
           <div className="topics-grid">
             {htmlTopics.map((topic, index) => (
               <AnimatedCard key={topic.slug} index={index}>
@@ -110,7 +110,7 @@ export default function HomePage({
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, delay: 0.5 }}
         >
-          <h2>CSS Mavzular</h2>
+          <h2>{t.common.cssTopics}</h2>
           <div className="topics-grid">
             {cssTopics.map((topic, index) => (
               <AnimatedCard key={topic.slug} index={index}>

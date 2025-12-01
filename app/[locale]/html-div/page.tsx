@@ -85,8 +85,8 @@ export default function HTMLDivPage({
             marginBottom: '15px',
           }}
         >
-          <h2 style={{ marginTop: 0 }}>Ko'k fonli div</h2>
-          <p>Bu div CSS bilan bezatilgan</p>
+          <h2 style={{ marginTop: 0 }}>{locale === 'uz' ? 'Ko\'k fonli div' : 'Синий div'}</h2>
+          <p>{locale === 'uz' ? 'Bu div CSS bilan bezatilgan' : 'Этот div оформлен с помощью CSS'}</p>
         </div>
         <div style={{ display: 'flex', gap: '20px' }}>
           <div
@@ -96,7 +96,7 @@ export default function HTMLDivPage({
               padding: '15px',
             }}
           >
-            Birinchi bo'lim
+            {locale === 'uz' ? 'Birinchi bo\'lim' : 'Первый раздел'}
           </div>
           <div
             style={{
@@ -105,7 +105,7 @@ export default function HTMLDivPage({
               padding: '15px',
             }}
           >
-            Ikkinchi bo'lim
+            {locale === 'uz' ? 'Ikkinchi bo\'lim' : 'Второй раздел'}
           </div>
         </div>
       </div>
@@ -114,9 +114,9 @@ export default function HTMLDivPage({
       <p>{c.whenToUse}</p>
 
       <div className="info-box">
-        <strong>Eslatma:</strong> Zamonaviy HTML5 da semantic elementlar
-        (<code>&lt;header&gt;</code>, <code>&lt;section&gt;</code>,{' '}
-        <code>&lt;article&gt;</code>, <code>&lt;footer&gt;</code>) ishlatish
+        <strong>{t.common.note}</strong> {locale === 'uz' 
+          ? 'Zamonaviy HTML5 da semantic elementlar (<code>&lt;header&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;article&gt;</code>, <code>&lt;footer&gt;</code>) ishlatish'
+          : 'В современном HTML5 использование семантических элементов (<code>&lt;header&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;article&gt;</code>, <code>&lt;footer&gt;</code>)'}
         tavsiya etiladi, lekin <code>&lt;div&gt;</code> hali ham keng qo'llaniladi.
       </div>
     </TutorialLayout>

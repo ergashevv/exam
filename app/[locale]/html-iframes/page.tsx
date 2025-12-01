@@ -91,7 +91,7 @@ export default function HTMLIframesPage({
             marginTop: '10px',
           }}
         >
-          <p>Iframe bu yerda ko'rsatiladi</p>
+          <p>{locale === 'uz' ? 'Iframe bu yerda ko\'rsatiladi' : 'Iframe будет показан здесь'}</p>
         </div>
       </div>
 
@@ -99,8 +99,9 @@ export default function HTMLIframesPage({
       <p>{c.whenToUse}</p>
 
       <div className="info-box">
-        <strong>Xavfsizlik:</strong> Iframe xavfsizlik siyosatlariga e'tibor
-        bering. Ba'zi saytlar iframe'da ko'rsatilishini bloklaydi (X-Frame-Options).
+        <strong>{t.common.security}</strong> {locale === 'uz' 
+          ? 'Iframe xavfsizlik siyosatlariga e\'tibor bering. Ba\'zi saytlar iframe\'da ko\'rsatilishini bloklaydi (X-Frame-Options).'
+          : 'Обратите внимание на политику безопасности iframe. Некоторые сайты блокируют отображение в iframe (X-Frame-Options).'}
       </div>
     </TutorialLayout>
   )

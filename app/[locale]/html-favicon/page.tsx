@@ -77,17 +77,26 @@ export default function HTMLFaviconPage({
       <h2>{t.common.whenToUse}</h2>
       <p>{c.whenToUse}</p>
 
-      <h3>Favicon yaratish:</h3>
+      <h3>{t.common.createFavicon}</h3>
       <ol>
-        <li>Rasm yarating yoki logoni oling (kvadrat format, 16x16 yoki 32x32 piksel)</li>
-        <li>Favicon generator saytlaridan foydalaning (favicon.io, realfavicongenerator.net)</li>
-        <li>Yaratilgan fayllarni public yoki root papkasiga qo&apos;ying</li>
-        <li>HTML <code>&lt;head&gt;</code> bo&apos;limiga <code>&lt;link&gt;</code> teglarini qo&apos;shing</li>
+        <li>{locale === 'uz' 
+          ? 'Rasm yarating yoki logoni oling (kvadrat format, 16x16 yoki 32x32 piksel)'
+          : 'Создайте изображение или возьмите логотип (квадратный формат, 16x16 или 32x32 пикселя)'}</li>
+        <li>{locale === 'uz' 
+          ? 'Favicon generator saytlaridan foydalaning (favicon.io, realfavicongenerator.net)'
+          : 'Используйте сайты-генераторы favicon (favicon.io, realfavicongenerator.net)'}</li>
+        <li>{locale === 'uz' 
+          ? 'Yaratilgan fayllarni public yoki root papkasiga qo\'ying'
+          : 'Поместите созданные файлы в папку public или root'}</li>
+        <li>{locale === 'uz' 
+          ? 'HTML <head> bo\'limiga <link> teglarini qo\'shing'
+          : 'Добавьте теги <link> в секцию <head> HTML'}</li>
       </ol>
 
       <div className="info-box">
-        <strong>Eslatma:</strong> Favicon fayli odatda 16x16 yoki 32x32 piksel
-        bo&apos;lishi kerak. SVG formatida favicon kattalashtirganda sifat yo&apos;qotmaydi.
+        <strong>{t.common.note}</strong> {locale === 'uz' 
+          ? 'Favicon fayli odatda 16x16 yoki 32x32 piksel bo\'lishi kerak. SVG formatida favicon kattalashtirganda sifat yo\'qotmaydi.'
+          : 'Файл favicon обычно должен быть 16x16 или 32x32 пикселя. В формате SVG favicon не теряет качество при увеличении.'}
       </div>
     </TutorialLayout>
   )

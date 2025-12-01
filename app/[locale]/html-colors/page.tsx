@@ -65,10 +65,10 @@ export default function HTMLColorsPage({
 
       <div className="result-box">
         <h4>{t.common.result}</h4>
-        <p style={{ color: 'red' }}>Qizil matn</p>
-        <p style={{ color: '#FF0000' }}>Qizil matn (hex)</p>
-        <p style={{ color: 'rgb(255, 0, 0)' }}>Qizil matn (RGB)</p>
-        <p style={{ color: 'hsl(0, 100%, 50%)' }}>Qizil matn (HSL)</p>
+        <p style={{ color: 'red' }}>{locale === 'uz' ? 'Qizil matn' : 'Красный текст'}</p>
+        <p style={{ color: '#FF0000' }}>{locale === 'uz' ? 'Qizil matn (hex)' : 'Красный текст (hex)'}</p>
+        <p style={{ color: 'rgb(255, 0, 0)' }}>{locale === 'uz' ? 'Qizil matn (RGB)' : 'Красный текст (RGB)'}</p>
+        <p style={{ color: 'hsl(0, 100%, 50%)' }}>{locale === 'uz' ? 'Qizil matn (HSL)' : 'Красный текст (HSL)'}</p>
         <div
           style={{
             backgroundColor: '#3498db',
@@ -78,26 +78,26 @@ export default function HTMLColorsPage({
             borderRadius: '4px',
           }}
         >
-          Ko'k fon, oq matn
+          {locale === 'uz' ? 'Ko\'k fon, oq matn' : 'Синий фон, белый текст'}
         </div>
       </div>
 
       <h2>{t.common.whenToUse}</h2>
       <p>{c.whenToUse}</p>
 
-      <h3>Rang formatlari:</h3>
+      <h3>{locale === 'uz' ? 'Rang formatlari:' : 'Форматы цветов:'}</h3>
       <ul>
         <li>
-          <strong>Rang nomi:</strong> red, blue, green - oson, lekin cheklangan
+          <strong>{locale === 'uz' ? 'Rang nomi:' : 'Название цвета:'}</strong> {locale === 'uz' ? 'red, blue, green - oson, lekin cheklangan' : 'red, blue, green - просто, но ограничено'}
         </li>
         <li>
-          <strong>Hex kod:</strong> #FF0000 - keng qo'llaniladi, aniq ranglar
+          <strong>{locale === 'uz' ? 'Hex kod:' : 'Hex код:'}</strong> {locale === 'uz' ? '#FF0000 - keng qo\'llaniladi, aniq ranglar' : '#FF0000 - широко используется, точные цвета'}
         </li>
         <li>
-          <strong>RGB:</strong> rgb(255,0,0) - qizil, yashil, ko'k qiymatlari
+          <strong>RGB:</strong> {locale === 'uz' ? 'rgb(255,0,0) - qizil, yashil, ko\'k qiymatlari' : 'rgb(255,0,0) - значения красного, зеленого, синего'}
         </li>
         <li>
-          <strong>HSL:</strong> hsl(0,100%,50%) - hue, saturation, lightness
+          <strong>HSL:</strong> {locale === 'uz' ? 'hsl(0,100%,50%) - hue, saturation, lightness' : 'hsl(0,100%,50%) - оттенок, насыщенность, яркость'}
         </li>
       </ul>
     </TutorialLayout>

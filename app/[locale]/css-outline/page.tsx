@@ -71,7 +71,7 @@ outline-offset: 5px; /* Chegaradan masofa */`}</code>
         <div style={{ display: 'grid', gap: '15px', marginTop: '10px' }}>
           <input
             type="text"
-            placeholder="Fokus qiling"
+            placeholder={locale === 'uz' ? 'Fokus qiling' : 'Сфокусируйтесь'}
             style={{
               padding: '10px',
               border: '1px solid #ddd',
@@ -86,7 +86,7 @@ outline-offset: 5px; /* Chegaradan masofa */`}</code>
               outlineOffset: '5px',
             }}
           >
-            Outline offset misoli
+            {locale === 'uz' ? 'Outline offset misoli' : 'Пример offset outline'}
           </div>
         </div>
       </div>
@@ -95,8 +95,9 @@ outline-offset: 5px; /* Chegaradan masofa */`}</code>
       <p>{c.whenToUse}</p>
 
       <div className="info-box">
-        <strong>Border vs Outline:</strong> Border element o'lchamiga ta'sir
-        qiladi, outline esa qilmaydi. Outline fokus ko'rsatish uchun qulay.
+        <strong>{locale === 'uz' ? 'Border vs Outline:' : 'Border vs Outline:'}</strong> {locale === 'uz' 
+          ? 'Border element o\'lchamiga ta\'sir qiladi, outline esa qilmaydi. Outline fokus ko\'rsatish uchun qulay.'
+          : 'Border влияет на размер элемента, outline - нет. Outline удобен для показа фокуса.'}
       </div>
     </TutorialLayout>
   )

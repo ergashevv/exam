@@ -102,9 +102,9 @@ body {
       <p>{c.whenToUse}</p>
 
       <div className="info-box">
-        <strong>Yaxshi amaliyot:</strong> Tashqi CSS fayl ishlatish eng yaxshi
-        usul, chunki u kodni tashkil qiladi, qayta ishlatishni osonlashtiradi va
-        sahifa yuklanish tezligini yaxshilaydi.
+        <strong>{locale === 'uz' ? 'Yaxshi amaliyot:' : 'Хорошая практика:'}</strong> {locale === 'uz' 
+          ? 'Tashqi CSS fayl ishlatish eng yaxshi usul, chunki u kodni tashkil qiladi, qayta ishlatishni osonlashtiradi va sahifa yuklanish tezligini yaxshilaydi.'
+          : 'Использование внешнего CSS файла - лучший способ, так как он организует код, облегчает повторное использование и улучшает скорость загрузки страницы.'}
       </div>
     </TutorialLayout>
   )

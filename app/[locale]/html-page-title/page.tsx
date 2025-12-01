@@ -61,19 +61,19 @@ export default function HTMLPageTitlePage({
       <h2>{t.common.whenToUse}</h2>
       <p>{c.whenToUse}</p>
 
-      <h3>Yaxshi amaliyotlar:</h3>
+      <h3>{locale === 'uz' ? 'Yaxshi amaliyotlar:' : 'Хорошие практики:'}</h3>
       <ul>
-        <li>Har bir sahifa uchun noyob sarlavha yarating</li>
-        <li>50-60 belgidan oshmasligi kerak</li>
-        <li>Asosiy kalit so'zlarni qo'shing</li>
-        <li>Sayt nomini ham qo'shing (masalan: "Mavzu - Sayt Nomi")</li>
-        <li>Har bir sahifa uchun mos sarlavha tanlang</li>
+        <li>{locale === 'uz' ? 'Har bir sahifa uchun noyob sarlavha yarating' : 'Создавайте уникальный заголовок для каждой страницы'}</li>
+        <li>{locale === 'uz' ? '50-60 belgidan oshmasligi kerak' : 'Не должно превышать 50-60 символов'}</li>
+        <li>{locale === 'uz' ? 'Asosiy kalit so\'zlarni qo\'shing' : 'Добавьте основные ключевые слова'}</li>
+        <li>{locale === 'uz' ? 'Sayt nomini ham qo\'shing (masalan: "Mavzu - Sayt Nomi")' : 'Также добавьте название сайта (например: "Тема - Название сайта")'}</li>
+        <li>{locale === 'uz' ? 'Har bir sahifa uchun mos sarlavha tanlang' : 'Выберите подходящий заголовок для каждой страницы'}</li>
       </ul>
 
       <div className="info-box">
-        <strong>SEO uchun:</strong> Sarlavha Google va boshqa qidiruv
-        tizimlarida natijalarda ko'rsatiladi. To'g'ri sarlavha SEO reytingini
-        yaxshilaydi.
+        <strong>{locale === 'uz' ? 'SEO uchun:' : 'Для SEO:'}</strong> {locale === 'uz' 
+          ? 'Sarlavha Google va boshqa qidiruv tizimlarida natijalarda ko\'rsatiladi. To\'g\'ri sarlavha SEO reytingini yaxshilaydi.'
+          : 'Заголовок отображается в результатах поиска Google и других поисковых систем. Правильный заголовок улучшает SEO рейтинг.'}
       </div>
     </TutorialLayout>
   )
