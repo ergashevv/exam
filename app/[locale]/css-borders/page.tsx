@@ -1,0 +1,152 @@
+import TutorialLayout from '@/components/TutorialLayout'
+import { translations, Locale } from '@/lib/translations'
+
+export default function CSSBordersPage({
+  params,
+}: {
+  params: { locale: Locale }
+}) {
+  const locale = params?.locale || 'uz'
+  const t = translations[locale] || translations.uz
+
+  const content = {
+    uz: {
+      title: 'CSS Chegaralar',
+      whatIs: `CSS chegaralar elementning atrofidagi chiziqlarni boshqarish uchun ishlatiladi. Kenglik, rang, uslub va burchak radiusini o'zgartirish mumkin.`,
+      howToUse: `border-width, border-color, border-style xususiyatlari yoki qisqa yozuv border: 2px solid #333; ishlatiladi.`,
+      whenToUse: `Chegaralar elementlarni ajratish, dizayn yaratish, fokus ko'rsatish uchun ishlatiladi.`,
+    },
+    ru: {
+      title: 'CSS Границы',
+      whatIs: `CSS границы используются для управления линиями вокруг элемента. Можно изменять ширину, цвет, стиль и радиус углов.`,
+      howToUse: `Используются свойства border-width, border-color, border-style или краткая запись border: 2px solid #333;.`,
+      whenToUse: `Границы используются для разделения элементов, создания дизайна, показа фокуса.`,
+    },
+  }
+
+  const c = content[locale]
+
+  return (
+    <TutorialLayout
+      locale={locale}
+      translations={t}
+      title={c.title}
+      prevTopic={{ slug: 'css-backgrounds', title: t.css.backgrounds }}
+      nextTopic={{ slug: 'css-margins', title: t.css.margins }}
+    >
+      <h2>{t.common.whatIs}</h2>
+      <p>{c.whatIs}</p>
+
+      <h2>{t.common.howToUse}</h2>
+      <p>{c.howToUse}</p>
+
+      <div className="example-box">
+        <h4>{t.common.codeExample}</h4>
+        <pre>
+          <code>{`/* Qisqa yozuv */
+border: 2px solid #333;
+
+/* Alohida tomonlar */
+border-top: 2px solid red;
+border-right: 1px dashed blue;
+border-bottom: 3px dotted green;
+border-left: 1px double orange;
+
+/* Alohida xususiyatlar */
+border-width: 2px;
+border-color: #333;
+border-style: solid;
+
+/* Burchak radiusi */
+border-radius: 8px;
+border-radius: 50%; /* Doira */
+
+/* Turli burchaklar */
+border-radius: 10px 20px 30px 40px;
+
+/* Chegara uslublari */
+border: 2px solid;    /* Qattiq */
+border: 2px dashed;   /* Chiziqli */
+border: 2px dotted;   /* Nuqtali */
+border: 2px double;   /* Ikkilangan */
+border: 2px groove;   /* O'yiq */
+border: 2px ridge;    /* Qavariq */
+border: none;         /* Yo'q */`}</code>
+        </pre>
+      </div>
+
+      <div className="result-box">
+        <h4>{t.common.result}</h4>
+        <div style={{ display: 'grid', gap: '15px', marginTop: '10px' }}>
+          <div
+            style={{
+              border: '2px solid #333',
+              padding: '15px',
+              borderRadius: '8px',
+            }}
+          >
+            Qattiq chegara, yumaloq burchaklar
+          </div>
+          <div
+            style={{
+              border: '2px dashed #667eea',
+              padding: '15px',
+            }}
+          >
+            Chiziqli chegara
+          </div>
+          <div
+            style={{
+              border: '2px dotted #764ba2',
+              padding: '15px',
+            }}
+          >
+            Nuqtali chegara
+          </div>
+          <div
+            style={{
+              border: '3px solid #333',
+              borderRadius: '50%',
+              width: '100px',
+              height: '100px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}
+          >
+            Doira
+          </div>
+        </div>
+      </div>
+
+      <h2>{t.common.whenToUse}</h2>
+      <p>{c.whenToUse}</p>
+
+      <h3>Chegara uslublari:</h3>
+      <ul>
+        <li>
+          <strong>solid</strong> - qattiq chiziq
+        </li>
+        <li>
+          <strong>dashed</strong> - chiziqli
+        </li>
+        <li>
+          <strong>dotted</strong> - nuqtali
+        </li>
+        <li>
+          <strong>double</strong> - ikkilangan
+        </li>
+        <li>
+          <strong>groove</strong> - o'yiq
+        </li>
+        <li>
+          <strong>ridge</strong> - qavariq
+        </li>
+        <li>
+          <strong>none</strong> - yo'q
+        </li>
+      </ul>
+    </TutorialLayout>
+  )
+}
+
