@@ -43,25 +43,25 @@ export default function CSSMarginsPage({
       <p>{c.whatIs}</p>
       
       <div className="info-box" style={{ background: '#e8f5e9', borderLeftColor: '#4caf50' }}>
-        <strong>💡 Oddiy tushuntirish:</strong> {c.simpleExplanation}
+        <strong>💡 {t.common.simpleExplanation}</strong> {c.simpleExplanation}
       </div>
 
       <h2>{t.common.howToUse}</h2>
       <p>{c.howToUse}</p>
       
       <div className="example-box" style={{ background: '#fff3e0', borderColor: '#ff9800' }}>
-        <h4>📝 Qadam-baqadam:</h4>
+        <h4>📝 {t.common.stepByStep}</h4>
         <ol>
-          <li>CSS yozing: <code>margin: 20px;</code></li>
-          <li>Bu degani: barcha tomonlarda 20px bo'sh joy</li>
-          <li>Brauzerda ko'ring - element atrofida bo'sh joy paydo bo'ldi!</li>
+          <li>{locale === 'uz' ? 'CSS yozing:' : 'Напишите CSS:'} <code>margin: 20px;</code></li>
+          <li>{locale === 'uz' ? 'Bu degani: barcha tomonlarda 20px bo\'sh joy' : 'Это значит: 20px пространства со всех сторон'}</li>
+          <li>{locale === 'uz' ? 'Brauzerda ko\'ring - element atrofida bo\'sh joy paydo bo\'ldi!' : 'Посмотрите в браузере - появилось пространство вокруг элемента!'}</li>
         </ol>
-        <p><strong>Yoki alohida tomonlar uchun:</strong></p>
+        <p><strong>{locale === 'uz' ? 'Yoki alohida tomonlar uchun:' : 'Или для отдельных сторон:'}</strong></p>
         <ul>
-          <li><code>margin-top: 10px;</code> - faqat yuqoridan</li>
-          <li><code>margin-bottom: 10px;</code> - faqat pastdan</li>
-          <li><code>margin-left: 10px;</code> - faqat chapdan</li>
-          <li><code>margin-right: 10px;</code> - faqat o'ngdan</li>
+          <li><code>margin-top: 10px;</code> - {locale === 'uz' ? 'faqat yuqoridan' : 'только сверху'}</li>
+          <li><code>margin-bottom: 10px;</code> - {locale === 'uz' ? 'faqat pastdan' : 'только снизу'}</li>
+          <li><code>margin-left: 10px;</code> - {locale === 'uz' ? 'faqat chapdan' : 'только слева'}</li>
+          <li><code>margin-right: 10px;</code> - {locale === 'uz' ? 'faqat o\'ngdan' : 'только справа'}</li>
         </ul>
       </div>
 
@@ -105,7 +105,7 @@ margin-top: -10px; /* Elementlarni bir-biriga yaqinlashtiradi */`}</code>
               margin: '20px',
             }}
           >
-            Margin: 20px (barcha tomonlar)
+            Margin: 20px ({locale === 'uz' ? 'barcha tomonlar' : 'все стороны'})
           </div>
           <div
             style={{
@@ -115,7 +115,7 @@ margin-top: -10px; /* Elementlarni bir-biriga yaqinlashtiradi */`}</code>
               margin: '10px 30px',
             }}
           >
-            Margin: 10px 30px (yuqori/pastki, chap/o'ng)
+            Margin: 10px 30px ({locale === 'uz' ? 'yuqori/pastki, chap/o\'ng' : 'верх/низ, лево/право'})
           </div>
           <div
             style={{
@@ -126,7 +126,7 @@ margin-top: -10px; /* Elementlarni bir-biriga yaqinlashtiradi */`}</code>
               maxWidth: '300px',
             }}
           >
-            Margin: 0 auto (markazga)
+            Margin: 0 auto ({locale === 'uz' ? 'markazga' : 'по центру'})
           </div>
         </div>
       </div>
@@ -135,29 +135,31 @@ margin-top: -10px; /* Elementlarni bir-biriga yaqinlashtiradi */`}</code>
       <p>{c.whenToUse}</p>
       
       <div className="example-box" style={{ background: '#f3e5f5', borderColor: '#9c27b0' }}>
-        <h4>🎯 Real hayotdan misol:</h4>
-        <p>2 ta paragraf bor va ular bir-biriga yopishib qolgan. Nima qilish kerak?</p>
+        <h4>🎯 {t.common.realWorldExample}</h4>
+        <p>{locale === 'uz' ? '2 ta paragraf bor va ular bir-biriga yopishib qolgan. Nima qilish kerak?' : 'Есть 2 параграфа и они прилипли друг к другу. Что делать?'}</p>
         <ul>
-          <li>Birinchi paragrafga: <code>margin-bottom: 20px;</code> qo'shing</li>
-          <li>Yoki ikkinchi paragrafga: <code>margin-top: 20px;</code> qo'shing</li>
-          <li>Natija: Paragraflar orasida 20px bo'sh joy bo'ladi!</li>
+          <li>{locale === 'uz' ? 'Birinchi paragrafga:' : 'Первому параграфу:'} <code>margin-bottom: 20px;</code> {locale === 'uz' ? 'qo\'shing' : 'добавьте'}</li>
+          <li>{locale === 'uz' ? 'Yoki ikkinchi paragrafga:' : 'Или второму параграфу:'} <code>margin-top: 20px;</code> {locale === 'uz' ? 'qo\'shing' : 'добавьте'}</li>
+          <li>{locale === 'uz' ? 'Natija:' : 'Результат:'} {locale === 'uz' ? 'Paragraflar orasida 20px bo\'sh joy bo\'ladi!' : 'Между параграфами будет 20px пространства!'}</li>
         </ul>
       </div>
 
       <div className="info-box" style={{ background: '#fff3e0', borderLeftColor: '#ff9800' }}>
-        <strong>🤔 Margin vs Padding - farqi nima?</strong>
+        <strong>🤔 {locale === 'uz' ? 'Margin vs Padding - farqi nima?' : 'Margin vs Padding - в чем разница?'}</strong>
         <p style={{ marginTop: '10px' }}>{c.marginVsPadding}</p>
         <p style={{ marginTop: '10px' }}>
-          <strong>Oddiy qoida:</strong> Agar elementlar bir-biriga yopishib qolgan bo'lsa - Margin ishlating. 
-          Agar matn chegara ichida yopishib qolgan bo'lsa - Padding ishlating.
+          <strong>{locale === 'uz' ? 'Oddiy qoida:' : 'Простое правило:'}</strong> {locale === 'uz' 
+            ? 'Agar elementlar bir-biriga yopishib qolgan bo\'lsa - Margin ishlating. Agar matn chegara ichida yopishib qolgan bo\'lsa - Padding ishlating.'
+            : 'Если элементы прилипли друг к другу - используйте Margin. Если текст прилип к границе внутри - используйте Padding.'}
         </p>
       </div>
       
       <div className="result-box" style={{ background: '#e1f5fe', borderColor: '#0288d1' }}>
-        <h4>👀 Ko'rib chiqing:</h4>
-        <p>Yuqoridagi "Natija" bo'limida 3 ta div ko'rsatilgan. Birinchisida margin: 20px (barcha tomonlar), 
-        ikkinchisida margin: 10px 30px (yuqori/pastki, chap/o'ng), uchinchisida margin: 0 auto (markazga).</p>
-        <p style={{ marginTop: '10px' }}>Ko'ring, qanday farq bor!</p>
+        <h4>👀 {t.common.takeALook}</h4>
+        <p>{locale === 'uz' 
+          ? `Yuqoridagi "${t.common.result}" bo'limida 3 ta div ko'rsatilgan. Birinchisida margin: 20px (barcha tomonlar), ikkinchisida margin: 10px 30px (yuqori/pastki, chap/o'ng), uchinchisida margin: 0 auto (markazga).`
+          : `В разделе "${t.common.result}" выше показаны 3 div. В первом margin: 20px (все стороны), во втором margin: 10px 30px (верх/низ, лево/право), в третьем margin: 0 auto (по центру).`}</p>
+        <p style={{ marginTop: '10px' }}>{locale === 'uz' ? 'Ko\'ring, qanday farq bor!' : 'Посмотрите, какая разница!'}</p>
       </div>
     </TutorialLayout>
   )

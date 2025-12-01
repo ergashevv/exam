@@ -41,19 +41,19 @@ export default function CSSColorsPage({
       <p>{c.whatIs}</p>
       
       <div className="info-box" style={{ background: '#e8f5e9', borderLeftColor: '#4caf50' }}>
-        <strong>💡 Oddiy tushuntirish:</strong> {c.simpleExplanation}
+        <strong>💡 {t.common.simpleExplanation}</strong> {c.simpleExplanation}
       </div>
 
       <h2>{t.common.howToUse}</h2>
       <p>{c.howToUse}</p>
       
       <div className="example-box" style={{ background: '#fff3e0', borderColor: '#ff9800' }}>
-        <h4>📝 Qadam-baqadam:</h4>
+        <h4>📝 {t.common.stepByStep}</h4>
         <ol>
-          <li>CSS fayl yoki &lt;style&gt; tegi oching</li>
-          <li>Matn rangi uchun: <code>color: red;</code> yozing</li>
-          <li>Fon rangi uchun: <code>background-color: yellow;</code> yozing</li>
-          <li>Brauzerda yangilang - ko'ring, rang o'zgardi!</li>
+          <li>{locale === 'uz' ? 'CSS fayl yoki <style> tegi oching' : 'Откройте CSS файл или тег <style>'}</li>
+          <li>{locale === 'uz' ? 'Matn rangi uchun:' : 'Для цвета текста:'} <code>color: red;</code> {locale === 'uz' ? 'yozing' : 'напишите'}</li>
+          <li>{locale === 'uz' ? 'Fon rangi uchun:' : 'Для цвета фона:'} <code>background-color: yellow;</code> {locale === 'uz' ? 'yozing' : 'напишите'}</li>
+          <li>{locale === 'uz' ? 'Brauzerda yangilang - ko\'ring, rang o\'zgardi!' : 'Обновите браузер - посмотрите, цвет изменился!'}</li>
         </ol>
       </div>
 
@@ -100,9 +100,9 @@ color: hsla(0, 100%, 50%, 0.5);
       <div className="result-box">
         <h4>{t.common.result}</h4>
         <div style={{ padding: '20px' }}>
-          <p style={{ color: '#FF0000' }}>Qizil matn</p>
+          <p style={{ color: '#FF0000' }}>{locale === 'uz' ? 'Qizil matn' : 'Красный текст'}</p>
           <p style={{ background: '#3498db', color: 'white', padding: '10px' }}>
-            Ko'k fon, oq matn
+            {locale === 'uz' ? 'Ko\'k fon, oq matn' : 'Синий фон, белый текст'}
           </p>
           <p
             style={{
@@ -111,7 +111,7 @@ color: hsla(0, 100%, 50%, 0.5);
               border: '1px solid #3498db',
             }}
           >
-            Shaffof ko'k fon
+            {locale === 'uz' ? 'Shaffof ko\'k fon' : 'Прозрачный синий фон'}
           </p>
         </div>
       </div>
@@ -120,38 +120,39 @@ color: hsla(0, 100%, 50%, 0.5);
       <p>{c.whenToUse}</p>
       
       <div className="example-box" style={{ background: '#f3e5f5', borderColor: '#9c27b0' }}>
-        <h4>🎯 Real hayotdan misol:</h4>
+        <h4>🎯 {t.common.realWorldExample}</h4>
         <ul>
-          <li><strong>Xavfli xabar:</strong> <code>color: red;</code> - qizil rang</li>
-          <li><strong>Ogohlantirish:</strong> <code>color: orange;</code> - sariq rang</li>
-          <li><strong>Muvaffaqiyat:</strong> <code>color: green;</code> - yashil rang</li>
-          <li><strong>Oddiy matn:</strong> <code>color: black;</code> - qora rang</li>
+          <li><strong>{locale === 'uz' ? 'Xavfli xabar:' : 'Опасное сообщение:'}</strong> <code>color: red;</code> - {locale === 'uz' ? 'qizil rang' : 'красный цвет'}</li>
+          <li><strong>{locale === 'uz' ? 'Ogohlantirish:' : 'Предупреждение:'}</strong> <code>color: orange;</code> - {locale === 'uz' ? 'sariq rang' : 'оранжевый цвет'}</li>
+          <li><strong>{locale === 'uz' ? 'Muvaffaqiyat:' : 'Успех:'}</strong> <code>color: green;</code> - {locale === 'uz' ? 'yashil rang' : 'зеленый цвет'}</li>
+          <li><strong>{locale === 'uz' ? 'Oddiy matn:' : 'Обычный текст:'}</strong> <code>color: black;</code> - {locale === 'uz' ? 'qora rang' : 'черный цвет'}</li>
         </ul>
       </div>
 
-      <h3>🎨 Rang yozish usullari (qaysi birini ishlatish kerak?):</h3>
+      <h3>🎨 {locale === 'uz' ? 'Rang yozish usullari (qaysi birini ishlatish kerak?):' : 'Способы записи цвета (какой использовать?):'}</h3>
       <ul>
         <li>
-          <strong>Rang nomi (eng oson!):</strong> <code>color: red;</code> - faqat "red", "blue", "green" kabi oddiy ranglar. 
-          <span style={{ color: '#4caf50' }}>✅ Boshlang'ich uchun eng yaxshi!</span>
+          <strong>{locale === 'uz' ? 'Rang nomi (eng oson!):' : 'Название цвета (самый простой!):'}</strong> <code>color: red;</code> - {locale === 'uz' ? 'faqat "red", "blue", "green" kabi oddiy ranglar.' : 'только простые цвета типа "red", "blue", "green".'} 
+          <span style={{ color: '#4caf50' }}>✅ {locale === 'uz' ? 'Boshlang\'ich uchun eng yaxshi!' : 'Лучший для начинающих!'}</span>
         </li>
         <li>
-          <strong>Hex kod (eng keng qo'llaniladi):</strong> <code>color: #FF0000;</code> - # belgisi bilan. 
-          <span style={{ color: '#2196f3' }}>💡 Ko'p ranglar bor, aniq ranglar.</span>
+          <strong>{locale === 'uz' ? 'Hex kod (eng keng qo\'llaniladi):' : 'Hex код (самый распространенный):'}</strong> <code>color: #FF0000;</code> - {locale === 'uz' ? '# belgisi bilan.' : 'с символом #.'} 
+          <span style={{ color: '#2196f3' }}>💡 {locale === 'uz' ? 'Ko\'p ranglar bor, aniq ranglar.' : 'Много цветов, точные цвета.'}</span>
         </li>
         <li>
-          <strong>RGB (3 ta raqam):</strong> <code>color: rgb(255, 0, 0);</code> - qizil=255, yashil=0, ko'k=0. 
-          <span style={{ color: '#9c27b0' }}>🔢 Raqamlar bilan ishlashni yaxshi ko'rsangiz.</span>
+          <strong>{locale === 'uz' ? 'RGB (3 ta raqam):' : 'RGB (3 числа):'}</strong> <code>color: rgb(255, 0, 0);</code> - {locale === 'uz' ? 'qizil=255, yashil=0, ko\'k=0.' : 'красный=255, зеленый=0, синий=0.'} 
+          <span style={{ color: '#9c27b0' }}>🔢 {locale === 'uz' ? 'Raqamlar bilan ishlashni yaxshi ko\'rsangiz.' : 'Если любите работать с числами.'}</span>
         </li>
         <li>
-          <strong>RGBA (shaffof rang):</strong> <code>color: rgba(255, 0, 0, 0.5);</code> - oxirgi raqam shaffoflik (0.5 = 50%). 
-          <span style={{ color: '#ff9800' }}>✨ Orqa fon ko'rinadigan rang kerak bo'lsa.</span>
+          <strong>{locale === 'uz' ? 'RGBA (shaffof rang):' : 'RGBA (прозрачный цвет):'}</strong> <code>color: rgba(255, 0, 0, 0.5);</code> - {locale === 'uz' ? 'oxirgi raqam shaffoflik (0.5 = 50%).' : 'последнее число - прозрачность (0.5 = 50%).'} 
+          <span style={{ color: '#ff9800' }}>✨ {locale === 'uz' ? 'Orqa fon ko\'rinadigan rang kerak bo\'lsa.' : 'Если нужен цвет с видимым фоном.'}</span>
         </li>
       </ul>
       
       <div className="info-box">
-        <strong>💡 Maslahat:</strong> Boshlang'ich uchun rang nomini ishlating (red, blue). Keyinroq Hex kodni o'rganing (#FF0000). 
-        Bu eng oson va eng keng qo'llaniladi!
+        <strong>💡 {t.common.tip}</strong> {locale === 'uz' 
+          ? 'Boshlang\'ich uchun rang nomini ishlating (red, blue). Keyinroq Hex kodni o\'rganing (#FF0000). Bu eng oson va eng keng qo\'llaniladi!'
+          : 'Для начинающих используйте название цвета (red, blue). Потом изучите Hex код (#FF0000). Это самый простой и самый распространенный!'}
       </div>
     </TutorialLayout>
   )

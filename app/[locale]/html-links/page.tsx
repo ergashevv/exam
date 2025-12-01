@@ -41,20 +41,20 @@ export default function HTMLLinksPage({
       <p>{c.whatIs}</p>
       
       <div className="info-box" style={{ background: '#e8f5e9', borderLeftColor: '#4caf50' }}>
-        <strong>💡 Oddiy tushuntirish:</strong> {c.simpleExplanation}
+        <strong>💡 {t.common.simpleExplanation}</strong> {c.simpleExplanation}
       </div>
 
       <h2>{t.common.howToUse}</h2>
       <p>{c.howToUse}</p>
       
       <div className="example-box" style={{ background: '#fff3e0', borderColor: '#ff9800' }}>
-        <h4>📝 Qadam-baqadam:</h4>
+        <h4>📝 {t.common.stepByStep}</h4>
         <ol>
-          <li>Havola boshlash: <code>&lt;a href="..."&gt;</code> yozing</li>
-          <li>href="..." ichiga qaysi sahifaga o'tish kerakligini yozing</li>
-          <li>Matnni yozing: <code>&lt;a href="..."&gt;Matn&lt;/a&gt;</code></li>
-          <li>Havolani yoping: <code>&lt;/a&gt;</code> yozing</li>
-          <li>Brauzerda ko'ring - matn ko'k rangda va bosiladi!</li>
+          <li>{locale === 'uz' ? 'Havola boshlash:' : 'Начните ссылку:'} <code>&lt;a href="..."&gt;</code> {locale === 'uz' ? 'yozing' : 'напишите'}</li>
+          <li>{locale === 'uz' ? 'href="..." ichiga qaysi sahifaga o\'tish kerakligini yozing' : 'В href="..." напишите, на какую страницу перейти'}</li>
+          <li>{locale === 'uz' ? 'Matnni yozing:' : 'Напишите текст:'} <code>&lt;a href="..."&gt;{locale === 'uz' ? 'Matn' : 'Текст'}&lt;/a&gt;</code></li>
+          <li>{locale === 'uz' ? 'Havolani yoping:' : 'Закройте ссылку:'} <code>&lt;/a&gt;</code> {locale === 'uz' ? 'yozing' : 'напишите'}</li>
+          <li>{locale === 'uz' ? 'Brauzerda ko\'ring - matn ko\'k rangda va bosiladi!' : 'Посмотрите в браузере - текст будет синим и кликабельным!'}</li>
         </ol>
       </div>
 
@@ -88,14 +88,14 @@ export default function HTMLLinksPage({
         <h4>{t.common.result}</h4>
         <p>
           <a href="https://example.com" target="_blank" rel="noopener noreferrer">
-            Example saytiga o'tish
+            {locale === 'uz' ? 'Example saytiga o\'tish' : 'Перейти на Example'}
           </a>
         </p>
         <p>
-          <a href="mailto:info@example.com">Email yuborish</a>
+          <a href="mailto:info@example.com">{locale === 'uz' ? 'Email yuborish' : 'Отправить email'}</a>
         </p>
         <p>
-          <a href="tel:+998901234567">Telefon qilish</a>
+          <a href="tel:+998901234567">{locale === 'uz' ? 'Telefon qilish' : 'Позвонить'}</a>
         </p>
       </div>
 
@@ -103,24 +103,26 @@ export default function HTMLLinksPage({
       <p>{c.whenToUse}</p>
       
       <div className="example-box" style={{ background: '#f3e5f5', borderColor: '#9c27b0' }}>
-        <h4>🎯 Real hayotdan misollar:</h4>
+        <h4>🎯 {t.common.realWorldExamples}</h4>
         <ul>
-          <li><strong>Boshqa sahifaga:</strong> <code>&lt;a href="/about"&gt;Haqimda&lt;/a&gt;</code></li>
-          <li><strong>Internet saytiga:</strong> <code>&lt;a href="https://google.com"&gt;Google&lt;/a&gt;</code></li>
-          <li><strong>Email yuborish:</strong> <code>&lt;a href="mailto:info@example.com"&gt;Email&lt;/a&gt;</code></li>
-          <li><strong>Telefon qilish:</strong> <code>&lt;a href="tel:+998901234567"&gt;Qo'ng'iroq&lt;/a&gt;</code></li>
+          <li><strong>{locale === 'uz' ? 'Boshqa sahifaga:' : 'На другую страницу:'}</strong> <code>&lt;a href="/about"&gt;{locale === 'uz' ? 'Haqimda' : 'Обо мне'}&lt;/a&gt;</code></li>
+          <li><strong>{locale === 'uz' ? 'Internet saytiga:' : 'На интернет сайт:'}</strong> <code>&lt;a href="https://google.com"&gt;Google&lt;/a&gt;</code></li>
+          <li><strong>{locale === 'uz' ? 'Email yuborish:' : 'Отправить email:'}</strong> <code>&lt;a href="mailto:info@example.com"&gt;Email&lt;/a&gt;</code></li>
+          <li><strong>{locale === 'uz' ? 'Telefon qilish:' : 'Позвонить:'}</strong> <code>&lt;a href="tel:+998901234567"&gt;{locale === 'uz' ? 'Qo\'ng\'iroq' : 'Звонок'}&lt;/a&gt;</code></li>
         </ul>
       </div>
 
       <div className="info-box">
-        <strong>🔒 Xavfsizlik:</strong> Agar tashqi saytga havola qilsangiz (masalan: Google), 
-        <code>target="_blank"</code> bilan birga <code>rel="noopener noreferrer"</code> qo'shing. 
-        Bu xavfsizlik uchun kerak!
+        <strong>🔒 {locale === 'uz' ? 'Xavfsizlik:' : 'Безопасность:'}</strong> {locale === 'uz' 
+          ? 'Agar tashqi saytga havola qilsangiz (masalan: Google), <code>target="_blank"</code> bilan birga <code>rel="noopener noreferrer"</code> qo\'shing. Bu xavfsizlik uchun kerak!'
+          : 'Если ссылаетесь на внешний сайт (например: Google), добавьте <code>rel="noopener noreferrer"</code> вместе с <code>target="_blank"</code>. Это нужно для безопасности!'}
       </div>
       
       <div className="result-box" style={{ background: '#e1f5fe', borderColor: '#0288d1' }}>
-        <h4>👀 Ko'rib chiqing:</h4>
-        <p>Yuqoridagi "Natija" bo'limida turli xil havolalar ko'rsatilgan. Ularni bosib ko'ring - qaysi bir qanday ishlaydi!</p>
+        <h4>👀 {t.common.takeALook}</h4>
+        <p>{locale === 'uz' 
+          ? `Yuqoridagi "${t.common.result}" bo'limida turli xil havolalar ko'rsatilgan. Ularni bosib ko'ring - qaysi bir qanday ishlaydi!`
+          : `В разделе "${t.common.result}" выше показаны разные ссылки. Нажмите на них - посмотрите, как каждая работает!`}</p>
       </div>
     </TutorialLayout>
   )

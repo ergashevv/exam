@@ -43,19 +43,19 @@ export default function HTMLHeadingsPage({
       <p>{c.whatIs}</p>
       
       <div className="info-box" style={{ background: '#e8f5e9', borderLeftColor: '#4caf50' }}>
-        <strong>💡 Oddiy tushuntirish:</strong> {c.simpleExplanation}
+        <strong>💡 {t.common.simpleExplanation}</strong> {c.simpleExplanation}
       </div>
 
       <h2>{t.common.howToUse}</h2>
       <p>{c.howToUse}</p>
       
       <div className="example-box" style={{ background: '#fff3e0', borderColor: '#ff9800' }}>
-        <h4>📝 Qadam-baqadam:</h4>
+        <h4>📝 {t.common.stepByStep}</h4>
         <ol>
-          <li>Kod yozishni boshlang: <code>&lt;h1&gt;</code></li>
-          <li>Sarlavha matnini yozing: <code>&lt;h1&gt;Mening saytim&lt;/h1&gt;</code></li>
-          <li>Tegni yoping: <code>&lt;/h1&gt;</code></li>
-          <li>Brauzerda ko'ring - katta matn ko'rinadi!</li>
+          <li>{locale === 'uz' ? 'Kod yozishni boshlang:' : 'Начните писать код:'} <code>&lt;h1&gt;</code></li>
+          <li>{locale === 'uz' ? 'Sarlavha matnini yozing:' : 'Напишите текст заголовка:'} <code>&lt;h1&gt;{locale === 'uz' ? 'Mening saytim' : 'Мой сайт'}&lt;/h1&gt;</code></li>
+          <li>{locale === 'uz' ? 'Tegni yoping:' : 'Закройте тег:'} <code>&lt;/h1&gt;</code></li>
+          <li>{locale === 'uz' ? 'Brauzerda ko\'ring - katta matn ko\'rinadi!' : 'Посмотрите в браузере - появится большой текст!'}</li>
         </ol>
       </div>
 
@@ -97,21 +97,23 @@ export default function HTMLHeadingsPage({
       <p>{c.whenToUse}</p>
       
       <div className="example-box" style={{ background: '#f3e5f5', borderColor: '#9c27b0' }}>
-        <h4>🎯 Real hayotdan misol:</h4>
-        <p>Veb-sayt yaratasiz. Quyidagicha qiling:</p>
+        <h4>🎯 {t.common.realWorldExample}</h4>
+        <p>{locale === 'uz' ? 'Veb-sayt yaratasiz. Quyidagicha qiling:' : 'Создаете веб-сайт. Сделайте так:'}</p>
         <ul>
-          <li><code>&lt;h1&gt;</code> - Sayt nomi (masalan: "Mening blogim") - faqat 1 marta</li>
-          <li><code>&lt;h2&gt;</code> - Katta bo'limlar (masalan: "Maqolalar", "Haqimda")</li>
-          <li><code>&lt;h3&gt;</code> - Kichik bo'limlar (masalan: "Maqola 1", "Maqola 2")</li>
+          <li><code>&lt;h1&gt;</code> - {locale === 'uz' ? 'Sayt nomi (masalan: "Mening blogim") - faqat 1 marta' : 'Название сайта (например: "Мой блог") - только 1 раз'}</li>
+          <li><code>&lt;h2&gt;</code> - {locale === 'uz' ? 'Katta bo\'limlar (masalan: "Maqolalar", "Haqimda")' : 'Большие разделы (например: "Статьи", "Обо мне")'}</li>
+          <li><code>&lt;h3&gt;</code> - {locale === 'uz' ? 'Kichik bo\'limlar (masalan: "Maqola 1", "Maqola 2")' : 'Маленькие разделы (например: "Статья 1", "Статья 2")'}</li>
         </ul>
       </div>
 
       <div className="info-box">
-        <strong>⚠️ Muhim qoida:</strong> <code>&lt;h1&gt;</code> faqat bir marta! 
-        Xuddi kitobda bitta katta sarlavha bo'lgandek. Agar 2 marta yozsangiz, Google xato deb biladi.
+        <strong>⚠️ {t.common.importantRule}</strong> <code>&lt;h1&gt;</code> {locale === 'uz' ? 'faqat bir marta!' : 'только один раз!'} 
+        {locale === 'uz' 
+          ? 'Xuddi kitobda bitta katta sarlavha bo\'lgandek. Agar 2 marta yozsangiz, Google xato deb biladi.'
+          : 'Как в книге один большой заголовок. Если напишете 2 раза, Google посчитает это ошибкой.'}
       </div>
 
-      <h3>🎨 Dizaynda qanday ko'rinadi?</h3>
+      <h3>🎨 {t.common.howItLooksInDesign}</h3>
       <p>
         {locale === 'uz'
           ? 'Sarlavhalar avtomatik ravishda turli o\'lchamda ko\'rinadi. <h1> eng katta va qalin, <h6> eng kichik va ingichka. Siz CSS bilan ularning rangini, o\'lchamini o\'zgartirishingiz mumkin.'
@@ -119,8 +121,10 @@ export default function HTMLHeadingsPage({
       </p>
       
       <div className="result-box" style={{ background: '#e1f5fe', borderColor: '#0288d1' }}>
-        <h4>👀 Ko'rib chiqing:</h4>
-        <p>Yuqoridagi "Natija" bo'limida sarlavhalar qanday ko'rinishini ko'rdingiz. <code>&lt;h1&gt;</code> eng katta, <code>&lt;h6&gt;</code> eng kichik!</p>
+        <h4>👀 {t.common.takeALook}</h4>
+        <p>{locale === 'uz' 
+          ? `Yuqoridagi "${t.common.result}" bo'limida sarlavhalar qanday ko'rinishini ko'rdingiz. <code>&lt;h1&gt;</code> eng katta, <code>&lt;h6&gt;</code> eng kichik!`
+          : `В разделе "${t.common.result}" выше вы увидели, как выглядят заголовки. <code>&lt;h1&gt;</code> самый большой, <code>&lt;h6&gt;</code> самый маленький!`}</p>
       </div>
     </TutorialLayout>
   )

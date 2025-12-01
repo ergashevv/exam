@@ -41,19 +41,19 @@ export default function HTMLParagraphsPage({
       <p>{c.whatIs}</p>
       
       <div className="info-box" style={{ background: '#e8f5e9', borderLeftColor: '#4caf50' }}>
-        <strong>💡 Oddiy tushuntirish:</strong> {c.simpleExplanation}
+        <strong>💡 {t.common.simpleExplanation}</strong> {c.simpleExplanation}
       </div>
 
       <h2>{t.common.howToUse}</h2>
       <p>{c.howToUse}</p>
       
       <div className="example-box" style={{ background: '#fff3e0', borderColor: '#ff9800' }}>
-        <h4>📝 Qadam-baqadam:</h4>
+        <h4>📝 {t.common.stepByStep}</h4>
         <ol>
-          <li>Kod yozishni boshlang: <code>&lt;p&gt;</code></li>
-          <li>Matnni yozing: <code>&lt;p&gt;Bu mening birinchi paragrafim&lt;/p&gt;</code></li>
-          <li>Yangi paragraf uchun yana <code>&lt;p&gt;</code> yozing</li>
-          <li>Brauzerda ko'ring - har bir paragraf alohida bo'lim bo'ladi!</li>
+          <li>{locale === 'uz' ? 'Kod yozishni boshlang:' : 'Начните писать код:'} <code>&lt;p&gt;</code></li>
+          <li>{locale === 'uz' ? 'Matnni yozing:' : 'Напишите текст:'} <code>&lt;p&gt;{locale === 'uz' ? 'Bu mening birinchi paragrafim' : 'Это мой первый параграф'}&lt;/p&gt;</code></li>
+          <li>{locale === 'uz' ? 'Yangi paragraf uchun yana' : 'Для нового параграфа снова'} <code>&lt;p&gt;</code> {locale === 'uz' ? 'yozing' : 'напишите'}</li>
+          <li>{locale === 'uz' ? 'Brauzerda ko\'ring - har bir paragraf alohida bo\'lim bo\'ladi!' : 'Посмотрите в браузере - каждый параграф будет отдельным блоком!'}</li>
         </ol>
       </div>
 
@@ -77,24 +77,27 @@ export default function HTMLParagraphsPage({
       <p>{c.whenToUse}</p>
       
       <div className="example-box" style={{ background: '#f3e5f5', borderColor: '#9c27b0' }}>
-        <h4>🎯 Real hayotdan misol:</h4>
-        <p>Veb-sayt yaratasiz. Quyidagicha qiling:</p>
+        <h4>🎯 {t.common.realWorldExample}</h4>
+        <p>{locale === 'uz' ? 'Veb-sayt yaratasiz. Quyidagicha qiling:' : 'Создаете веб-сайт. Сделайте так:'}</p>
         <ul>
-          <li>Birinchi paragraf: <code>&lt;p&gt;Salom! Mening ismim Ali.&lt;/p&gt;</code></li>
-          <li>Ikkinchi paragraf: <code>&lt;p&gt;Men dasturchiman va veb-saytlar yarataman.&lt;/p&gt;</code></li>
-          <li>Uchinchi paragraf: <code>&lt;p&gt;Agar savolingiz bo'lsa, yozing!&lt;/p&gt;</code></li>
+          <li>{locale === 'uz' ? 'Birinchi paragraf:' : 'Первый параграф:'} <code>&lt;p&gt;{locale === 'uz' ? 'Salom! Mening ismim Ali.' : 'Привет! Меня зовут Али.'}&lt;/p&gt;</code></li>
+          <li>{locale === 'uz' ? 'Ikkinchi paragraf:' : 'Второй параграф:'} <code>&lt;p&gt;{locale === 'uz' ? 'Men dasturchiman va veb-saytlar yarataman.' : 'Я программист и создаю веб-сайты.'}&lt;/p&gt;</code></li>
+          <li>{locale === 'uz' ? 'Uchinchi paragraf:' : 'Третий параграф:'} <code>&lt;p&gt;{locale === 'uz' ? 'Agar savolingiz bo\'lsa, yozing!' : 'Если есть вопросы, напишите!'}&lt;/p&gt;</code></li>
         </ul>
-        <p><strong>Natija:</strong> Har bir paragraf alohida bo'lim bo'ladi va o'qish oson bo'ladi!</p>
+        <p><strong>{t.common.result}:</strong> {locale === 'uz' ? 'Har bir paragraf alohida bo\'lim bo\'ladi va o\'qish oson bo\'ladi!' : 'Каждый параграф будет отдельным блоком и читать будет легко!'}</p>
       </div>
 
       <div className="info-box">
-        <strong>💡 Eslatma:</strong> Paragraflar orasida avtomatik bo'sh joy bo'ladi. 
-        Bu xuddi Word'da "Enter" bosgandek. Agar bo'sh joyni o'zgartirmoqchi bo'lsangiz, CSS ishlating.
+        <strong>💡 {t.common.note}</strong> {locale === 'uz' 
+          ? 'Paragraflar orasida avtomatik bo\'sh joy bo\'ladi. Bu xuddi Word\'da "Enter" bosgandek. Agar bo\'sh joyni o\'zgartirmoqchi bo\'lsangiz, CSS ishlating.'
+          : 'Между параграфами автоматически будет пространство. Это как нажать "Enter" в Word. Если хотите изменить пространство, используйте CSS.'}
       </div>
       
       <div className="result-box" style={{ background: '#e1f5fe', borderColor: '#0288d1' }}>
-        <h4>👀 Ko'rib chiqing:</h4>
-        <p>Yuqoridagi "Natija" bo'limida 3 ta paragraf ko'rsatilgan. Har biri alohida bo'lim va orasida bo'sh joy bor!</p>
+        <h4>👀 {t.common.takeALook}</h4>
+        <p>{locale === 'uz' 
+          ? `Yuqoridagi "${t.common.result}" bo'limida 3 ta paragraf ko'rsatilgan. Har biri alohida bo'lim va orasida bo'sh joy bor!`
+          : `В разделе "${t.common.result}" выше показаны 3 параграфа. Каждый - отдельный блок и между ними есть пространство!`}</p>
       </div>
     </TutorialLayout>
   )

@@ -8,16 +8,33 @@
   border-right: 1px solid #e0e0e0;
   overflow-y: auto;
   z-index: 100;
+  -webkit-overflow-scrolling: touch;
+
+  @media (max-width: 1024px) {
+    width: 250px;
+  }
 
   @media (max-width: 768px) {
     display: none;
   }
 
+  @media (max-width: 480px) {
+    top: 60px;
+  }
+
   .sidebar-content {
     padding: 1.5rem;
 
+    @media (max-width: 1024px) {
+      padding: 1.25rem;
+    }
+
     .sidebar-section {
       margin-bottom: 2rem;
+
+      @media (max-width: 1024px) {
+        margin-bottom: 1.5rem;
+      }
 
       h3 {
         font-size: 1.1rem;
@@ -26,6 +43,10 @@
         margin-bottom: 1rem;
         padding-bottom: 0.5rem;
         border-bottom: 2px solid #e0e0e0;
+
+        @media (max-width: 1024px) {
+          font-size: 1rem;
+        }
       }
 
       ul {
@@ -46,6 +67,12 @@
             font-size: 0.9rem;
             position: relative;
             overflow: hidden;
+            word-break: break-word;
+
+            @media (max-width: 1024px) {
+              padding: 0.65rem 0.9rem;
+              font-size: 0.85rem;
+            }
 
             &::before {
               content: '';

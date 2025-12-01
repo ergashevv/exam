@@ -41,20 +41,20 @@ export default function HTMLImagesPage({
       <p>{c.whatIs}</p>
       
       <div className="info-box" style={{ background: '#e8f5e9', borderLeftColor: '#4caf50' }}>
-        <strong>💡 Oddiy tushuntirish:</strong> {c.simpleExplanation}
+        <strong>💡 {t.common.simpleExplanation}</strong> {c.simpleExplanation}
       </div>
 
       <h2>{t.common.howToUse}</h2>
       <p>{c.howToUse}</p>
       
       <div className="example-box" style={{ background: '#fff3e0', borderColor: '#ff9800' }}>
-        <h4>📝 Qadam-baqadam:</h4>
+        <h4>📝 {t.common.stepByStep}</h4>
         <ol>
-          <li>Rasm faylini toping (masalan: photo.jpg)</li>
-          <li>HTML yozing: <code>&lt;img src="photo.jpg" alt="Tavsif"&gt;</code></li>
-          <li>src="..." ichiga rasm fayl manzilini yozing</li>
-          <li>alt="..." ichiga rasm haqida qisqa ma'lumot yozing</li>
-          <li>Brauzerda ko'ring - rasm ko'rinadi!</li>
+          <li>{locale === 'uz' ? 'Rasm faylini toping (masalan: photo.jpg)' : 'Найдите файл изображения (например: photo.jpg)'}</li>
+          <li>{locale === 'uz' ? 'HTML yozing:' : 'Напишите HTML:'} <code>&lt;img src="photo.jpg" alt="{locale === 'uz' ? 'Tavsif' : 'Описание'}"&gt;</code></li>
+          <li>{locale === 'uz' ? 'src="..." ichiga rasm fayl manzilini yozing' : 'В src="..." напишите адрес файла изображения'}</li>
+          <li>{locale === 'uz' ? 'alt="..." ichiga rasm haqida qisqa ma\'lumot yozing' : 'В alt="..." напишите краткое описание изображения'}</li>
+          <li>{locale === 'uz' ? 'Brauzerda ko\'ring - rasm ko\'rinadi!' : 'Посмотрите в браузере - изображение появится!'}</li>
         </ol>
       </div>
 
@@ -102,10 +102,10 @@ export default function HTMLImagesPage({
               borderRadius: '8px',
             }}
           >
-            Rasm ko'rinishi
+            {locale === 'uz' ? 'Rasm ko\'rinishi' : 'Вид изображения'}
           </div>
           <p style={{ marginTop: '10px', fontSize: '0.9rem' }}>
-            Rasm bu yerda ko'rsatiladi
+            {locale === 'uz' ? 'Rasm bu yerda ko\'rsatiladi' : 'Изображение будет показано здесь'}
           </p>
         </div>
       </div>
@@ -114,51 +114,53 @@ export default function HTMLImagesPage({
       <p>{c.whenToUse}</p>
       
       <div className="example-box" style={{ background: '#f3e5f5', borderColor: '#9c27b0' }}>
-        <h4>🎯 Real hayotdan misol:</h4>
+        <h4>🎯 {t.common.realWorldExample}</h4>
         <ul>
-          <li><strong>Maqola rasmi:</strong> <code>&lt;img src="article.jpg" alt="Maqola rasmi"&gt;</code></li>
-          <li><strong>Logo:</strong> <code>&lt;img src="logo.png" alt="Sayt logosi"&gt;</code></li>
-          <li><strong>Profil rasmi:</strong> <code>&lt;img src="avatar.jpg" alt="Foydalanuvchi rasmi"&gt;</code></li>
+          <li><strong>{locale === 'uz' ? 'Maqola rasmi:' : 'Изображение статьи:'}</strong> <code>&lt;img src="article.jpg" alt="{locale === 'uz' ? 'Maqola rasmi' : 'Изображение статьи'}"&gt;</code></li>
+          <li><strong>Logo:</strong> <code>&lt;img src="logo.png" alt="{locale === 'uz' ? 'Sayt logosi' : 'Логотип сайта'}"&gt;</code></li>
+          <li><strong>{locale === 'uz' ? 'Profil rasmi:' : 'Фото профиля:'}</strong> <code>&lt;img src="avatar.jpg" alt="{locale === 'uz' ? 'Foydalanuvchi rasmi' : 'Фото пользователя'}"&gt;</code></li>
         </ul>
       </div>
 
       <div className="info-box">
-        <strong>💡 Muhim eslatma:</strong> alt atributi juda muhim! 
+        <strong>💡 {t.common.importantNote}</strong> {locale === 'uz' ? 'alt atributi juda muhim!' : 'атрибут alt очень важен!'} 
         <ul style={{ marginTop: '10px' }}>
-          <li>Ko'rlar uchun - ular alt matnini eshitadi</li>
-          <li>SEO uchun - Google alt matnini o'qiydi</li>
-          <li>Rasm yuklanmagan bo'lsa - alt matni ko'rsatiladi</li>
+          <li>{locale === 'uz' ? 'Ko\'rlar uchun - ular alt matnini eshitadi' : 'Для слепых - они слышат текст alt'}</li>
+          <li>{locale === 'uz' ? 'SEO uchun - Google alt matnini o\'qiydi' : 'Для SEO - Google читает текст alt'}</li>
+          <li>{locale === 'uz' ? 'Rasm yuklanmagan bo\'lsa - alt matni ko\'rsatiladi' : 'Если изображение не загрузилось - показывается текст alt'}</li>
         </ul>
-        <p style={{ marginTop: '10px' }}><strong>Maslahat:</strong> Har doim alt yozing, hatto qisqa bo'lsa ham!</p>
+        <p style={{ marginTop: '10px' }}><strong>{t.common.tip}</strong> {locale === 'uz' ? 'Har doim alt yozing, hatto qisqa bo\'lsa ham!' : 'Всегда пишите alt, даже если коротко!'}</p>
       </div>
 
-      <h3>📸 Rasm formatlari (qaysi birini ishlatish kerak?):</h3>
+      <h3>📸 {locale === 'uz' ? 'Rasm formatlari (qaysi birini ishlatish kerak?):' : 'Форматы изображений (какой использовать?):'}</h3>
       <ul>
         <li>
-          <strong>JPG/JPEG (eng keng qo'llaniladi):</strong> Fotografiyalar uchun. 
-          <span style={{ color: '#4caf50' }}>✅ Ko'pchilik holatlar uchun yaxshi!</span>
+          <strong>JPG/JPEG {locale === 'uz' ? '(eng keng qo\'llaniladi):' : '(самый распространенный):'}</strong> {locale === 'uz' ? 'Fotografiyalar uchun.' : 'Для фотографий.'} 
+          <span style={{ color: '#4caf50' }}>✅ {locale === 'uz' ? 'Ko\'pchilik holatlar uchun yaxshi!' : 'Хорошо для большинства случаев!'}</span>
         </li>
         <li>
-          <strong>PNG:</strong> Shaffof fon kerak bo'lganda (masalan: logo). 
-          <span style={{ color: '#2196f3' }}>💡 Logo va ikonkalar uchun.</span>
+          <strong>PNG:</strong> {locale === 'uz' ? 'Shaffof fon kerak bo\'lganda (masalan: logo).' : 'Когда нужен прозрачный фон (например: логотип).'} 
+          <span style={{ color: '#2196f3' }}>💡 {locale === 'uz' ? 'Logo va ikonkalar uchun.' : 'Для логотипов и иконок.'}</span>
         </li>
         <li>
-          <strong>GIF:</strong> Animatsiyalar uchun (harakatlanuvchi rasm). 
-          <span style={{ color: '#9c27b0' }}>🎬 Animatsiya kerak bo'lsa.</span>
+          <strong>GIF:</strong> {locale === 'uz' ? 'Animatsiyalar uchun (harakatlanuvchi rasm).' : 'Для анимаций (движущееся изображение).'} 
+          <span style={{ color: '#9c27b0' }}>🎬 {locale === 'uz' ? 'Animatsiya kerak bo\'lsa.' : 'Если нужна анимация.'}</span>
         </li>
         <li>
-          <strong>SVG (eng yaxshi sifat):</strong> Vektor rasmlar, kattalashtirganda sifat yo'qotmaydi. 
-          <span style={{ color: '#ff9800' }}>⭐ Logo va ikonkalar uchun ideal!</span>
+          <strong>SVG {locale === 'uz' ? '(eng yaxshi sifat):' : '(лучшее качество):'}</strong> {locale === 'uz' ? 'Vektor rasmlar, kattalashtirganda sifat yo\'qotmaydi.' : 'Векторные изображения, при увеличении качество не теряется.'} 
+          <span style={{ color: '#ff9800' }}>⭐ {locale === 'uz' ? 'Logo va ikonkalar uchun ideal!' : 'Идеально для логотипов и иконок!'}</span>
         </li>
         <li>
-          <strong>WebP (zamonaviy):</strong> Kichik fayl hajmi, yaxshi sifat. 
-          <span style={{ color: '#f44336' }}>⚡ Tez yuklanish uchun.</span>
+          <strong>WebP {locale === 'uz' ? '(zamonaviy):' : '(современный):'}</strong> {locale === 'uz' ? 'Kichik fayl hajmi, yaxshi sifat.' : 'Маленький размер файла, хорошее качество.'} 
+          <span style={{ color: '#f44336' }}>⚡ {locale === 'uz' ? 'Tez yuklanish uchun.' : 'Для быстрой загрузки.'}</span>
         </li>
       </ul>
       
       <div className="result-box" style={{ background: '#e1f5fe', borderColor: '#0288d1' }}>
-        <h4>👀 Ko'rib chiqing:</h4>
-        <p>Yuqoridagi "Natija" bo'limida rasm ko'rsatilgan. Agar rasm yuklanmagan bo'lsa, alt matni ko'rsatiladi!</p>
+        <h4>👀 {t.common.takeALook}</h4>
+        <p>{locale === 'uz' 
+          ? `Yuqoridagi "${t.common.result}" bo'limida rasm ko'rsatilgan. Agar rasm yuklanmagan bo'lsa, alt matni ko'rsatiladi!`
+          : `В разделе "${t.common.result}" выше показано изображение. Если изображение не загрузилось, показывается текст alt!`}</p>
       </div>
     </TutorialLayout>
   )

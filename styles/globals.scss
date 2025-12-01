@@ -27,6 +27,12 @@ code {
   padding: 0.2rem 0.4rem;
   border-radius: 4px;
   font-size: 0.9em;
+  word-break: break-word;
+
+  @media (max-width: 480px) {
+    font-size: 0.8em;
+    padding: 0.15rem 0.3rem;
+  }
 }
 
 pre {
@@ -38,6 +44,18 @@ pre {
   margin: 1rem 0;
   position: relative;
   animation: fadeInUp 0.5s ease;
+  -webkit-overflow-scrolling: touch;
+
+  @media (max-width: 768px) {
+    padding: 1rem;
+    font-size: 0.85em;
+  }
+
+  @media (max-width: 480px) {
+    padding: 0.75rem;
+    font-size: 0.75em;
+    border-radius: 6px;
+  }
 
   &::before {
     content: '';
@@ -54,6 +72,8 @@ pre {
     background: transparent;
     padding: 0;
     color: inherit;
+    white-space: pre-wrap;
+    word-wrap: break-word;
   }
 }
 

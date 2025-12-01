@@ -43,24 +43,24 @@ export default function CSSDisplayPage({
       <p>{c.whatIs}</p>
       
       <div className="info-box" style={{ background: '#e8f5e9', borderLeftColor: '#4caf50' }}>
-        <strong>💡 Oddiy tushuntirish:</strong> {c.simpleExplanation}
+        <strong>💡 {t.common.simpleExplanation}</strong> {c.simpleExplanation}
       </div>
 
       <h2>{t.common.howToUse}</h2>
       <p>{c.howToUse}</p>
       
       <div className="example-box" style={{ background: '#fff3e0', borderColor: '#ff9800' }}>
-        <h4>📝 Qadam-baqadam:</h4>
+        <h4>📝 {t.common.stepByStep}</h4>
         <ol>
-          <li>Elementni tanlang (masalan: div, span)</li>
-          <li>CSS yozing: <code>display: block;</code> yoki <code>display: flex;</code></li>
-          <li>Brauzerda ko'ring - element qanday ko'rinishini o'zgartirdi!</li>
+          <li>{locale === 'uz' ? 'Elementni tanlang (masalan: div, span)' : 'Выберите элемент (например: div, span)'}</li>
+          <li>{locale === 'uz' ? 'CSS yozing:' : 'Напишите CSS:'} <code>display: block;</code> {locale === 'uz' ? 'yoki' : 'или'} <code>display: flex;</code></li>
+          <li>{locale === 'uz' ? 'Brauzerda ko\'ring - element qanday ko\'rinishini o\'zgartirdi!' : 'Посмотрите в браузере - изменился способ отображения элемента!'}</li>
         </ol>
-        <p style={{ marginTop: '15px' }}><strong>Eng muhim 3 ta:</strong></p>
+        <p style={{ marginTop: '15px' }}><strong>{locale === 'uz' ? 'Eng muhim 3 ta:' : 'Самые важные 3:'}</strong></p>
         <ul>
-          <li><code>display: block;</code> - to'liq qator (div, p, h1)</li>
-          <li><code>display: inline;</code> - qator ichida (span, a)</li>
-          <li><code>display: flex;</code> - zamonaviy usul (eng yaxshi!)</li>
+          <li><code>display: block;</code> - {locale === 'uz' ? 'to\'liq qator (div, p, h1)' : 'полная строка (div, p, h1)'}</li>
+          <li><code>display: inline;</code> - {locale === 'uz' ? 'qator ichida (span, a)' : 'в строке (span, a)'}</li>
+          <li><code>display: flex;</code> - {locale === 'uz' ? 'zamonaviy usul (eng yaxshi!)' : 'современный способ (лучший!)'}</li>
         </ul>
       </div>
 
@@ -145,20 +145,21 @@ display: none; /* Yashirish */
       <p>{c.whenToUse}</p>
       
       <div className="example-box" style={{ background: '#f3e5f5', borderColor: '#9c27b0' }}>
-        <h4>🎯 Real hayotdan misol:</h4>
+        <h4>🎯 {t.common.realWorldExample}</h4>
         <ul>
-          <li><strong>Tugmalar yonma-yon:</strong> <code>display: flex;</code> ishlating</li>
-          <li><strong>Kartalar yonma-yon:</strong> <code>display: grid;</code> ishlating</li>
-          <li><strong>Elementni yashirish:</strong> <code>display: none;</code> ishlating</li>
+          <li><strong>{locale === 'uz' ? 'Tugmalar yonma-yon:' : 'Кнопки рядом:'}</strong> <code>display: flex;</code> {locale === 'uz' ? 'ishlating' : 'используйте'}</li>
+          <li><strong>{locale === 'uz' ? 'Kartalar yonma-yon:' : 'Карточки рядом:'}</strong> <code>display: grid;</code> {locale === 'uz' ? 'ishlating' : 'используйте'}</li>
+          <li><strong>{locale === 'uz' ? 'Elementni yashirish:' : 'Скрыть элемент:'}</strong> <code>display: none;</code> {locale === 'uz' ? 'ishlating' : 'используйте'}</li>
         </ul>
       </div>
 
       <div className="info-box" style={{ background: '#fff3e0', borderLeftColor: '#ff9800' }}>
-        <strong>🤔 Block vs Inline vs Flex - farqi nima?</strong>
+        <strong>🤔 {locale === 'uz' ? 'Block vs Inline vs Flex - farqi nima?' : 'Block vs Inline vs Flex - в чем разница?'}</strong>
         <p style={{ marginTop: '10px' }}>{c.blockVsInline}</p>
         <p style={{ marginTop: '10px' }}>
-          <strong>Maslahat:</strong> Zamonaviy saytlar uchun <code>display: flex;</code> yoki <code>display: grid;</code> ishlating. 
-          Bu eng oson va eng kuchli usul!
+          <strong>{t.common.tip}</strong> {locale === 'uz' 
+            ? 'Zamonaviy saytlar uchun <code>display: flex;</code> yoki <code>display: grid;</code> ishlating. Bu eng oson va eng kuchli usul!'
+            : 'Для современных сайтов используйте <code>display: flex;</code> или <code>display: grid;</code>. Это самый простой и самый мощный способ!'}
         </p>
       </div>
 

@@ -43,25 +43,25 @@ export default function CSSPaddingPage({
       <p>{c.whatIs}</p>
       
       <div className="info-box" style={{ background: '#e8f5e9', borderLeftColor: '#4caf50' }}>
-        <strong>💡 Oddiy tushuntirish:</strong> {c.simpleExplanation}
+        <strong>💡 {t.common.simpleExplanation}</strong> {c.simpleExplanation}
       </div>
 
       <h2>{t.common.howToUse}</h2>
       <p>{c.howToUse}</p>
       
       <div className="example-box" style={{ background: '#fff3e0', borderColor: '#ff9800' }}>
-        <h4>📝 Qadam-baqadam:</h4>
+        <h4>📝 {t.common.stepByStep}</h4>
         <ol>
-          <li>CSS yozing: <code>padding: 20px;</code></li>
-          <li>Bu degani: element ICHIDA barcha tomonlarda 20px bo'sh joy</li>
-          <li>Brauzerda ko'ring - matn chegara ichida bo'sh joy oldi!</li>
+          <li>{locale === 'uz' ? 'CSS yozing:' : 'Напишите CSS:'} <code>padding: 20px;</code></li>
+          <li>{locale === 'uz' ? 'Bu degani: element ICHIDA barcha tomonlarda 20px bo\'sh joy' : 'Это значит: 20px пространства ВНУТРИ элемента со всех сторон'}</li>
+          <li>{locale === 'uz' ? 'Brauzerda ko\'ring - matn chegara ichida bo\'sh joy oldi!' : 'Посмотрите в браузере - появилось пространство внутри элемента!'}</li>
         </ol>
-        <p><strong>Yoki alohida tomonlar uchun:</strong></p>
+        <p><strong>{locale === 'uz' ? 'Yoki alohida tomonlar uchun:' : 'Или для отдельных сторон:'}</strong></p>
         <ul>
-          <li><code>padding-top: 10px;</code> - faqat yuqoridan</li>
-          <li><code>padding-bottom: 10px;</code> - faqat pastdan</li>
-          <li><code>padding-left: 10px;</code> - faqat chapdan</li>
-          <li><code>padding-right: 10px;</code> - faqat o'ngdan</li>
+          <li><code>padding-top: 10px;</code> - {locale === 'uz' ? 'faqat yuqoridan' : 'только сверху'}</li>
+          <li><code>padding-bottom: 10px;</code> - {locale === 'uz' ? 'faqat pastdan' : 'только снизу'}</li>
+          <li><code>padding-left: 10px;</code> - {locale === 'uz' ? 'faqat chapdan' : 'только слева'}</li>
+          <li><code>padding-right: 10px;</code> - {locale === 'uz' ? 'faqat o\'ngdan' : 'только справа'}</li>
         </ul>
       </div>
 
@@ -102,7 +102,7 @@ box-sizing: border-box; /* Padding o'lchamga kiritiladi */`}</code>
               border: '2px solid #333',
             }}
           >
-            Padding: 20px (barcha tomonlar)
+            Padding: 20px ({locale === 'uz' ? 'barcha tomonlar' : 'все стороны'})
           </div>
           <div
             style={{
@@ -112,7 +112,7 @@ box-sizing: border-box; /* Padding o'lchamga kiritiladi */`}</code>
               border: '2px solid #333',
             }}
           >
-            Padding: 10px 30px (yuqori/pastki, chap/o'ng)
+            Padding: 10px 30px ({locale === 'uz' ? 'yuqori/pastki, chap/o\'ng' : 'верх/низ, лево/право'})
           </div>
           <div
             style={{
@@ -122,7 +122,7 @@ box-sizing: border-box; /* Padding o'lchamga kiritiladi */`}</code>
               border: '2px solid #333',
             }}
           >
-            Padding: 5px 10px 15px 20px (yuqori, o'ng, pastki, chap)
+            Padding: 5px 10px 15px 20px ({locale === 'uz' ? 'yuqori, o\'ng, pastki, chap' : 'верх, право, низ, лево'})
           </div>
         </div>
       </div>
@@ -131,38 +131,43 @@ box-sizing: border-box; /* Padding o'lchamga kiritiladi */`}</code>
       <p>{c.whenToUse}</p>
       
       <div className="example-box" style={{ background: '#f3e5f5', borderColor: '#9c27b0' }}>
-        <h4>🎯 Real hayotdan misol:</h4>
-        <p>Tugma yaratasiz va ichidagi matn chegara ichida yopishib qolgan. Nima qilish kerak?</p>
+        <h4>🎯 {t.common.realWorldExample}</h4>
+        <p>{locale === 'uz' ? 'Tugma yaratasiz va ichidagi matn chegara ichida yopishib qolgan. Nima qilish kerak?' : 'Создаете кнопку и текст внутри прилип к границе. Что делать?'}</p>
         <ul>
-          <li>Tugmaga: <code>padding: 15px 30px;</code> qo'shing</li>
-          <li>Bu degani: yuqori/pastki 15px, chap/o'ng 30px bo'sh joy</li>
-          <li>Natija: Tugma ichidagi matn endi qulay o'qiladi!</li>
+          <li>{locale === 'uz' ? 'Tugmaga:' : 'Кнопке:'} <code>padding: 15px 30px;</code> {locale === 'uz' ? 'qo\'shing' : 'добавьте'}</li>
+          <li>{locale === 'uz' ? 'Bu degani: yuqori/pastki 15px, chap/o\'ng 30px bo\'sh joy' : 'Это значит: верх/низ 15px, лево/право 30px пространства'}</li>
+          <li>{locale === 'uz' ? 'Natija: Tugma ichidagi matn endi qulay o\'qiladi!' : 'Результат: Текст внутри кнопки теперь удобно читать!'}</li>
         </ul>
       </div>
 
       <div className="info-box" style={{ background: '#fff3e0', borderLeftColor: '#ff9800' }}>
-        <strong>🤔 Margin vs Padding - farqi nima?</strong>
+        <strong>🤔 {locale === 'uz' ? 'Margin vs Padding - farqi nima?' : 'Margin vs Padding - в чем разница?'}</strong>
         <p style={{ marginTop: '10px' }}>{c.marginVsPadding}</p>
         <p style={{ marginTop: '10px' }}>
-          <strong>Oddiy qoida:</strong> Agar matn chegara ICHIDA yopishib qolgan bo'lsa - Padding ishlating. 
-          Agar elementlar bir-biriga TASHQARIDA yopishib qolgan bo'lsa - Margin ishlating.
+          <strong>{locale === 'uz' ? 'Oddiy qoida:' : 'Простое правило:'}</strong> {locale === 'uz' 
+            ? 'Agar matn chegara ICHIDA yopishib qolgan bo\'lsa - Padding ishlating. Agar elementlar bir-biriga TASHQARIDA yopishib qolgan bo\'lsa - Margin ishlating.'
+            : 'Если текст прилип к границе ВНУТРИ - используйте Padding. Если элементы прилипли друг к другу СНАРУЖИ - используйте Margin.'}
         </p>
       </div>
       
       <div className="info-box">
-        <strong>💡 Box-sizing nima?</strong>
+        <strong>💡 {locale === 'uz' ? 'Box-sizing nima?' : 'Что такое Box-sizing?'}</strong>
         <p style={{ marginTop: '10px' }}>
-          <code>box-sizing: border-box;</code> qo'shsangiz, padding va border elementning o'lchamiga kiritiladi. 
-          Bu degani: agar width: 200px va padding: 20px bo'lsa, umumiy o'lcham 200px bo'ladi (padding ichida).
+          {locale === 'uz' 
+            ? '<code>box-sizing: border-box;</code> qo\'shsangiz, padding va border elementning o\'lchamiga kiritiladi. Bu degani: agar width: 200px va padding: 20px bo\'lsa, umumiy o\'lcham 200px bo\'ladi (padding ichida).'
+            : 'Если добавите <code>box-sizing: border-box;</code>, padding и border включаются в размер элемента. Это значит: если width: 200px и padding: 20px, общий размер будет 200px (включая padding).'}
         </p>
-        <p style={{ marginTop: '10px' }}><strong>Maslahat:</strong> Har doim <code>box-sizing: border-box;</code> ishlating - bu osonroq!</p>
+        <p style={{ marginTop: '10px' }}><strong>{t.common.tip}</strong> {locale === 'uz' 
+          ? 'Har doim <code>box-sizing: border-box;</code> ishlating - bu osonroq!'
+          : 'Всегда используйте <code>box-sizing: border-box;</code> - это проще!'}</p>
       </div>
       
       <div className="result-box" style={{ background: '#e1f5fe', borderColor: '#0288d1' }}>
-        <h4>👀 Ko'rib chiqing:</h4>
-        <p>Yuqoridagi "Natija" bo'limida 3 ta div ko'rsatilgan. Birinchisida padding: 20px (barcha tomonlar), 
-        ikkinchisida padding: 10px 30px (yuqori/pastki, chap/o'ng), uchinchisida padding: 5px 10px 15px 20px (yuqori, o'ng, pastki, chap).</p>
-        <p style={{ marginTop: '10px' }}>Ko'ring, qanday farq bor! Matn chegara ichida bo'sh joy oldi.</p>
+        <h4>👀 {t.common.takeALook}</h4>
+        <p>{locale === 'uz' 
+          ? `Yuqoridagi "${t.common.result}" bo'limida 3 ta div ko'rsatilgan. Birinchisida padding: 20px (barcha tomonlar), ikkinchisida padding: 10px 30px (yuqori/pastki, chap/o'ng), uchinchisida padding: 5px 10px 15px 20px (yuqori, o'ng, pastki, chap).`
+          : `В разделе "${t.common.result}" выше показаны 3 div. В первом padding: 20px (все стороны), во втором padding: 10px 30px (верх/низ, лево/право), в третьем padding: 5px 10px 15px 20px (верх, право, низ, лево).`}</p>
+        <p style={{ marginTop: '10px' }}>{locale === 'uz' ? 'Ko\'ring, qanday farq bor! Matn chegara ichida bo\'sh joy oldi.' : 'Посмотрите, какая разница! Появилось пространство внутри элемента.'}</p>
       </div>
     </TutorialLayout>
   )
