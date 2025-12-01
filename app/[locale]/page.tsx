@@ -1,16 +1,17 @@
+import React from 'react'
 import Link from 'next/link'
 import { translations, Locale } from '@/lib/translations'
 import './page.scss'
 
-export default function HomePage({
+export default async function HomePage({
   params,
 }: {
   params: { locale: Locale } | Promise<{ locale: Locale }>
 }) {
   // Handle both sync and async params
-  const resolvedParams = params instanceof Promise ? undefined : params
+  const resolvedParams = params instanceof Promise ? await params : params
   const locale = resolvedParams?.locale || 'uz'
-  const t = translations[locale] || translations.uz || translations.uz
+  const t = translations[locale] || translations.uz
 
   const htmlTopics = [
     { key: 'headings', slug: 'html-headings' },

@@ -1,3 +1,4 @@
+import React from 'react'
 import TutorialLayout from '@/components/TutorialLayout'
 import { translations, Locale } from '@/lib/translations'
 
