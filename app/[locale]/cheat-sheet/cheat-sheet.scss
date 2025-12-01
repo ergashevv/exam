@@ -88,35 +88,6 @@
     }
   }
 }
-
-[data-theme='dark'] {
-  .cheat-sheet {
-    .cheat-item {
-      background: #252525;
-      border-color: #444;
-
-      &:hover {
-        border-color: #764ba2;
-        box-shadow: 0 4px 12px rgba(118, 75, 162, 0.3);
-      }
-    }
-
-    .cheat-tag,
-    .cheat-prop {
-      color: #764ba2;
-      background: #2d1a3d;
-    }
-
-    .cheat-desc {
-      color: #ccc;
-    }
-
-    .cheat-actions {
-      border-top-color: #444;
-    }
-  }
-}
-
 @media print {
   .cheat-sheet {
     .cheat-actions {
@@ -129,4 +100,3 @@
     }
   }
 }
-

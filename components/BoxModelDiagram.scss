@@ -122,28 +122,6 @@
     }
   }
 }
-
-[data-theme='dark'] {
-  .box-model-diagram {
-    background: #252525;
-    border-color: #444;
-
-    h4 {
-      color: #764ba2;
-    }
-
-    .label-margin,
-    .label-border,
-    .label-padding {
-      color: #e0e0e0;
-    }
-
-    .label-content {
-      color: #4caf50;
-    }
-  }
-}
-
 @media (max-width: 768px) {
   .box-model-diagram {
     padding: 1rem;
@@ -162,4 +140,3 @@
     }
   }
 }
-

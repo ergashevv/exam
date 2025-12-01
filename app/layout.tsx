@@ -1,5 +1,4 @@
 import type { Metadata } from 'next'
-import { ThemeProvider } from '@/components/ThemeProvider'
 import '../styles/globals.scss'
 
 export const metadata: Metadata = {
@@ -55,7 +54,7 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-title" content="HTML & CSS Tutorial" />
       </head>
       <body>
-        <ThemeProvider>{children}</ThemeProvider>
+        {children}
       </body>
     </html>
   )

@@ -73,18 +73,3 @@
     }
   }
 }
-
-[data-theme='dark'] {
-  .tooltip {
-    background: #1a1a1a;
-    border: 1px solid #444;
-
-    &::after {
-      border-top-color: #1a1a1a;
-      border-bottom-color: #1a1a1a;
-      border-left-color: #1a1a1a;
-      border-right-color: #1a1a1a;
-    }
-  }
-}
-

@@ -67,37 +67,6 @@
   border: none;
   background: white;
 }
-
-[data-theme='dark'] {
-  .code-editor {
-    border-color: #444;
-    background: #2d2d2d;
-  }
-
-  .editor-tabs {
-    background: #252525;
-    border-bottom-color: #444;
-
-    button {
-      border-right-color: #444;
-      color: #ccc;
-
-      &:hover {
-        background: #333;
-      }
-
-      &.active {
-        background: #764ba2;
-        color: white;
-      }
-    }
-  }
-
-  .preview-iframe {
-    background: #1a1a1a;
-  }
-}
-
 @media (max-width: 768px) {
   .code-editor {
     .editor-tabs {
@@ -114,4 +83,3 @@
     }
   }
 }
-

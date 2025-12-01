@@ -3,7 +3,6 @@
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { Locale, translations } from '@/lib/translations'
-import ThemeToggle from './ThemeToggle'
 import Search from './Search'
 import './Header.scss'
 
@@ -85,7 +84,6 @@ export default function Header({ locale, translations: propsTranslations }: Head
         </nav>
         <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
           <Search locale={locale} />
-          <ThemeToggle locale={locale} />
           <motion.div
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
