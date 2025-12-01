@@ -22,12 +22,15 @@ export default function SVGAnimation({
 
   useEffect(() => {
     if (typeof window !== 'undefined' && pathRef.current) {
-      const anime = require('animejs').default
+      import('animejs').then((animeModule: any) => {
+        const anime = (animeModule.default || animeModule) as any
 
-      if (type === 'draw') {
-        const pathLength = pathRef.current.getTotalLength()
-        pathRef.current.style.strokeDasharray = `${pathLength}`
-        pathRef.current.style.strokeDashoffset = `${pathLength}`
+        if (!pathRef.current) return
+
+        if (type === 'draw') {
+          const pathLength = pathRef.current.getTotalLength()
+          pathRef.current.style.strokeDasharray = `${pathLength}`
+          pathRef.current.style.strokeDashoffset = `${pathLength}`
 
         anime({
           targets: pathRef.current,
@@ -68,6 +71,9 @@ export default function SVGAnimation({
           loop: true,
         })
       }
+      }).catch((err) => {
+        console.error('Failed to load anime.js:', err)
+      })
     }
   }, [type, svgPath, color])
 

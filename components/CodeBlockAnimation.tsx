@@ -20,10 +20,11 @@ export default function CodeBlockAnimation({
 
   useEffect(() => {
     if (typeof window !== 'undefined' && containerRef.current && codeRef.current) {
-      const anime = require('animejs').default
+      import('animejs').then((animeModule: any) => {
+        const anime = (animeModule.default || animeModule) as any
 
-      // Animate code block appearance
-      anime({
+        // Animate code block appearance
+        anime({
         targets: containerRef.current,
         opacity: [0, 1],
         scale: [0.95, 1],
@@ -31,9 +32,10 @@ export default function CodeBlockAnimation({
         easing: 'easeOutExpo',
       })
 
-      // Animate code characters
-      const text = codeRef.current.textContent || ''
-      codeRef.current.textContent = ''
+        // Animate code characters
+        if (!codeRef.current) return
+        const text = codeRef.current.textContent || ''
+        codeRef.current.textContent = ''
 
       anime({
         targets: { value: 0 },
@@ -44,6 +46,9 @@ export default function CodeBlockAnimation({
           const currentLength = Math.floor(anim.progress / 100 * text.length)
           codeRef.current!.textContent = text.substring(0, currentLength)
         },
+      })
+      }).catch((err) => {
+        console.error('Failed to load anime.js:', err)
       })
     }
   }, [code, language])

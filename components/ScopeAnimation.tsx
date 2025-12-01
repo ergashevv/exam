@@ -19,11 +19,12 @@ export default function ScopeAnimation({
 
   useEffect(() => {
     if (typeof window !== 'undefined' && containerRef.current) {
-      const anime = require('animejs').default
+      import('animejs').then((animeModule: any) => {
+        const anime = (animeModule.default || animeModule) as any
 
-      const mediaQueryList = window.matchMedia(mediaQuery)
+        const mediaQueryList = window.matchMedia(mediaQuery)
 
-      const handleMediaChange = (e: MediaQueryListEvent) => {
+        const handleMediaChange = (e: MediaQueryListEvent) => {
         if (e.matches) {
           // Mobile animation
           anime({
@@ -52,9 +53,12 @@ export default function ScopeAnimation({
 
       mediaQueryList.addEventListener('change', handleMediaChange)
 
-      return () => {
-        mediaQueryList.removeEventListener('change', handleMediaChange)
-      }
+        return () => {
+          mediaQueryList.removeEventListener('change', handleMediaChange)
+        }
+      }).catch((err) => {
+        console.error('Failed to load anime.js:', err)
+      })
     }
   }, [mediaQuery])
 

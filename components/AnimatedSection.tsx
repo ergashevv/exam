@@ -21,9 +21,10 @@ export default function AnimatedSection({
 
   useEffect(() => {
     if (typeof window !== 'undefined' && sectionRef.current) {
-      const anime = require('animejs').default
+      import('animejs').then((animeModule: any) => {
+        const anime = (animeModule.default || animeModule) as any
 
-      const animations = {
+        const animations = {
         fadeIn: {
           opacity: [0, 1],
           translateY: [30, 0],
@@ -52,6 +53,9 @@ export default function AnimatedSection({
         duration: 800,
         delay: delay,
         easing: 'easeOutExpo',
+      })
+      }).catch((err) => {
+        console.error('Failed to load anime.js:', err)
       })
     }
   }, [animationType, delay])

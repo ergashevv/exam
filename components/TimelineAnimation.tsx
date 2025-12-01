@@ -14,23 +14,27 @@ export default function TimelineAnimation({ locale, items }: TimelineAnimationPr
 
   useEffect(() => {
     if (typeof window !== 'undefined' && containerRef.current) {
-      const anime = require('animejs').default
+      import('animejs').then((animeModule: any) => {
+        const anime = (animeModule.default || animeModule) as any
 
-      const timeline = anime.timeline({
-        easing: 'easeOutExpo',
-        duration: 600,
-      })
+        const timeline = anime.timeline({
+          easing: 'easeOutExpo',
+          duration: 600,
+        })
 
-      items.forEach((item, index) => {
-        const element = containerRef.current?.querySelector(`[data-item-id="${item.id}"]`)
-        if (element) {
-          timeline.add({
-            targets: element,
-            opacity: [0, 1],
-            translateX: [-50, 0],
-            scale: [0.8, 1],
-          }, index * 100)
-        }
+        items.forEach((item, index) => {
+          const element = containerRef.current?.querySelector(`[data-item-id="${item.id}"]`)
+          if (element) {
+            timeline.add({
+              targets: element,
+              opacity: [0, 1],
+              translateX: [-50, 0],
+              scale: [0.8, 1],
+            }, index * 100)
+          }
+        })
+      }).catch((err) => {
+        console.error('Failed to load anime.js:', err)
       })
     }
   }, [items])

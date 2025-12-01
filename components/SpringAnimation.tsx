@@ -22,9 +22,10 @@ export default function SpringAnimation({
 
   useEffect(() => {
     if (typeof window !== 'undefined' && elementRef.current) {
-      const anime = require('animejs').default
+      import('animejs').then((animeModule: any) => {
+        const anime = (animeModule.default || animeModule) as any
 
-      if (isHovered) {
+        if (isHovered) {
         anime({
           targets: elementRef.current,
           scale: 1.1,
@@ -41,6 +42,9 @@ export default function SpringAnimation({
           easing: `spring(${stiffness}, ${damping})`,
         })
       }
+      }).catch((err) => {
+        console.error('Failed to load anime.js:', err)
+      })
     }
   }, [isHovered, stiffness, damping])
 

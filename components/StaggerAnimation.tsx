@@ -21,9 +21,10 @@ export default function StaggerAnimation({
 
   useEffect(() => {
     if (typeof window !== 'undefined' && containerRef.current) {
-      const anime = require('animejs').default
+      import('animejs').then((animeModule: any) => {
+        const anime = (animeModule.default || animeModule) as any
 
-      const animations = {
+        const animations = {
         fade: {
           opacity: [0, 1],
           translateY: [20, 0],
@@ -48,6 +49,9 @@ export default function StaggerAnimation({
         duration: 600,
         delay: anime.stagger(staggerDelay),
         easing: 'easeOutExpo',
+      })
+      }).catch((err) => {
+        console.error('Failed to load anime.js:', err)
       })
     }
   }, [children, staggerDelay, animationType])

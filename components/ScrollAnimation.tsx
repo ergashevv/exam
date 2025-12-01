@@ -21,38 +21,42 @@ export default function ScrollAnimation({
   useEffect(() => {
     if (typeof window === 'undefined' || !elementRef.current || hasAnimated.current) return
 
-    const anime = require('animejs').default
+    import('animejs').then((animeModule: any) => {
+      const anime = (animeModule.default || animeModule) as any
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting && !hasAnimated.current) {
-            hasAnimated.current = true
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting && !hasAnimated.current) {
+              hasAnimated.current = true
 
-            anime({
-              targets: elementRef.current,
-              opacity: [0, 1],
-              translateY: [50, 0],
-              scale: [0.9, 1],
-              duration: 1000,
-              easing: 'easeOutExpo',
-              delay: anime.stagger(100, { from: 'center' }),
-            })
+              anime({
+                targets: elementRef.current,
+                opacity: [0, 1],
+                translateY: [50, 0],
+                scale: [0.9, 1],
+                duration: 1000,
+                easing: 'easeOutExpo',
+                delay: anime.stagger(100, { from: 'center' }),
+              })
 
-            observer.unobserve(entry.target)
-          }
-        })
-      },
-      { threshold }
-    )
+              observer.unobserve(entry.target)
+            }
+          })
+        },
+        { threshold }
+      )
 
-    observer.observe(elementRef.current)
+      observer.observe(elementRef.current!)
 
-    return () => {
-      if (elementRef.current) {
-        observer.unobserve(elementRef.current)
+      return () => {
+        if (elementRef.current) {
+          observer.unobserve(elementRef.current)
+        }
       }
-    }
+    }).catch((err) => {
+      console.error('Failed to load anime.js:', err)
+    })
   }, [threshold])
 
   return (
